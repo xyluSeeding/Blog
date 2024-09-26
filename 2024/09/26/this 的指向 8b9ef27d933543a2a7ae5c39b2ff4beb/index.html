@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: 面试 | 小苗</title>
+    <title> | 小苗</title>
     <meta name="author" content="John Doe" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,65 +154,83 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1></h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/9/26
         </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
         
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2013/7/13</div>
-            <a href="/2013/07/13/%E8%85%BE%E8%AE%AF%E5%86%85%E6%8E%A8%E4%B8%80%E9%9D%A2/">
-                <h3>腾讯一面</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E9%9D%A2%E8%AF%95/" style="color: #00bcd4">
-                            面试
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="this-的指向"><a href="#this-的指向" class="headerlink" title="this 的指向"></a>this 的指向</h1><table>
+<thead>
+<tr>
+<th>调用方式</th>
+<th>示例</th>
+<th>函数中this指向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>通过new调用</td>
+<td><code>new method()</code></td>
+<td>新对象</td>
+</tr>
+<tr>
+<td>直接调用</td>
+<td><code>method()</code></td>
+<td>全局对象</td>
+</tr>
+<tr>
+<td>通过对象调用</td>
+<td><code>obj.method()</code></td>
+<td>前面的对象</td>
+</tr>
+<tr>
+<td>call、apply、bind</td>
+<td><code>method.call(ctx)</code></td>
+<td>第一个参数</td>
+</tr>
+</tbody></table>
+<p>this 是执行上下文中的一个属性，它指向最后一次调用这个方法的对象。在实际开发中，this 的指向可以通过四种调用模式来判断。</p>
+<ul>
+<li>第一种是<strong>函数调用模式</strong>，当一个函数不是一个对象的属性时，直接作为函数来调用时，this 指向全局对象。</li>
+<li>第二种是<strong>方法调用模式</strong>，如果一个函数作为一个对象的方法来调用时，this 指向这个对象。</li>
+<li>第三种是<strong>构造器调用模式</strong>，如果一个函数用 new 调用时，函数执行前会新创建一个对象，this 指向这个新创建的对象。</li>
+<li>第四种是 <strong>apply 、 call 和 bind 调用模式</strong>，这三个方法都可以显示的指定调用函数的 this 指向。其中 apply 方法接收两个参数：一个是 this 绑定的对象，一个是参数数组。call 方法接收的参数，第一个是 this 绑定的对象，后面的其余参数是传入函数执行的参数。也就是说，在使用 call() 方法时，传递给函数的参数必须逐个列举出来。bind 方法通过传入一个对象，返回一个 this 绑定了传入对象的新函数。这个函数的 this 指向除了使用 new 时会被改变，其他情况下都不会改变。</li>
+</ul>
+<p>这四种方式，使用构造器调用模式的优先级最高，然后是 apply、call 和 bind 调用模式，然后是方法调用模式，然后是函数调用模式。</p>
+<aside>
+💡
+
+<p>当调用的是对象内部的方法时，根据方法的类型决定this的指向</p>
+<pre><code class="jsx">
+  let obj = &#123;
+    fn1: function () &#123;
+      console.log(this);
+    &#125;,
+    fn2: () =&gt; &#123;
+      console.log(this);
+    &#125;,
+  &#125;;
+  obj.fn1(); // obj
+  obj.fn2(); // window
+</code></pre>
+</aside>
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -240,6 +262,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
