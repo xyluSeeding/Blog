@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title> | 小苗</title>
+    <title>js篇章 | 小苗</title>
     <meta name="author" content="John Doe" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -156,7 +156,7 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1></h1>
+        <h1>js篇章</h1>
     </div>
     <div class="info">
         <span class="date">
@@ -167,6 +167,21 @@
         </span>
         
         
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/js/" style="color: #ffa2c4">
+                    js
+                </a>
+            </span>
+            
+        </span>
+        
     </div>
     
     <div class="content" v-pre>
@@ -175,11 +190,11 @@
 <tr>
 <th>调用方式</th>
 <th>示例</th>
-<th>函数中this指向</th>
+<th>函数中 this 指向</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>通过new调用</td>
+<td>通过 new 调用</td>
 <td><code>new method()</code></td>
 <td>新对象</td>
 </tr>
@@ -210,20 +225,20 @@
 <aside>
 💡
 
-<p>当调用的是对象内部的方法时，根据方法的类型决定this的指向</p>
-<pre><code class="jsx">
-  let obj = &#123;
-    fn1: function () &#123;
-      console.log(this);
-    &#125;,
-    fn2: () =&gt; &#123;
-      console.log(this);
-    &#125;,
-  &#125;;
-  obj.fn1(); // obj
-  obj.fn2(); // window
+<p>当调用的是对象内部的方法时，根据方法的类型决定 this 的指向</p>
+<pre><code class="jsx">let obj = &#123;
+  fn1: function () &#123;
+    console.log(this);
+  &#125;,
+  fn2: () =&gt; &#123;
+    console.log(this);
+  &#125;,
+&#125;;
+obj.fn1(); // obj
+obj.fn2(); // window
 </code></pre>
 </aside>
+
     </div>
     
     

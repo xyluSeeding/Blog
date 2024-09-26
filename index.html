@@ -181,8 +181,8 @@
         
 
 <div class="post">
-    <a href="/2024/09/26/this%20%E7%9A%84%E6%8C%87%E5%90%91%208b9ef27d933543a2a7ae5c39b2ff4beb/">
-        <h2 class="post-title"></h2>
+    <a href="/2024/09/26/this%20%E7%9A%84%E6%8C%87%E5%90%91/">
+        <h2 class="post-title">js篇章</h2>
     </a>
     <div class="category-and-date">
         
@@ -198,74 +198,31 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="this-的指向"><a href="#this-的指向" class="headerlink" title="this 的指向"></a>this 的指向</h1><table>
-<thead>
-<tr>
-<th>调用方式</th>
-<th>示例</th>
-<th>函数中this指向</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>通过new调用</td>
-<td><code>new method()</code></td>
-<td>新对象</td>
-</tr>
-<tr>
-<td>直接调用</td>
-<td><code>method()</code></td>
-<td>全局对象</td>
-</tr>
-<tr>
-<td>通过对象调用</td>
-<td><code>obj.method()</code></td>
-<td>前面的对象</td>
-</tr>
-<tr>
-<td>call、apply、bind</td>
-<td><code>method.call(ctx)</code></td>
-<td>第一个参数</td>
-</tr>
-</tbody></table>
-<p>this 是执行上下文中的一个属性，它指向最后一次调用这个方法的对象。在实际开发中，this 的指向可以通过四种调用模式来判断。</p>
-<ul>
-<li>第一种是<strong>函数调用模式</strong>，当一个函数不是一个对象的属性时，直接作为函数来调用时，this 指向全局对象。</li>
-<li>第二种是<strong>方法调用模式</strong>，如果一个函数作为一个对象的方法来调用时，this 指向这个对象。</li>
-<li>第三种是<strong>构造器调用模式</strong>，如果一个函数用 new 调用时，函数执行前会新创建一个对象，this 指向这个新创建的对象。</li>
-<li>第四种是 <strong>apply 、 call 和 bind 调用模式</strong>，这三个方法都可以显示的指定调用函数的 this 指向。其中 apply 方法接收两个参数：一个是 this 绑定的对象，一个是参数数组。call 方法接收的参数，第一个是 this 绑定的对象，后面的其余参数是传入函数执行的参数。也就是说，在使用 call() 方法时，传递给函数的参数必须逐个列举出来。bind 方法通过传入一个对象，返回一个 this 绑定了传入对象的新函数。这个函数的 this 指向除了使用 new 时会被改变，其他情况下都不会改变。</li>
-</ul>
-<p>这四种方式，使用构造器调用模式的优先级最高，然后是 apply、call 和 bind 调用模式，然后是方法调用模式，然后是函数调用模式。</p>
-<aside>
-💡
+            <p>this 的指向</p>
 
-<p>当调用的是对象内部的方法时，根据方法的类型决定this的指向</p>
-<pre><code class="jsx">
-  let obj = &#123;
-    fn1: function () &#123;
-      console.log(this);
-    &#125;,
-    fn2: () =&gt; &#123;
-      console.log(this);
-    &#125;,
-  &#125;;
-  obj.fn1(); // obj
-  obj.fn2(); // window
-</code></pre>
-</aside>
             
         </div>
     </div>
     <div class="post-tags">
         
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
         
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/js/" style="color: #ff7d73">js</a>
+        </span>
         
     </div>
-    <a href="/2024/09/26/this%20%E7%9A%84%E6%8C%87%E5%90%91%208b9ef27d933543a2a7ae5c39b2ff4beb/" class="go-post">阅读全文</a>
+    <a href="/2024/09/26/this%20%E7%9A%84%E6%8C%87%E5%90%91/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/09/26/%E7%9B%98%E7%82%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%20e59eb99576b842cc86ab0a649ddab813/">
-        <h2 class="post-title"></h2>
+    <a href="/2024/09/26/%E7%9B%98%E7%82%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">
+        <h2 class="post-title">js篇章</h2>
     </a>
     <div class="category-and-date">
         
@@ -281,275 +238,26 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="盘点字符串中常用方法"><a href="#盘点字符串中常用方法" class="headerlink" title="盘点字符串中常用方法"></a>盘点字符串中常用方法</h1><ol>
-<li><p>简单方法</p>
-<p> （1）**<code>String.prototype.toLowerCase()</code>**<br> 该方法用于把字符串转换为小写。</p>
-<pre><code class="jsx">let str = &quot;adABDndj&quot;;
-str.toLowerCase(); // 输出结果：&quot;adabdndj&quot;
-</code></pre>
-<p> （2）**<code>String.prototype.toUpperCase()</code>**</p>
-<p> 该方法用于把字符串转换为大写。</p>
-<pre><code class="jsx">let str = &quot;adABDndj&quot;;
-str.toUpperCase(); // 输出结果：&quot;ADABDNDJ&quot;
-</code></pre>
-</li>
-<li><p>获取字符串指定位置的值</p>
-<p> （1）**<code>String.prototype.charAt(index)</code>** </p>
-<ul>
-<li><code>index</code>:要返回的字符的索引，从零开始。会被<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number#%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2">转换为整数</a>——<code>undefined</code> 会被转换为 0</li>
-</ul>
-<pre><code class="jsx">const str = &quot;hello,world&quot;
-console.log(str.charAt(6)) // w
-console.log(str.[6])) // w
-// 效果与 str[6] 一致
-console.log(str.charAt(100)) // &#39;&#39;
-console.log(str.charAt(100)) // underfined
-// 但是一旦超出范围使用 str[100] 返回值不一样
-</code></pre>
-<p> （2）**<code>String.prototype.charCodeAt(index)</code>**</p>
-<p> 该方法会返回指定索引位置字符的 Unicode 值，返回值是 0 - 65535 之间的整数</p>
-<ul>
-<li><code>index</code>:要返回的字符的索引，从零开始。会被<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number#%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2">转换为整数</a>——<code>undefined</code> 会被转换为 0</li>
-</ul>
-<pre><code class="jsx">const str = &quot;hello,world&quot;
-console.log(str.charCodeAt(6)) // w -&gt; 119
-console.log(str.charCodeAt(100)) // NaN
-</code></pre>
-<p> （3）**<code>String.prototype.at(index)</code> <code>ES21</code>**</p>
-<p> 返回一个新的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String"><code>String</code></a>，该字符串由位于指定偏移量处的单个 <code>UTF-16</code> 码元组成。</p>
-<ul>
-<li><code>index</code>:要返回的字符串字符的索引（位置）。当传递负数时，支持从字符串末端开始的相对索引；也就是说，如果使用负数，返回的字符将从字符串的末端开始倒数。</li>
-</ul>
-<pre><code class="jsx">const str = &#39;Hello, world!&#39;;  
-  
-console.log(str.at(7)); // 输出: w  
-console.log(str.at(-1)); // 输出: !  
-console.log(str.at(100)); // 输出: undefined  
-console.log(str.at(-100)); // 输出: undefined  
-console.log(str.at(3.9)); // 输出: l，因为 3.9 被转换为整数 3
-</code></pre>
-<p> （4）**<code>String.prototype.codePointAt(index)</code> <code>ES6+</code>**</p>
-<p> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String"><code>String</code></a> 的 <strong><code>codePointAt()</code></strong> 方法返回一个非负整数，该整数是从给定索引开始的字符的 Unicode 码位值。请注意，索引仍然基于 UTF-16 码元，而不是 Unicode 码位。</p>
-<ul>
-<li><code>index</code> :需要返回的字符的（从零开始的）索引</li>
-</ul>
-<pre><code class="jsx">const str = &quot;Hello, world!&quot;;  
-console.log(str.codePointAt(7)); // 输出: 119，&#39;w&#39; 的 Unicode 码点
-
-const str = &quot;&quot;;  
-console.log(str.codePointAt(0)); // 输出: undefined，因为字符串为空  
-  
-const longStr = &quot;This is a long string&quot;;  
-console.log(longStr.codePointAt(100)); // 输出: undefined，因为索引超出了字符串范围
-</code></pre>
-</li>
-<li><p>检索字符串是否包含特定序列</p>
-<p> （1）**<code>String.prototype.indexOf(**searchString, *position**)**</code>  </p>
-<p> 返回第一次匹配到的位置</p>
-<ul>
-<li><code>searchValue</code>：要搜索的子字符串。所有传入值都会被强制转换为字符串，因此如果该参数被省略或传入 <code>undefined</code>，<code>indexOf()</code> 方法会在字符串中搜索 <code>&quot;undefined&quot;</code>，这通常不是你想要的。</li>
-<li><code>position</code>：该方法返回指定子字符串在大于或等于 <code>position</code> 位置的第一次出现的索引，默认为 0。如果 <code>position</code> 大于调用字符串的长度，则该方法根本不搜索调用字符串。如果 position 小于零，该方法的行为就像 <code>position</code> 为 0 时一样。</li>
-</ul>
-<pre><code class="jsx">console.log(str.indexOf(&quot;w&quot;)) // 6
-console.log(str.indexOf(&quot;a&quot;)) // -1
-console.log(str.indexOf(&quot;l&quot;,5)) // 9
-console.log(str.indexOf(&quot;world&quot;)) // 6
-</code></pre>
-<p> （2）**<code>String.prototype.lastIndexOf(**searchString, *position**)**</code> </p>
-<p> 返回最后匹配到的位置</p>
-<pre><code class="jsx">const str = &quot;hello,world&quot;
-console.log(str.lastIndexOf(&quot;l&quot;)) // 9
-console.log(str.lastIndexOf(&quot;a&quot;)) // -1
-</code></pre>
-<p> （3）**<code>String.prototype.includes(**searchString, *position**)**</code></p>
-<ul>
-<li><code>searchValue</code>：一个要在 <code>str</code> 中查找的字符串。所有非正则表达式的值都会被<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2">强制转换为字符串</a>，因此如果该参数被省略或传入 <code>undefined</code>，<code>includes()</code> 方法会在字符串中搜索 <code>&quot;undefined&quot;</code>，这通常不是你想要的。</li>
-<li>在字符串中开始搜索 <code>searchString</code> 的位置。默认值为 <code>0</code>。</li>
-</ul>
-<pre><code class="jsx">const str = &quot;hello,world&quot;
-console.log(str.indexOf(&quot;w&quot;)) // 6
-console.log(str.indexOf(&quot;a&quot;)) // -1
-console.log(str.indexOf(&quot;l&quot;,5)) // 9
-</code></pre>
-<p> （4）**<code>String.prototype.startsWith(**searchString, *endPosition**)**</code></p>
-<pre><code> **`String.prototype.endsWith(**searchString, *endPosition**)**`
-</code></pre>
-<p> 这个方法可以让你确定一个字符串是否以另一个字符串结尾。该方法区分大小写。</p>
-<ul>
-<li><code>searchString</code>：要搜索的作为结尾的字符串</li>
-<li><code>endPosition</code>：预期找到 <code>searchString</code> 的末尾位置（即 <code>searchString</code> 最后一个字符的索引加 1）。默认为 <code>str.length</code>。</li>
-</ul>
-<pre><code class="jsx">const str = &quot;hello,world!&quot;
-console.log(str.startsWith(&#39;hello&#39;)); //true
-console.log(str.startsWith(&#39;ello&#39;, 1)); //true
-
-console.log(str.endsWith(&#39;world!&#39;)); //true
-console.log(str.endsWith(&#39;worl&#39;, 10)); //true
-</code></pre>
-</li>
-<li><p>合并字符串</p>
-<p> （1）**<code>String.prototype.concat(strN)</code>**</p>
-<p> 方法将字符串参数连接到调用的字符串，并返回一个新的字符串。</p>
-<ul>
-<li><code>strN</code>: 要连接到 <code>str</code> 的一个或多个字符串。</li>
-</ul>
-<pre><code class="jsx">const str1 = &#39;Hello&#39;;
-const str2 = &#39;World&#39;;
-
-console.log(str1.concat(str2)); // &quot;HelloWorld&quot;
-
-console.log(str2.concat(&#39;, &#39;, str1));// &quot;World, Hello&quot;
-</code></pre>
-<p> （2）**<code>String.prototype.padStart(**targetLength, *padString**)**</code></p>
-<p> 将当前字符串从开头开始填充给定的字符串</p>
-<ul>
-<li><code>targetLength</code>：当前 <code>str</code> 填充后的长度。如果该值小于或等于 <code>str.length</code>，则会直接返回当前 <code>str</code>。</li>
-<li><code>padString</code> ： 用于填充当前 <code>str</code> 的字符串。如果 <code>padString</code> 太长，无法适应 <code>targetLength</code>，则会被截断：对于从左到右的语言，左侧的部分将会被保留；对于从右到左的语言，右侧的部分将会被保留。默认值为“ ”</li>
-</ul>
-<pre><code class="jsx">const mood = &#39;Happy! &#39;;
-console.log(`I feel $&#123;mood.repeat(3)&#125;`); // &quot;I feel Happy! Happy! Happy! &quot;
-</code></pre>
-</li>
-<li><p>正则有关</p>
-<p> （1）**<code>String.prototype.match(**regexp**)**</code></p>
-<p> <strong><code>match()</code></strong> 方法检索字符串与<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_expressions">正则表达式</a>进行匹配的结果。</p>
-<ul>
-<li><code>regexp</code> ：一个正则表达式对象或者任何具有 <code>Symbol.match()</code>方法的对象。</li>
-</ul>
-<pre><code class="jsx">const paragraph = &#39;The quick brown fox jumps over the lazy dog. It barked.&#39;;
-const regex = /[A-Z]/g;
-const found = paragraph.match(regex);
-
-console.log(found); Array [&quot;T&quot;, &quot;I&quot;]
-</code></pre>
-<p> （2）**<code>String.prototype.matchAll(**regexp**)**</code></p>
-<p> <strong><code>matchAll()</code></strong> 方法检索字符串与正则表达式进行匹配的结果。</p>
-<ul>
-<li><code>regexp</code> ：一个正则表达式对象或者任何具有 <code>Symbol.match()</code>方法的对象。</li>
-</ul>
-<pre><code class="jsx">const text = &quot;I have 2 cats and 3 dogs.&quot;;  
-const matches = text.matchAll(/\d+/g);  
-for (const match of matches) &#123;  
-    console.log(match[0]); // 输出所有数字：&quot;2&quot;, &quot;3&quot;  
-&#125;
-</code></pre>
-<p> （3）**<code>String.prototype.search(**regexp**)**</code></p>
-<p> 对象中执行正则表达式的搜索，寻找匹配项。</p>
-<ul>
-<li><code>regexp</code> ：一个正则表达式对象或者任何具有 <code>Symbol.match()</code>方法的对象。</li>
-</ul>
-<pre><code class="jsx">const paragraph = &quot;I think Ruth&#39;s dog is cuter than your dog!&quot;;
-
-const regex = /[^\w\s&#39;]/g;
-
-console.log(paragraph.search(regex));// 41
-
-console.log(paragraph[paragraph.search(regex)]);// &quot;!&quot;
-</code></pre>
-</li>
-<li><p>填充字符串</p>
-<p> （1）**<code>String.prototype.padEnd(**targetLength, *padString**)**</code></p>
-<p> 将当前字符串从末尾开始填充给定的字符串</p>
-<ul>
-<li><code>targetLength</code>：当前 <code>str</code> 填充后的长度。如果该值小于或等于 <code>str.length</code>，则会直接返回当前 <code>str</code>。</li>
-<li><code>padString</code> ： 用于填充当前 <code>str</code> 的字符串。如果 <code>padString</code> 太长，无法适应 <code>targetLength</code>，则会被截断：对于从左到右的语言，左侧的部分将会被保留；对于从右到左的语言，右侧的部分将会被保留。默认值为“ ”</li>
-</ul>
-<pre><code class="jsx">const str1 = &#39;hello,world&#39;;
-console.log(str1.padEnd(25, &#39;.&#39;)); // &quot;hello,world...............&quot;
-</code></pre>
-<p> （2）**<code>String.prototype.padStart(**targetLength, *padString**)**</code></p>
-<p> 将当前字符串从开头开始填充给定的字符串</p>
-<ul>
-<li><code>targetLength</code>：当前 <code>str</code> 填充后的长度。如果该值小于或等于 <code>str.length</code>，则会直接返回当前 <code>str</code>。</li>
-<li><code>padString</code> ： 用于填充当前 <code>str</code> 的字符串。如果 <code>padString</code> 太长，无法适应 <code>targetLength</code>，则会被截断：对于从左到右的语言，左侧的部分将会被保留；对于从右到左的语言，右侧的部分将会被保留。默认值为“ ”</li>
-</ul>
-<pre><code class="jsx">const str1 = &#39;hello,world&#39;;
-console.log(str1.**padStart**(25, &#39;*&#39;)); //  &quot;**************hello,world&quot;
-</code></pre>
-<p> （3）**<code>String.prototype.repeat(**count**)**</code></p>
-<p> 返回一个新字符串，其中包含指定数量的所调用的字符串副本，这些副本连接在一起。</p>
-<ul>
-<li>count：介于 <code>0</code> 和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/POSITIVE_INFINITY"><code>+Infinity</code></a> 之间的整数。表示在新构造的字符串中重复了多少遍原字符串。</li>
-</ul>
-<pre><code class="jsx">const str1 = &#39;hello,world&#39;;
-console.log(str1.padEnd(25, &#39;.&#39;)); // &quot;hello,world...............&quot;
-</code></pre>
-</li>
-<li><p>修改字符串内容</p>
-<p> （1）**<code>String.prototype.replace(**pattern, replacement**)</code>** </p>
-<pre><code> **`String.prototype.replaceAll(p**attern, replacement**)**`
-</code></pre>
-<p> 返回一个新字符串，其中一个、多个或所有匹配的 <code>pattern</code> 被替换为 <code>replacement</code>。</p>
-<ul>
-<li><code>pattern</code>：可以是一个字符串或一个具有 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace"><code>Symbol.replace</code></a> 方法的对象</li>
-<li><code>replacement</code> ：可以是一个字符串或一个函数。</li>
-</ul>
-<pre><code class="jsx">const paragraph = &quot;I think Ruth&#39;s dog is cuter than your dog!&quot;;
-
-console.log(paragraph.replace(&quot;Ruth&#39;s&quot;, &#39;my&#39;)); 
-//&quot;I think my dog is cuter than your dog!&quot;
-
-console.log(paragraph.replaceAll(&#39;dog&#39;, &#39;monkey&#39;)); 
-//&quot;I think Ruth&#39;s monkey is cuter than your monkey!&quot;
-</code></pre>
-<p> （2）**<code>String.prototype.trim()</code>** </p>
-<pre><code> **`String.prototype.trimStart()`**
-
- **`String.prototype.trimEnd()`**
-</code></pre>
-<p> 从字符串的两端移除空白字符</p>
-<pre><code class="jsx">const greeting = &#39;   Hello world!   &#39;;
-
-console.log(greeting.trim());// &quot;Hello world!&quot;;
-
-console.log(greeting.trimStart());// &quot;Hello world!   &quot;;
-
-console.log(greeting.trimEnd());//  &quot;   Hello world!&quot;;
-</code></pre>
-</li>
-<li><p>截取字符串</p>
-<p> （1）**<code>String.prototype.slice(**indexStart, *indexEnd**)**</code></p>
-<p> 提取字符串的一部分</p>
-<ul>
-<li><code>indexStart</code>：要返回的子字符串中包含的第一个字符的索引。</li>
-<li><code>indexEnd</code>： 要返回的子字符串中排除的第一个字符的索引。</li>
-</ul>
-<pre><code class="jsx">const str = &#39;The quick brown fox jumps over the lazy dog.&#39;;
-
-console.log(str.slice(31));// &quot;the lazy dog.&quot;
-
-console.log(str.slice(4, 19));// &quot;quick brown fox&quot;
-
-console.log(str.slice(-4));// &quot;dog.&quot;
-
-console.log(str.slice(-9, -5));// &quot;lazy&quot;
-</code></pre>
-<p> （2）**<code>String.prototype.split(**separator, *limit**)**</code></p>
-<p> 描述每个分割应该发生在哪里的模式。</p>
-<ul>
-<li><code>separator</code>：当前 <code>str</code> 填充后的长度。如果该值小于或等于 <code>str.length</code>，则会直接返回当前 <code>str</code>。</li>
-<li><code>limit</code>： 一个非负整数，指定数组中包含的子字符串的数量限制。</li>
-</ul>
-<pre><code class="jsx">const str = &#39;The quick brown fox jumps over the lazy dog.&#39;;
-
-const words = str.split(&#39; &#39;);
-console.log(words[3]);// &quot;fox&quot;
-
-const chars = str.split(&#39;&#39;);
-console.log(chars[8]);// &quot;k&quot;
-</code></pre>
-</li>
-</ol>
+            <p>盘点字符串中常用方法</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
         
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/js/" style="color: #ffa2c4">js</a>
+        </span>
         
     </div>
-    <a href="/2024/09/26/%E7%9B%98%E7%82%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%20e59eb99576b842cc86ab0a649ddab813/" class="go-post">阅读全文</a>
+    <a href="/2024/09/26/%E7%9B%98%E7%82%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
@@ -585,7 +293,7 @@ console.log(chars[8]);// &quot;k&quot;
         
         <span class="tag">
             
-            <a href="/tags/js/" style="color: #ffa2c4">js</a>
+            <a href="/tags/js/" style="color: #00a596">js</a>
         </span>
         
     </div>
@@ -625,7 +333,7 @@ console.log(chars[8]);// &quot;k&quot;
         
         <span class="tag">
             
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="color: #ff7d73">面试</a>
+            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="color: #03a9f4">面试</a>
         </span>
         
     </div>
