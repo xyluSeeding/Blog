@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | 小苗</title>
+    <title>大师课笔记 | 小苗</title>
     <meta name="author" content="John Doe" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,157 +154,116 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>大师课笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/9/28
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
             
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
-        
-        <div class="timeline" data-title="js篇章">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2013/7/13</div>
-                <a href="/2013/07/13/var-let-const-%E5%8C%BA%E5%88%AB/">
-                    <h3>js篇章</h3>
+            
+            <span class="tag">
+                
+                <a href="/tags/javaScript/" style="color: #ffa2c4">
+                    javaScript
                 </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/js/" style="color: #ffa2c4">
-                                js
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="腾讯一面">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2013/7/13</div>
-                <a href="/2013/07/13/%E8%85%BE%E8%AE%AF%E5%86%85%E6%8E%A8%E4%B8%80%E9%9D%A2/">
-                    <h3>腾讯一面</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="color: #ffa2c4">
-                                面试
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="js篇章">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/9/26</div>
-                <a href="/2024/09/26/%E7%9B%98%E7%82%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">
-                    <h3>js篇章</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/js/" style="color: #ff7d73">
-                                js
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="js篇章">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/9/26</div>
-                <a href="/2024/09/26/this%20%E7%9A%84%E6%8C%87%E5%90%91/">
-                    <h3>js篇章</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/js/" style="color: #00a596">
-                                js
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="大师课笔记">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/9/28</div>
-                <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                    <h3>大师课笔记</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/javaScript/" style="color: #03a9f4">
-                                javaScript
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
+            </span>
+            
+        </span>
         
     </div>
+    
+    <div class="content" v-pre>
+        <h1 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h1><h1 id="出错题目"><a href="#出错题目" class="headerlink" title="出错题目"></a>出错题目</h1><h2 id="then-的链式调用规则"><a href="#then-的链式调用规则" class="headerlink" title=".then 的链式调用规则"></a>.then 的链式调用规则</h2><pre><code class="jsx">Promise.resolve(1).then(2).then(Promise.resolve(3)).then(console.log);
+</code></pre>
+<p>输出结果如下：</p>
+<pre><code class="jsx">1;
+// 返回结果: Promise &#123;&lt;fulfilled&gt;: undefined&#125;
+</code></pre>
+<p>Promise.resolve 方法的参数如果是一个原始值，或者是一个不具有 then 方法的对象，则 Promise.resolve 方法返回一个新的 Promise 对象，状态为 resolved，Promise.resolve 方法的参数，会同时传给回调函数。</p>
+<p>then 方法接受的参数是函数，而如果传递的并非是一个函数，它实际上会将其解释为 then(null)，这就会导致前一个 Promise 的结果会传递下面。</p>
+<h2 id="then-catch-的判定"><a href="#then-catch-的判定" class="headerlink" title=".then.catch 的判定"></a>.then.catch 的判定</h2><pre><code class="jsx">Promise.resolve(1)
+  .then((res) =&gt; &#123;
+    console.log(res);
+    return 2;
+  &#125;)
+  .catch((err) =&gt; &#123;
+    return 3;
+  &#125;)
+  .then((res) =&gt; &#123;
+    console.log(res);
+  &#125;);
+</code></pre>
+<p>输出结果如下：</p>
+<pre><code class="jsx">1;
+2;
+</code></pre>
+<p>Promise 是可以链式调用的，由于每次调用 <code>.then</code> 或者 <code>.catch</code> 都会返回一个新的 promise，从而实现了链式调用, 它并不像一般任务的链式调用一样 return this。</p>
+<pre><code class="jsx">Promise.resolve(1)
+  .then((res) =&gt; &#123;
+    console.log(res);
+    return 2;
+  &#125;)
+  .catch((err) =&gt; &#123;
+    return 3;
+  &#125;)
+  .then((res) =&gt; &#123;
+    console.log(res);
+  &#125;);
+</code></pre>
+<p>上面的输出结果之所以依次打印出 1 和 2，是因为<code>resolve(1)</code>之后走的是第一个 then 方法，并没有进 catch 里，所以第二个 then 中的 res 得到的实际上是第一个 then 的返回值。并且 return 2 会被包装成<code>resolve(2)</code>，被最后的 then 打印输出 2。</p>
+<h2 id="then-的返回值问题"><a href="#then-的返回值问题" class="headerlink" title=".then 的返回值问题"></a>.then 的返回值问题</h2><pre><code class="jsx">const p1 = new Promise((resolve) =&gt; &#123;
+  resolve(&quot;resovle1&quot;);
+&#125;).then((res) =&gt; &#123;
+  console.log(res); // resolve1
+  setTimeout(() =&gt; &#123;
+    console.log(p1);
+  &#125;, 1000);
+&#125;);
+</code></pre>
+<p>输出结果如下：</p>
+<pre><code class="jsx">resolve1
+Promise &#123;&lt;fulfilled&gt;: undefined&#125;
+</code></pre>
+<p>为什么输出的是 <code>Promise &#123;&lt;fulfilled&gt;: undefined&#125;</code> ???</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise"><code>Promise</code></a>  实例的  <code>then()</code>  方法最多接受两个参数：用于  <code>Promise</code>  兑现和拒绝情况的回调函数。它立即返回一个等效的  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise"><code>Promise</code></a>  对象，允许你链接到其他 Promise 方法，从而实现链式调用。</p>
+</blockquote>
+<pre><code>                                                                                                                                   ————    $MDN$
+</code></pre>
+<blockquote>
+</blockquote>
+<p>.then 相当于</p>
+<pre><code class="jsx">Promise.resolve(
+  (fn = (res) =&gt; &#123;
+    console.log(res); // resolve1
+    setTimeout(() =&gt; &#123;
+      console.log(p1);
+    &#125;, 1000);
+  &#125;)
+);
+</code></pre>
+<p>所以<code>p1</code> 接受的是.then 返回的 promise</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
             <footer id="footer">
@@ -331,6 +294,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
