@@ -1,0 +1,27 @@
+<h1 id="多媒体元素"><a href="#多媒体元素" class="headerlink" title="多媒体元素"></a>多媒体元素</h1><p>video 视频</p>
+<p>audio音频 </p>
+<p>用法几乎一模一样</p>
+<h2 id="video"><a href="#video" class="headerlink" title="video"></a>video</h2><pre><code class="html">&lt;video controls=&quot;controls&quot; src=&quot;xxx.mp4&quot;&gt;&lt;/video&gt;
+&lt;!-- 或 --&gt;
+&lt;video controls src=&quot;xxx.mp4&quot;&gt;&lt;/video&gt;
+</code></pre>
+<p>controls：控制控件的显示，取值只能为controls</p>
+<p>某些属性，只有两种状态：1.不写  2.取值为属性名，这种属性叫做布尔属性</p>
+<p>布尔属性，在HTML5中，可以不用书写属性值</p>
+<p>autoplay：布尔属性，进入网页后自动播放 </p>
+<p>muted：布尔属性，静音播放</p>
+<p>loop：布尔属性，循环播放</p>
+<h2 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h2><p>属性名、用法与video一致</p>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ol>
+<li><p>旧版本的浏览器不支持这两个元素</p>
+</li>
+<li><p>不同的浏览器支持的音视频格式可能不一致 ⇒ 有可能是.mp4,也有可能是.webm</p>
+<p> 为了兼容性，一般不在<code>video</code> 写 src , 而在内部嵌套 <source> </p>
+<p> 如以下代码：一旦mp4可以执行，则不执行后面webm</p>
+</li>
+</ol>
+<pre><code class="html">&lt;video controls&gt;
+        &lt;source src=&quot;xxx.mp4&quot;&gt;&lt;/source&gt;
+        &lt;source src=&quot;xxx.webm&quot;&gt;&lt;/source&gt;
+&lt;/video&gt;
+</code></pre>

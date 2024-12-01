@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>大师课笔记 | 小苗</title>
+    <title> | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -156,105 +156,65 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>大师课笔记</h1>
+        <h1></h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/9/28
+            2024/12/1
         </span>
         
-        
-        <span class="tags">
-            <span class="icon">
-                <i class="fa-solid fa-tags fa-fw"></i>
-            </span>
-            
-            
-            <span class="tag">
-                
-                <a href="/tags/javaScript/" style="color: #ff7d73">
-                    javaScript
-                </a>
-            </span>
-            
-        </span>
         
     </div>
     
     <div class="content" v-pre>
-        <h1 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h1><h1 id="出错题目"><a href="#出错题目" class="headerlink" title="出错题目"></a>出错题目</h1><h2 id="then-的链式调用规则"><a href="#then-的链式调用规则" class="headerlink" title=".then 的链式调用规则"></a>.then 的链式调用规则</h2><pre><code class="jsx">Promise.resolve(1).then(2).then(Promise.resolve(3)).then(console.log);
+        <h1 id="a元素"><a href="#a元素" class="headerlink" title="a元素"></a>a元素</h1><p>a元素：超链接  ⇒  可以从一个文档跳转到另一个文档</p>
+<h1 id="href属性"><a href="#href属性" class="headerlink" title="href属性"></a>href属性</h1><ol>
+<li>跳转地址(普通链接)</li>
+</ol>
+<pre><code class="html">&lt;a href=&quot;https://www.baidu.com&quot;&gt;百度&lt;/a&gt;
 </code></pre>
-<p>输出结果如下：</p>
-<pre><code class="jsx">1;
-// 返回结果: Promise &#123;&lt;fulfilled&gt;: undefined&#125;
+<ol>
+<li>跳转到某个锚点(锚链接)</li>
+</ol>
+<p><img src="/a%E5%85%83%E7%B4%A0%2011d956d28a8b80759614d9d284066f3e/image.png" alt="image.png"></p>
+<pre><code class="html">((h2[id=&quot;chapter$&quot;]&gt;&#123;章节$&#125;)+p&gt;lorem)*6
+ a[href=&quot;#chapter$&quot;]*6
+...
+&lt;a href=&quot;#chapterX&quot;&gt;章节x&lt;/a&gt;
+...
+&lt;h2 id=&quot;chapterX&quot;&gt;章节X&lt;/h2&gt;
+&lt;p&gt;xxxxxx&lt;/p&gt;
+...
 </code></pre>
-<p>Promise.resolve 方法的参数如果是一个原始值，或者是一个不具有 then 方法的对象，则 Promise.resolve 方法返回一个新的 Promise 对象，状态为 resolved，Promise.resolve 方法的参数，会同时传给回调函数。</p>
-<p>then 方法接受的参数是函数，而如果传递的并非是一个函数，它实际上会将其解释为 then(null)，这就会导致前一个 Promise 的结果会传递下面。</p>
-<h2 id="then-catch-的判定"><a href="#then-catch-的判定" class="headerlink" title=".then.catch 的判定"></a>.then.catch 的判定</h2><pre><code class="jsx">Promise.resolve(1)
-  .then((res) =&gt; &#123;
-    console.log(res);
-    return 2;
-  &#125;)
-  .catch((err) =&gt; &#123;
-    return 3;
-  &#125;)
-  .then((res) =&gt; &#123;
-    console.log(res);
-  &#125;);
+<p>id属性：全局属性，表示元素在文档中的唯一编号</p>
+<ol>
+<li>跳转其他页面的锚点(锚链接)</li>
+</ol>
+<pre><code class="html">&lt;a href=&quot;2.跳转到某个锚点.html#chapterX&quot;&gt;章节x&lt;/a&gt;
 </code></pre>
-<p>输出结果如下：</p>
-<pre><code class="jsx">1;
-2;
+<ol>
+<li>点击后触发某个功能(功能链接)</li>
+</ol>
+<p>— 执行JS代码</p>
+<pre><code class="html">&lt;a href=&quot;javascript:alert(&#39;你好&#39;)&quot;&gt;弹出你好&lt;/a&gt;
 </code></pre>
-<p>Promise 是可以链式调用的，由于每次调用 <code>.then</code> 或者 <code>.catch</code> 都会返回一个新的 promise，从而实现了链式调用, 它并不像一般任务的链式调用一样 return this。</p>
-<pre><code class="jsx">Promise.resolve(1)
-  .then((res) =&gt; &#123;
-    console.log(res);
-    return 2;
-  &#125;)
-  .catch((err) =&gt; &#123;
-    return 3;
-  &#125;)
-  .then((res) =&gt; &#123;
-    console.log(res);
-  &#125;);
+<p>— 发送邮件</p>
+<pre><code class="html">&lt;a href=&quot;mailto:xxxxxxxxx@qq.com&quot;&gt;点击给我发送邮件&lt;/a&gt;
+&lt;!-- 要求用户计算机安装有邮件发送软件:exchange  --&gt; 
 </code></pre>
-<p>上面的输出结果之所以依次打印出 1 和 2，是因为<code>resolve(1)</code>之后走的是第一个 then 方法，并没有进 catch 里，所以第二个 then 中的 res 得到的实际上是第一个 then 的返回值。并且 return 2 会被包装成<code>resolve(2)</code>，被最后的 then 打印输出 2。</p>
-<h2 id="then-的返回值问题"><a href="#then-的返回值问题" class="headerlink" title=".then 的返回值问题"></a>.then 的返回值问题</h2><pre><code class="jsx">const p1 = new Promise((resolve) =&gt; &#123;
-  resolve(&quot;resovle1&quot;);
-&#125;).then((res) =&gt; &#123;
-  console.log(res); // resolve1
-  setTimeout(() =&gt; &#123;
-    console.log(p1);
-  &#125;, 1000);
-&#125;);
+<p>— 拨打电话</p>
+<pre><code class="html">&lt;a href=&quot;tel:xxxxxxxxx)&quot;&gt;拨打电话&lt;/a&gt;
+&lt;!-- 要求用户计算机安装拨号软件，或移动端点击  --&gt; 
 </code></pre>
-<p>输出结果如下：</p>
-<pre><code class="jsx">resolve1
-Promise &#123;&lt;fulfilled&gt;: undefined&#125;
+<h1 id="target属性"><a href="#target属性" class="headerlink" title="target属性"></a>target属性</h1><p>表示跳转窗口位置</p>
+<p>target取值：</p>
+<p>_self：在当前页面窗口打开</p>
+<p>_blank：在新窗口打开</p>
+<pre><code class="html">&lt;a href=&quot;https://www.baidu.com&quot; target=&quot;_self&quot;&gt;百度&lt;/a&gt;
 </code></pre>
-<p>为什么输出的是 <code>Promise &#123;&lt;fulfilled&gt;: undefined&#125;</code> ???</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise"><code>Promise</code></a>  实例的  <code>then()</code>  方法最多接受两个参数：用于  <code>Promise</code>  兑现和拒绝情况的回调函数。它立即返回一个等效的  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise"><code>Promise</code></a>  对象，允许你链接到其他 Promise 方法，从而实现链式调用。</p>
-</blockquote>
-<pre><code>                                                                                                                                   ————    $MDN$
-</code></pre>
-<blockquote>
-</blockquote>
-<p>.then 相当于</p>
-<pre><code class="jsx">Promise.resolve(
-  (fn = (res) =&gt; &#123;
-    console.log(res); // resolve1
-    setTimeout(() =&gt; &#123;
-      console.log(p1);
-    &#125;, 1000);
-  &#125;)
-);
-</code></pre>
-<p>所以<code>p1</code> 接受的是.then 返回的 promise</p>
 
     </div>
     
