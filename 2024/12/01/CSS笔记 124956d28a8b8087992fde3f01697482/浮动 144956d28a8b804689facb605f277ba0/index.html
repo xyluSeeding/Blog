@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javaScript | 小苗</title>
+    <title>css笔记 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,120 +154,129 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1>css笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/1
         </span>
         
         
-        
-        <span>
-            <a href="/tags/javaScript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javaScript
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/css/" style="color: #ff7d73">
+                    css
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/css/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                css
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/html/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                html
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                工程化
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/28</div>
-            <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                <h3>大师课笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javaScript/" style="color: #00bcd4">
-                            javaScript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h1><p>视觉格式化模型，大体上将页面中盒子的排列分为三种</p>
+<ol>
+<li>常规流</li>
+<li>浮动</li>
+<li>定位</li>
+</ol>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ol>
+<li>文字环绕</li>
+<li>横向排布</li>
+</ol>
+<h2 id="浮动的基本特点"><a href="#浮动的基本特点" class="headerlink" title="浮动的基本特点"></a>浮动的基本特点</h2><p>修改 float 属性值为：</p>
+<p>left:左浮动，元素靠上靠左</p>
+<p>right:右浮动，元素靠上靠右</p>
+<p>默认值为 none</p>
+<ol>
+<li>当一个元素浮动后，元素必定为块盒（display 更改为 block）</li>
+<li>浮动元素的包含块，和常规流一样，为父元素的内容盒</li>
+</ol>
+<h2 id="盒子尺寸"><a href="#盒子尺寸" class="headerlink" title="盒子尺寸"></a>盒子尺寸</h2><ol>
+<li>宽度为 auto 时，适应内容宽度</li>
+<li>高度为 auto 时，适应内容高度</li>
+<li>margin 为 auto，为 0</li>
+<li>边框、内边距、百分比设置与常规流一样</li>
+</ol>
+<aside>
+💡
+
+<p>除了高度的百分比之外，其他的百分比都是相对于包含快的<strong>宽度<br>高度的百分比是相对于包含块的高度</strong></p>
+</aside>
+
+<h2 id="盒子排序"><a href="#盒子排序" class="headerlink" title="盒子排序"></a>盒子排序</h2><ol>
+<li><p>左浮动盒子靠上靠左</p>
+</li>
+<li><p>右浮动盒子靠上靠右</p>
+</li>
+<li><p>浮动盒子在包含快中排列时，会避开常规流块盒</p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;normal&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;2&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;3&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><img src="/%E6%B5%AE%E5%8A%A8%20144956d28a8b804689facb605f277ba0/image.png" alt="image.png"></p>
+</li>
+<li><p>常规流块盒在排列时，无视浮动盒子</p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;item&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;2&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;3&lt;/div&gt;
+  &lt;div class=&quot;normal&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><img src="/%E6%B5%AE%E5%8A%A8%20144956d28a8b804689facb605f277ba0/image%201.png" alt="image.png"></p>
+</li>
+<li><p>行盒在排列时，会避开浮动盒子</p>
+<p>但是下面是不是违反了这项规定</p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;img src=&quot;&quot; alt=&quot;&quot; style=&quot;float:left&quot; /&gt;
+  &lt;p&gt;lorem100&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p><img src="/%E6%B5%AE%E5%8A%A8%20144956d28a8b804689facb605f277ba0/image%202.png" alt="image.png"></p>
+<blockquote>
+<p>注意：如果文字没有在行盒中，浏览器会直接生成一个行盒包裹文字，叫做匿名行盒</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="解决浮动高度坍塌"><a href="#解决浮动高度坍塌" class="headerlink" title="解决浮动高度坍塌"></a>解决浮动高度坍塌</h2><ol>
+<li><p><strong>使用 clearfix 技术</strong></p>
+<pre><code class="css">.clearfix::after &#123;
+  content: &quot;&quot;;
+  display: table;
+  clear: both;
+&#125;
+</code></pre>
+</li>
+<li><p><strong>使用 overflow 属性</strong></p>
+<pre><code class="css">.parent &#123;
+  overflow: hidden/auto;
+&#125;
+</code></pre>
+</li>
+</ol>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -295,6 +308,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javaScript | 小苗</title>
+    <title>html笔记 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,120 +154,81 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1>html笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/1
         </span>
         
         
-        
-        <span>
-            <a href="/tags/javaScript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javaScript
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/html/" style="color: #ffa2c4">
+                    html
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/css/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                css
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/html/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                html
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                工程化
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/28</div>
-            <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                <h3>大师课笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javaScript/" style="color: #00bcd4">
-                            javaScript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="图片元素"><a href="#图片元素" class="headerlink" title="图片元素"></a>图片元素</h1><h1 id="img元素"><a href="#img元素" class="headerlink" title="img元素"></a>img元素</h1><p>image缩写，空元素</p>
+<p>src属性：source，图片路径</p>
+<p>alt属性：当图片资源失效时，将使用该属性的文字替代图片</p>
+<h1 id="map元素"><a href="#map元素" class="headerlink" title="map元素"></a>map元素</h1><p>map：地图</p>
+<pre><code class="html">&lt;img usemap=&quot;#img&quot; src=&quot;xxx&quot;&gt;
+
+&lt;map name=&quot;img&quot;&gt;
+    &lt;!-- 圆形 --&gt;
+    &lt;area shape=&quot;circle&quot; coords=&quot;x,y,radius&quot; href=&quot;&quot; alt=&quot;&quot; target=&quot;&quot;&gt;
+    &lt;!-- 矩形 --&gt;
+    &lt;area shape=&quot;rect&quot; coords=&quot;left-top-x,left-top-y,right-bottom-x,right-bottom-y&quot; href=&quot;&quot; alt=&quot;&quot; target=&quot;&quot;&gt;
+    &lt;!-- 多边形 --&gt;	
+    &lt;area shape=&quot;poly&quot; coords=&quot;a.x,a.y,b.x,b.y,.......&quot; href=&quot;&quot; alt=&quot;&quot; target=&quot;&quot;&gt;
+&lt;/map&gt;
+</code></pre>
+<p>shape:形状<br>coords:坐标<br>href:路径<br>alt:失效时显示<br>target:跳转方式</p>
+<h1 id="figure元素"><a href="#figure元素" class="headerlink" title="figure元素"></a>figure元素</h1><p>指代、定义，通常用于把图片、图片标题、描述包裹起来</p>
+<p>子元素：<code>figcaption</code></p>
+<p>— 为了语义化，让浏览器明白这些内容是与包裹的图片相关联</p>
+<p>— 建议将标题用<code>figcaption</code> 元素包裹起来，特指这块内容的标题</p>
+<pre><code class="html">&lt;figure&gt;
+    &lt;figcaption&gt;
+        &lt;h1&gt;这是和图片关联的标题&lt;/h1&gt;
+    &lt;/figcaption&gt;
+    &lt;p&gt;这是和图片关联的内容&lt;/p&gt;
+    &lt;img usemap=&quot;#img&quot; src=&quot;xxx&quot;&gt;
+    &lt;map name=&quot;img&quot;&gt;
+        &lt;!-- 圆形 --&gt;
+        &lt;area shape=&quot;circle&quot; coords=&quot;x,y,radius&quot; href=&quot;&quot; alt=&quot;&quot; target=&quot;&quot;&gt;
+        &lt;!-- 矩形 --&gt;
+        &lt;area shape=&quot;rect&quot; coords=&quot;left-top-x,left-top-y,right-bottom-x,right-bottom-y&quot; href=&quot;&quot; alt=&quot;&quot; target=&quot;&quot;&gt;
+        &lt;!-- 多边形 --&gt;	
+        &lt;area shape=&quot;poly&quot; coords=&quot;a.x,a.y,b.x,b.y,.......&quot; href=&quot;&quot; alt=&quot;&quot; target=&quot;&quot;&gt;
+    &lt;/map&gt;
+&lt;/figure&gt;
+</code></pre>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -295,6 +260,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

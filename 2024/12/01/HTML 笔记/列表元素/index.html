@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javaScript | 小苗</title>
+    <title>html笔记 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,120 +154,80 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1>html笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/1
         </span>
         
         
-        
-        <span>
-            <a href="/tags/javaScript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javaScript
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/html/" style="color: #03a9f4">
+                    html
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/css/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                css
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/html/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                html
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                工程化
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/28</div>
-            <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                <h3>大师课笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javaScript/" style="color: #00bcd4">
-                            javaScript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="列表元素"><a href="#列表元素" class="headerlink" title="列表元素"></a>列表元素</h1><h1 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h1><p>ol：ordered list</p>
+<p>li：list item</p>
+<pre><code class="html">// type: 前面排序取值 1(阿拉伯),a(小写),A(大写),i(小写罗马),I(大写罗马) //
+除非前面逻辑上很重要，一律不用 type ,用 css 属性写 // reversed 反序
+&lt;ol type=&quot;1&quot; reversed&gt;
+  &lt;li&gt;开门&lt;/li&gt;
+  &lt;li&gt;进去&lt;/li&gt;
+  &lt;li&gt;关门&lt;/li&gt;
+&lt;/ol&gt;
+效果: 3. 关门 2. 进去 1. 开门
+</code></pre>
+<h1 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h1><p>ul：unordered list</p>
+<p>li：list item</p>
+<pre><code class="html">&lt;ul&gt;
+  &lt;li&gt;开门&lt;/li&gt;
+  &lt;li&gt;进去&lt;/li&gt;
+  &lt;li&gt;关门&lt;/li&gt;
+&lt;/ul&gt;
+效果: ● 开门 ● 进去 ● 关门
+</code></pre>
+<h1 id="定义列表"><a href="#定义列表" class="headerlink" title="定义列表"></a>定义列表</h1><p>通常用于一些术语的定义</p>
+<p>dl：deinition list 类 ul</p>
+<p>dt：deinition title 标题</p>
+<p>dd：deinition description 描述</p>
+<pre><code class="html">&lt;dl&gt;
+  &lt;dt&gt;HTML1&lt;/dt&gt;
+  &lt;dd&gt;123&lt;/dd&gt;
+
+  &lt;dt&gt;HTML2&lt;/dt&gt;
+  &lt;dd&gt;456&lt;/dd&gt;
+
+  &lt;dt&gt;HTML3&lt;/dt&gt;
+  &lt;dd&gt;789&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -295,6 +259,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javaScript | 小苗</title>
+    <title>html笔记 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,120 +154,74 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1>html笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/1
         </span>
         
         
-        
-        <span>
-            <a href="/tags/javaScript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javaScript
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/html/" style="color: #ff7d73">
+                    html
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/css/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                css
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/html/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                html
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                工程化
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/28</div>
-            <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                <h3>大师课笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javaScript/" style="color: #00bcd4">
-                            javaScript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="语义化"><a href="#语义化" class="headerlink" title="语义化"></a>语义化</h1><h1 id="什么是语义化？"><a href="#什么是语义化？" class="headerlink" title="什么是语义化？"></a>什么是语义化？</h1><ol>
+<li><p>每一个HTML元素都具有具体的含义</p>
+<p> a元素：超链接</p>
+<p> p元素：段落</p>
+<p> h1元素：一级标题</p>
+</li>
+<li><p>所有元素与展示效果无关</p>
+</li>
+</ol>
+<p>元素展示到页面中的效果，应该由CSS决定。</p>
+<p>因为浏览器带有默认的CSS样式，所以每个元素有一些默认的样式</p>
+<aside>
+💡
+
+<p>选择什么元素，取决于内容的含义，而不是显示出的效果</p>
+</aside>
+
+<h1 id="为什么需要语义化？"><a href="#为什么需要语义化？" class="headerlink" title="为什么需要语义化？"></a>为什么需要语义化？</h1><ol>
+<li><p>为了搜索引擎优化（SEO）⇒ 为了让搜索引擎更好的理解网页</p>
+<p> 每隔一段时间，搜索引擎会从整个互联网中，抓取页面源代码，去分析这个网页拥有什么内容（结构、元素、内容含义），然后存在一起。去搜索的话，会更容易搜索到这些东西。</p>
+<p> <strong>语义化越好 ⇒ 搜索的结果越靠前</strong></p>
+</li>
+<li><p>为了让浏览器理解网页</p>
+<p> 浏览器一些特殊的功能，比如看小说网站，进入阅读模式会忽略菜单、广告等。语音模式（大声朗读）。为了让浏览器更好的理解哪些需要显示，哪些需要朗读，哪些需要用特殊的声调读。为了更好的适应其他功能，浏览器对网页理解的越深，浏览器应用这些功能就越好。</p>
+</li>
+</ol>
+<blockquote>
+<p><code>div</code> 无语义化</p>
+</blockquote>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -295,6 +253,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

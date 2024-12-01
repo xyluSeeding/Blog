@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javaScript | 小苗</title>
+    <title>html笔记 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,120 +154,53 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1>html笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/1
         </span>
         
         
-        
-        <span>
-            <a href="/tags/javaScript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javaScript
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/html/" style="color: #03a9f4">
+                    html
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/css/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                css
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/html/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                html
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                工程化
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/28</div>
-            <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                <h3>大师课笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javaScript/" style="color: #00bcd4">
-                            javaScript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="元素包含关系"><a href="#元素包含关系" class="headerlink" title="元素包含关系"></a>元素包含关系</h1><p>以前：块级元素可以包含行级元素，行级元素不可以包含块级元素，a 元素除外</p>
+<p>现在：元素的包含关系由元素的内容类别决定。</p>
+<p>例如：h1 元素可以包含 p 元素</p>
+<p>总结：</p>
+<blockquote>
+<p>容器元素可以包含任何元素<br>a 元素中几乎可以包含任何元素<br>某些元素有固定的子元素（ul&gt;li，ol&gt;li，dl&gt;dt+dd）<br>标题元素和段落元素不能嵌套，并且不能包含容器元素</p>
+</blockquote>
+<h1 id="块级元素与行级元素的区别？"><a href="#块级元素与行级元素的区别？" class="headerlink" title="块级元素与行级元素的区别？"></a>块级元素与行级元素的区别？</h1><p>块级元素在页面中独占一行，而行级元素在页面中不换行。</p>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -295,6 +232,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

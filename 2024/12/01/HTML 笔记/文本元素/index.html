@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javaScript | 小苗</title>
+    <title>html笔记 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,120 +154,109 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1>html笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/1
         </span>
         
         
-        
-        <span>
-            <a href="/tags/javaScript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javaScript
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/html/" style="color: #ff7d73">
+                    html
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/css/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                css
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/html/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                html
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                工程化
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/28</div>
-            <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                <h3>大师课笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javaScript/" style="color: #00bcd4">
-                            javaScript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="文本元素"><a href="#文本元素" class="headerlink" title="文本元素"></a>文本元素</h1><p>HTML5 中支持的元素:html5 元素周期表<a target="_blank" rel="noopener" href="https://www.xuanfengge.com/funny/html5/element/">https://www.xuanfengge.com/funny/html5/element/</a></p>
+<h1 id="h"><a href="#h" class="headerlink" title="h"></a>h</h1><p>标题：head</p>
+<p>h1~h6：表示一级标题到 6 级标题</p>
+<pre><code class="html">h$*6&gt;&#123;$级标题&#125; $:占位符，累加，从1开始
+&lt;h1&gt;1级标题&lt;/h1&gt;
+&lt;h2&gt;2级标题&lt;/h2&gt;
+&lt;h3&gt;3级标题&lt;/h3&gt;
+&lt;h4&gt;4级标题&lt;/h4&gt;
+&lt;h5&gt;5级标题&lt;/h5&gt;
+&lt;h6&gt;6级标题&lt;/h6&gt;
+</code></pre>
+<h1 id="p"><a href="#p" class="headerlink" title="p"></a>p</h1><p>段落：paragraphs</p>
+<pre><code class="html">p*3&gt;lorem lorem:乱数假文
+&lt;p&gt;
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti eum culpa,
+  quidem veniam quisquam nobis cumque quos repudiandae obcaecati. Ratione
+  cupiditate non illo repudiandae necessitatibus! Neque explicabo eum dolorum?
+  Quasi?
+&lt;/p&gt;
+&lt;p&gt;
+  Iure sint necessitatibus ipsum, voluptatem ut dolor, commodi eligendi amet, id
+  distinctio voluptatum sapiente? At, mollitia, doloremque qui quis natus in
+  dicta tenetur perferendis nisi officia odio repellat? Ipsam, id!
+&lt;/p&gt;
+&lt;p&gt;
+  Dolorum minus ipsa vitae reprehenderit debitis consectetur perferendis officia
+  animi quos culpa ut explicabo quas consequatur repellendus, iusto nulla ab
+  asperiores optio quibusdam suscipit obcaecati! Adipisci ullam cupiditate
+  placeat libero?
+&lt;/p&gt;
+</code></pre>
+<h1 id="span-无语义"><a href="#span-无语义" class="headerlink" title="span[无语义]"></a>span[无语义]</h1><p>没语义，仅用于设置样式</p>
+<pre><code class="html">三原色包含：
+&lt;span style=&quot;color: red&quot;&gt;红&lt;/span&gt;
+&lt;span style=&quot;color: green&quot;&gt;绿&lt;/span&gt;
+&lt;span style=&quot;color: blue&quot;&gt;蓝&lt;/span&gt;
+</code></pre>
+<blockquote>
+<p>以前：某些元素在显示时会独占一行（块级元素），而某些元素不会换行（行级元素)<br>到了 HTML5，已经弃用这种说法。</p>
+</blockquote>
+<h1 id="pre"><a href="#pre" class="headerlink" title="pre"></a>pre</h1><p>预格式化文本元素</p>
+<p>空白折叠：在源代码中的连续空白字符 （空格、换行、制表），会被折叠成一个空格</p>
+<p>例外：在 pre 元素中的内容不会出现空白折叠</p>
+<p>在 pre 元素内部出现的内容，会按照代码格式显示到页面上</p>
+<p>该元素通常用于在网页中显示一些代码</p>
+<p>pre 元素功能的本质：它有一个默认的 css 样式（<code>white-space:pre;</code>）</p>
+<pre><code class="html">&lt;p&gt;Lorem, ipsum dolor.&lt;/p&gt;
+=&gt;Lorem, ipsum dolor.
+
+&lt;pre&gt;
+Lorem,        
+                    ipsum dolor.&lt;/pre
+&gt;
+=&gt;Lorem, ipsum dolor.
+</code></pre>
+<p>通常在页面上显示代码时会在<code>pre</code>套一个<code>code</code> ,<code>code</code> 表示代码区域</p>
+<pre><code class="html">&lt;code&gt;
+  &lt;pre&gt;
+            var i = 0;
+            i++;
+        &lt;/pre
+  &gt;
+&lt;/code&gt;
+</code></pre>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -295,6 +288,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javaScript | 小苗</title>
+    <title>css笔记 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,120 +154,120 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1>css笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/1
         </span>
         
         
-        
-        <span>
-            <a href="/tags/javaScript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javaScript
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/css/" style="color: #00bcd4">
+                    css
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/css/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                css
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/html/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                html
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                工程化
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/28</div>
-            <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                <h3>大师课笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javaScript/" style="color: #00bcd4">
-                            javaScript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h1><h1 id="盒模型-1"><a href="#盒模型-1" class="headerlink" title="盒模型"></a>盒模型</h1><p>box：盒子，每个元素在页面中都会生成一个矩形区域（盒子）</p>
+<h2 id="盒子类型"><a href="#盒子类型" class="headerlink" title="盒子类型"></a>盒子类型</h2><ol>
+<li>行盒，display 等于 inline 的元素</li>
+<li>块盒，display 等于 block 的元素</li>
+</ol>
+<p>行盒在页面中不换行，块盒在页面中独占一行</p>
+<h2 id="浏览器常见的盒"><a href="#浏览器常见的盒" class="headerlink" title="浏览器常见的盒"></a>浏览器常见的盒</h2><p>块盒：容器元素、h1~h6、p</p>
+<p>常见的行盒：span、a、img、video、audio</p>
+<h2 id="盒模型的组成部分"><a href="#盒模型的组成部分" class="headerlink" title="盒模型的组成部分"></a>盒模型的组成部分</h2><p>无论是行盒还是块盒，都由下面几个部分组成，从内到外分别是：</p>
+<ol>
+<li><p>内容：content</p>
+<p>width、height，设置的是盒子内容的宽高</p>
+<p>内容部分通常叫做盒子的**<code>内容盒</code>**</p>
+</li>
+<li><p>填充：padding</p>
+<p>内容+填充部分通常叫做盒子的**<code>填充盒</code>**</p>
+</li>
+<li><p>边框：border</p>
+<p>内容+填充+边框部分通常叫做盒子的**<code>边框盒</code>**</p>
+</li>
+<li><p>外边距：margin</p>
+</li>
+</ol>
+<h1 id="盒模型应用"><a href="#盒模型应用" class="headerlink" title="盒模型应用"></a>盒模型应用</h1><h2 id="改变宽高范围"><a href="#改变宽高范围" class="headerlink" title="改变宽高范围"></a>改变宽高范围</h2><p>默认情况下，width 和 height 设置的是内容和的宽高</p>
+<p>衡量设计稿尺寸时，往往使用的是边框盒，但设置 width 和 height，则设置的是内容盒</p>
+<ol>
+<li>精装计算</li>
+<li>CSS3：box-sizing:border（改变宽高的影响范围）</li>
+</ol>
+<h2 id="改变背景覆盖范围"><a href="#改变背景覆盖范围" class="headerlink" title="改变背景覆盖范围"></a>改变背景覆盖范围</h2><p>默认情况下，背景覆盖边框盒</p>
+<p>可以通过 background-clip 进行修改</p>
+<h2 id="溢出处理"><a href="#溢出处理" class="headerlink" title="溢出处理"></a>溢出处理</h2><p>overflow 控制内容溢出边框盒后的处理方式</p>
+<h2 id="断词处理"><a href="#断词处理" class="headerlink" title="断词处理"></a>断词处理</h2><p>word-break，会影响文字在什么位置被截断换行</p>
+<p>normal：普通。CJK 字符（文字位置截断），非 CJK 字符（单词位置截断）</p>
+<p>break-all：截断所有。所有字符都在文字处截断。</p>
+<p>keep-all：保持所有。所有文字都在单词处截断。</p>
+<h2 id="空白处理"><a href="#空白处理" class="headerlink" title="空白处理"></a>空白处理</h2><p>对空白字符进行处理</p>
+<pre><code class="css">div &#123;
+  white-space: nowrap; //  不换行
+  overflow: hidden; // 隐藏
+  text-overflow: ellipsis; // 文本溢出用...代替
+&#125;
+</code></pre>
+<p><img src="/%E7%9B%92%E6%A8%A1%E5%9E%8B%20143956d28a8b80b88ac9c241669a8b77/image.png" alt="image.png"></p>
+<h1 id="行盒的盒模型"><a href="#行盒的盒模型" class="headerlink" title="行盒的盒模型"></a>行盒的盒模型</h1><p>常见的行盒：span、a、img、video、audio、strong、em</p>
+<p>看行盒和块盒之间的区别</p>
+<pre><code class="css">div,
+span &#123;
+  background-color: lightblue;
+  line-height: 3;
+  border: 2px solid;
+&#125;
+</code></pre>
+<p><img src="/%E7%9B%92%E6%A8%A1%E5%9E%8B%20143956d28a8b80b88ac9c241669a8b77/image%201.png" alt="image.png"></p>
+<h2 id="显著特点"><a href="#显著特点" class="headerlink" title="显著特点"></a>显著特点</h2><ol>
+<li><p>行盒沿着内容沿伸</p>
+</li>
+<li><p>行盒不能设置宽高</p>
+<p>调整行盒的宽高，应该使用字体大小、行高、字体类型，间接调整</p>
+</li>
+<li><p>内边距（填充区）</p>
+<p>水平方向有效，垂直方向会影响背景，不会实际占据空间</p>
+</li>
+<li><p>边框</p>
+<p>水平方向有效，垂直方向会影响背景，不会实际占据空间 → 内容的高度应该取决于行高</p>
+</li>
+<li><p>外边框</p>
+<p>水平方向有效，垂直方向完全无效，不会实际占据空间</p>
+</li>
+</ol>
+<h2 id="行内块元素"><a href="#行内块元素" class="headerlink" title="行内块元素"></a>行内块元素</h2><p>display:inline-block;的盒子</p>
+<ol>
+<li>不独占一行</li>
+<li>盒模型中所有尺寸都有效</li>
+</ol>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -295,6 +299,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

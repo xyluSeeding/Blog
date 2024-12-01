@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>腾讯一面 | 小苗</title>
+    <title>数据库复习 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -156,14 +156,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>腾讯一面</h1>
+        <h1>数据库复习</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2013/7/13
+            2024/12/1
         </span>
         
         
@@ -175,8 +175,8 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E9%9D%A2%E8%AF%95/" style="color: #00a596">
-                    面试
+                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="color: #00bcd4">
+                    数据库
                 </a>
             </span>
             
@@ -185,33 +185,157 @@
     </div>
     
     <div class="content" v-pre>
-        <p>时间：1h</p>
-<ol>
-<li>自我介绍</li>
-<li>纯 script、 async 、 defer 的区别</li>
-<li>让一个 div 消失有几种方法(6 种)</li>
-<li>分析比较 <em>opacity: 0、visibility: hidden、display: none</em></li>
-<li>cookie、sessionStorage、LocolStorage 的区别及应用场景</li>
-<li>localStorage 的存储时间？</li>
-<li>localStorage 过期了怎么办？你觉得过期怎么做合适?</li>
-<li>我怎么判断两个对象是相等的？（我答的递归）</li>
-<li>还有一种方法是转 json？有什么局限性？有什么属性用不了？</li>
-<li>你想到了几种分别属于宏任务、微任务</li>
-<li>定时器是完美定时吗？为什么？</li>
-<li>事件冒泡和捕获机制</li>
-<li>基础数据类型有哪些？</li>
-<li>怎么判断一个对象属于哪种类型？有几种方法</li>
-<li>计算机缓存机制</li>
-<li>介绍项目（下面是根据我的项目问）</li>
-<li>websocket 心跳机制</li>
-<li>webpack 的手写的 loader 和 plugin</li>
-<li>axios 的二次封装配置（拦截器）</li>
-<li>路由守卫</li>
-<li>vue 的打包过程（具体：一个 vue 页面打包的流程，生成了什么）</li>
-<li>为什么 vue 要创建虚拟 dom,而不直接操作 dom</li>
-<li>代码题：数组的扁平化</li>
-<li>反问</li>
-</ol>
+        <h1 id="数据库复习"><a href="#数据库复习" class="headerlink" title="数据库复习"></a>数据库复习</h1><h2 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h2><pre><code class="sql">创建数据库
+CREATE DATABASE test
+</code></pre>
+<pre><code class="sql">改数据库名
+ALTER DATABASE test
+modify name = test_1
+</code></pre>
+<pre><code class="sql">删除数据库
+DROP DATABASE test
+</code></pre>
+<h2 id="表定义及维护"><a href="#表定义及维护" class="headerlink" title="表定义及维护"></a>表定义及维护</h2><pre><code class="sql">创建表
+CREATE TABLE student&#123;
+    sno char(3),
+    cno char(3),
+    sname varchar(10),
+    money int,
+    primary key (sno,cno)
+    foreign key (cno) references Course (cno)
+&#125;
+</code></pre>
+<pre><code class="sql">添加列
+ALTER TABLE student
+ADD year int
+</code></pre>
+<pre><code class="sql">删除列
+ALTER TABLE student
+DROP column year
+</code></pre>
+<pre><code class="sql">添加约束
+ALTER TABLE student
+ADD CONSTRAINT name_01 CHECK (money&gt;20 &amp;&amp; money&lt;100)
+</code></pre>
+<pre><code class="sql">删除约束
+ALTER TABLE student
+DROP CONSTRAINT name_01
+</code></pre>
+<pre><code class="sql">修改属性类型
+ALTER TABLE student
+MODIFY COLUMN money float(1)
+</code></pre>
+<pre><code class="sql">添加唯一(union)索引
+CREATE
+UNION
+INDEX index_name
+ON student(sno ASC, money DESC)
+</code></pre>
+<pre><code class="sql">删除索引
+DROP INDEX index_name ON student
+</code></pre>
+<h2 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h2><pre><code class="sql">数据查询
+SELECT DISTINCT sno,YEAR(GETDATE())-birthYeat AS age FROM studnet
+</code></pre>
+<pre><code class="sql">更新数据
+UPDATE goods SET gname = &quot;雀巢咖啡&quot; WHERE gname = &quot;雀氏咖啡&quot;
+</code></pre>
+<pre><code class="sql">删除数据
+DELETE FROM goods WHERE money &lt;= 20
+</code></pre>
+<pre><code class="sql">后缀
+(NOT) IN
+(NOT) LIKE _（任一字符）%（精准匹配）%[^147]（不匹配1、4、7结尾）
+</code></pre>
+<pre><code class="sql">排序
+SELECT * FROM student
+ORDER BY money DESC, sno (ASC)
+</code></pre>
+<pre><code class="sql">聚合函数
+COUNT(*)
+SUM(money)
+MAX(money)
+MIN(money)
+AVG(money)
+</code></pre>
+<pre><code class="sql">分组
+SELECT cno,COUNT(*) FROM student
+WHERE money &gt; 100
+GROUP BY cno
+HAVING cno != &quot;000&quot;
+</code></pre>
+<pre><code class="sql">连接
+SELECT *
+FROM CT
+JOIN C ON CT.Cno = C.Cno
+JOIN T ON CT.Tno = T.TNO
+</code></pre>
+<pre><code class="sql">相关子查询
+SELECT * FROM student
+WHERE (NOT) EXISTS (
+    SELECT sno FROM SC
+    WHERE sno = &quot;000&quot;
+)
+</code></pre>
+<pre><code class="sql">选择
+SELECT TOP 3 [WITH TIES 包括并列] * FROM student
+ORDER BY money DESC
+</code></pre>
+<pre><code class="sql">插入
+INSERT INTO student
+VALUES (&#39;001&#39;,&#39;002&#39;,&quot;小明&quot;,100)
+或
+INSERT INTO student(sno,cno,sname,money)
+VALUES (&#39;001&#39;,&#39;002&#39;,&quot;小明&quot;,100)
+</code></pre>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><pre><code class="sql">定义视图
+CREATE VIEW view_name
+AS
+SELECT *******
+</code></pre>
+<pre><code class="sql">删除视图
+DROP VIEW view_name
+</code></pre>
+<pre><code class="sql">GRANT select on table1 to user1 with grant option
+deny select on table1 to user2
+revoke select on table3 from user3
+</code></pre>
+<p>实体完整性、参照完整性、用户自定义完整性</p>
+<p>数据结构，数据操作，完整性约束</p>
+<p>面向对象，层次，网状，关系</p>
+<p>关系模型是一种以二维表的形式表示实体数据和实体之间关系的数据模型，它由行和列组成</p>
+<p>基本条件：满足关系规范化原则，数据表应该按照某种原则进行分离，以减少数据冗余和更新异常。</p>
+<ul>
+<li><strong>数据定义</strong>：允许用户定义数据库的结构和模式，包括创建表、视图、索引等。</li>
+<li><strong>数据操纵</strong>：提供用户进行数据插入、删除、更新和查询等操作的功能。</li>
+<li><strong>数据库运行管理</strong>：负责数据库的安全性和完整性控制，包括用户权限管理、数据备份与恢复等。</li>
+<li><strong>数据库的建立和维护</strong>：支持数据库的初始建立、数据加载以及数据库的日常维护和优化。</li>
+<li><strong>数据组织、存储和管理</strong>：有效地组织和管理存储在数据库中的数据，提供高效的数据访问和存储机制。</li>
+</ul>
+<p>数据库安全：<strong>访问控制、数据加密、数据备份与恢复、安全审计</strong></p>
+<p>事务是由用户定义的一系列数据操作语句构成，这些语句要么全部执行，要么全部不执行，是数据库运行的最小的、不可分割的工作单位</p>
+<p>原子性、一致性、隔离性、持续性</p>
+<p>并发操作导致的问题：</p>
+<p>丢失数据</p>
+<p>丢失修改是指当两个或两个以上的事务在更新同一数据值时，会发生某些<br>修改被覆盖（丢失）的问题。</p>
+<p>读脏数据</p>
+<p>事务 T1 更新了某一数据，并将更新结果写入数据库，事务 T2 读<br>取了这一数据（T1 更新后的数据）。但由于某种原因 T1 撤销了更新操作，<br>T1 修改过的数据又恢复为原值，此时 T2 读取的数值与数据库中实际数据值<br>不一致。</p>
+<p>不可重复读</p>
+<p>不可重复读是指事务 T1 读取数据后，事务 T2 对该数据进行读取并执行更新<br>操作，修改了 T1 读取的数据，T1 操作完数据后，又重新读取这个数据，会<br>发现读到的结果与前一次不一样。</p>
+<p>通过加锁来限制并发操作</p>
+<p>一级封锁协议</p>
+<p>在修改数据前必须先加 X 锁（丢失数据）</p>
+<p>二级封锁协议</p>
+<p>读取数据前必须加 S 锁，读完后立即撤销（读脏数据）</p>
+<p>三级封锁协议</p>
+<p>读取数据前必须加 S 锁，事务结束后再释放（可重复读）</p>
+<p>完全备份 差分备份 事务日志备份 文件备份</p>
+<p>预防死锁：一次性封锁法，顺序封锁法</p>
+<p>解决死锁：超时法，事务等待图法</p>
+<p>数据库恢复</p>
+<p>事务故障恢复</p>
+<p>系统故障恢复</p>
+<p>介质故障恢复</p>
 
     </div>
     

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javaScript | 小苗</title>
+    <title>css笔记 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,120 +154,92 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1>css笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/1
         </span>
         
         
-        
-        <span>
-            <a href="/tags/javaScript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javaScript
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/css/" style="color: #ff7d73">
+                    css
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/css/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                css
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/html/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                html
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                工程化
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/28</div>
-            <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                <h3>大师课笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javaScript/" style="color: #00bcd4">
-                            javaScript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="CSS-进阶"><a href="#CSS-进阶" class="headerlink" title="CSS 进阶"></a>CSS 进阶</h1><h1 id="规则（at-rule）"><a href="#规则（at-rule）" class="headerlink" title="@规则（at-rule）"></a>@规则（at-rule）</h1><p>at-rule：@规则、@语句、CSS 指令、CSS 语句</p>
+<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p>@import → 导入其他文件</p>
+<pre><code class="html">&lt;!-- index.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;2.css&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="css"> &lt;!-- 2.css --&gt;
+ import &quot;index.css&quot;
+</code></pre>
+<pre><code class="css">&lt;!-- index.css -- &gt; div &#123;
+  color: red;
+&#125;
+</code></pre>
+<p><img src="/CSS%E8%BF%9B%E9%98%B6%20146956d28a8b80bca186d826b431ae8b/image.png" alt="image.png"></p>
+<h2 id="charset"><a href="#charset" class="headerlink" title="@charset"></a>@charset</h2><p>这个指令必须得写道第一行</p>
+<p>与 import 用法一致</p>
+<pre><code class="css">@charst “utf-8”;
+// 告诉浏览器该CSS文件，使用的字符编码集是utf-8
+</code></pre>
+<h1 id="web-字体和图标"><a href="#web-字体和图标" class="headerlink" title="web 字体和图标"></a>web 字体和图标</h1><h2 id="web-字体"><a href="#web-字体" class="headerlink" title="web 字体"></a>web 字体</h2><blockquote>
+<p>以下是字体前置知识</p>
+<pre><code class="css">p &#123;
+  font-family: aaa bbb ccc; // 字体类型
+&#125;
+// 先看有没有aaa,再看有没有bbb，最后看有没有ccc
+</code></pre>
+</blockquote>
+<p>解决电脑上没有安装相应字体，强制用户安装字体</p>
+<p>使用 @font-face 制作一个新字体</p>
+<pre><code class="css">/*制作一个新的字体，名称叫做good night */
+@font-face &#123;
+  font-family: &quot;good night&quot;;
+  src: url(&quot;./font/晚安体.ttf&quot;);
+&#125;
+p &#123;
+  font-family: &quot;good night&quot;;
+&#125;
+</code></pre>
+<h2 id="字体图标"><a href="#字体图标" class="headerlink" title="字体图标"></a>字体图标</h2><p>阿里巴巴矢量库</p>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -295,6 +271,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

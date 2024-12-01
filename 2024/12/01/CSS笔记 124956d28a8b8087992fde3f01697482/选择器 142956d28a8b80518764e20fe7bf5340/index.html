@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javaScript | 小苗</title>
+    <title>css笔记 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,120 +154,79 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1>css笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/1
         </span>
         
         
-        
-        <span>
-            <a href="/tags/javaScript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javaScript
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/css/" style="color: #03a9f4">
+                    css
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/css/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                css
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/html/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                html
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                工程化
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/28</div>
-            <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                <h3>大师课笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javaScript/" style="color: #00bcd4">
-                            javaScript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><h1 id="选择器-1"><a href="#选择器-1" class="headerlink" title="选择器"></a>选择器</h1><p>选择器：帮助你精准的选中想要的元素</p>
+<h1 id="简单选择器"><a href="#简单选择器" class="headerlink" title="简单选择器"></a>简单选择器</h1><ol>
+<li><p>ID 选择器</p>
+</li>
+<li><p>元素选择器</p>
+</li>
+<li><p>类选择器</p>
+</li>
+<li><p>通配符选择器</p>
+<ul>
+<li>选中所有元素</li>
+</ul>
+</li>
+<li><p>属性选择器</p>
+<pre><code class="html">选中拥有href属性的元素 [href]&#123; color:red; &#125; 以xxx开头 [class^=&quot;xxx&quot;]
+以xxx结尾 [class$=&quot;xxx&quot;] 包含xxx [class*=&quot;xxx&quot;]
+</code></pre>
+</li>
+<li><p>伪类选择器</p>
+<pre><code class="html">顺序不可更改!!! a:link&#123;&#125; a:visited&#123;&#125; a:hover&#123;&#125; a:active&#123;&#125;
+</code></pre>
+</li>
+<li><p>伪元素选择器</p>
+</li>
+</ol>
+<h1 id="选择器的组合"><a href="#选择器的组合" class="headerlink" title="选择器的组合"></a>选择器的组合</h1><ol>
+<li>后代元素 —— 空格</li>
+<li>子元素 —— &gt;</li>
+<li>相邻兄弟元素 —— +</li>
+<li>兄弟元素 —— ~</li>
+</ol>
+<h1 id="选择器的并列"><a href="#选择器的并列" class="headerlink" title="选择器的并列"></a>选择器的并列</h1><p>多个选择器，用逗号分割。是一个语法糖。</p>
+<pre><code class="html">.a,.b&#123;&#125;
+</code></pre>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -295,6 +258,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

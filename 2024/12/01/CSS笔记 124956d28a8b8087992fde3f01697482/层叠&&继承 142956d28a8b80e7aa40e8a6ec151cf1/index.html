@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javaScript | 小苗</title>
+    <title>css笔记 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,120 +154,77 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1>css笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/1
         </span>
         
         
-        
-        <span>
-            <a href="/tags/javaScript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javaScript
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/css/" style="color: #00a596">
+                    css
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/css/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                css
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/html/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                html
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                工程化
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/28</div>
-            <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                <h3>大师课笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javaScript/" style="color: #00bcd4">
-                            javaScript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="层叠-继承"><a href="#层叠-继承" class="headerlink" title="层叠&amp;&amp;继承"></a>层叠&amp;&amp;继承</h1><h1 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h1><p>声明冲突：同一个样式，多次应用到同一个元素</p>
+<p>层叠：解决声明冲突的过程，浏览器自动处理（权重计算）</p>
+<h2 id="比较重要性"><a href="#比较重要性" class="headerlink" title="比较重要性"></a>比较重要性</h2><p>重要性从高到底：</p>
+<ul>
+<li>作者样式表：开发者书写的样式<ol>
+<li>作者样式表中的<code>!important</code> 的样式</li>
+<li>作者样式表中的普通样式</li>
+<li>浏览器默认样式表中的样式</li>
+</ol>
+</li>
+</ul>
+<h2 id="比较特殊性"><a href="#比较特殊性" class="headerlink" title="比较特殊性"></a>比较特殊性</h2><p>看选择器</p>
+<p>总体规则：选择器选中的范围越窄，越特殊</p>
+<p>具体规则：通过选择器，计算出一个 4 位数(xxxx)</p>
+<ol>
+<li>千位：如果是内联样式，记 1，否则记 0。（注：内联样式是 style&#x3D;””）</li>
+<li>百位：等于选择器中所有 id 选择器的数量</li>
+<li>十位：等于选择器中所有类选择器，属性选择器，伪类选择器的数量</li>
+<li>各位：等于选择器中所有元素选择器，伪元素选择器的数量</li>
+</ol>
+<h2 id="比较源次序"><a href="#比较源次序" class="headerlink" title="比较源次序"></a>比较源次序</h2><p>代码书写靠后的胜出</p>
+<h1 id="层叠应用"><a href="#层叠应用" class="headerlink" title="层叠应用"></a>层叠应用</h1><ol>
+<li>重置样式表（通用样式表）</li>
+</ol>
+<p>书写一些作者样式，覆盖浏览器的默认样式</p>
+<p>常见的重置样式表：normalize.css、reset.css、meyer.css</p>
+<ol>
+<li>爱恨法则（比较原次序）</li>
+</ol>
+<p>link&gt;visited&gt;hover&gt;actived</p>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>子元素通常会继承父元素的某些 css 属性</p>
+<p>通常，与文字内容相关的属性都能被继承</p>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -295,6 +256,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

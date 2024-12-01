@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javaScript | 小苗</title>
+    <title>html笔记 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,120 +154,74 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1>html笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/1
         </span>
         
         
-        
-        <span>
-            <a href="/tags/javaScript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javaScript
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/html/" style="color: #00bcd4">
+                    html
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/css/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                css
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/html/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                html
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                工程化
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/28</div>
-            <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                <h3>大师课笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javaScript/" style="color: #00bcd4">
-                            javaScript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="容器元素"><a href="#容器元素" class="headerlink" title="容器元素"></a>容器元素</h1><p>容器元素：该元素代表一个块区域，内部用于放置其他元素</p>
+<h1 id="div元素"><a href="#div元素" class="headerlink" title="div元素"></a>div元素</h1><p>没有语义（浏览器无法识别这一块的内容）</p>
+<pre><code class="html">&lt;div&gt;我表示一块区域&lt;/div&gt;
+</code></pre>
+<h1 id="语义化容器元素"><a href="#语义化容器元素" class="headerlink" title="语义化容器元素"></a>语义化容器元素</h1><p>header：通常用于表示页头，也可以表示文章的头部</p>
+<pre><code class="html">&lt;header&gt;我表示一块头部区域&lt;/header&gt;
+</code></pre>
+<p>footer：通常用于表示页脚，也可以表示文章的尾部</p>
+<pre><code class="html">&lt;footer&gt;我表示一块尾部区域&lt;/footer&gt;
+</code></pre>
+<p>article：通常用于表示整篇文章</p>
+<pre><code class="html">&lt;article&gt;我表示一块文章区域&lt;/article&gt;
+</code></pre>
+<p>section：通常用于表示文章的章节</p>
+<pre><code class="html">&lt;article&gt;
+        &lt;section&gt;
+            &lt;p&gt;段落1&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+            &lt;p&gt;段落2&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+            &lt;p&gt;段落3&lt;/p&gt;
+        &lt;/section&gt;
+&lt;/article&gt;
+</code></pre>
+<p>aside：通常用于表示侧边栏</p>
+<pre><code class="html">&lt;aside&gt;我表示侧边栏&lt;/aside&gt;
+</code></pre>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -295,6 +253,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

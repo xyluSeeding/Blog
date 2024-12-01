@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javaScript | 小苗</title>
+    <title>html笔记 | 小苗</title>
     <meta name="author" content="小苗" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,120 +154,88 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
+            <div class="article">
+    <div>
+        <h1>html笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/1
         </span>
         
         
-        
-        <span>
-            <a href="/tags/javaScript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javaScript
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/html/" style="color: #ff7d73">
+                    html
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                面试
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/css/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                css
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/html/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                html
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                工程化
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/28</div>
-            <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-                <h3>大师课笔记</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javaScript/" style="color: #00bcd4">
-                            javaScript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="a-元素"><a href="#a-元素" class="headerlink" title="a 元素"></a>a 元素</h1><p>a 元素：超链接 ⇒ 可以从一个文档跳转到另一个文档</p>
+<h1 id="href-属性"><a href="#href-属性" class="headerlink" title="href 属性"></a>href 属性</h1><ol>
+<li>跳转地址(普通链接)</li>
+</ol>
+<pre><code class="html">&lt;a href=&quot;https://www.baidu.com&quot;&gt;百度&lt;/a&gt;
+</code></pre>
+<ol>
+<li>跳转到某个锚点(锚链接)</li>
+</ol>
+<p><img src="/a%E5%85%83%E7%B4%A0%2011d956d28a8b80759614d9d284066f3e/image.png" alt="image.png"></p>
+<pre><code class="html">((h2[id=&quot;chapter$&quot;]&gt;&#123;章节$&#125;)+p&gt;lorem)*6 a[href=&quot;#chapter$&quot;]*6 ...
+&lt;a href=&quot;#chapterX&quot;&gt;章节x&lt;/a&gt;
+...
+&lt;h2 id=&quot;chapterX&quot;&gt;章节X&lt;/h2&gt;
+&lt;p&gt;xxxxxx&lt;/p&gt;
+...
+</code></pre>
+<p>id 属性：全局属性，表示元素在文档中的唯一编号</p>
+<ol>
+<li>跳转其他页面的锚点(锚链接)</li>
+</ol>
+<pre><code class="html">&lt;a href=&quot;2.跳转到某个锚点.html#chapterX&quot;&gt;章节x&lt;/a&gt;
+</code></pre>
+<ol>
+<li>点击后触发某个功能(功能链接)</li>
+</ol>
+<p>— 执行 JS 代码</p>
+<pre><code class="html">&lt;a href=&quot;javascript:alert(&#39;你好&#39;)&quot;&gt;弹出你好&lt;/a&gt;
+</code></pre>
+<p>— 发送邮件</p>
+<pre><code class="html">&lt;a href=&quot;mailto:xxxxxxxxx@qq.com&quot;&gt;点击给我发送邮件&lt;/a&gt;
+&lt;!-- 要求用户计算机安装有邮件发送软件:exchange  --&gt;
+</code></pre>
+<p>— 拨打电话</p>
+<pre><code class="html">&lt;a href=&quot;tel:xxxxxxxxx)&quot;&gt;拨打电话&lt;/a&gt;
+&lt;!-- 要求用户计算机安装拨号软件，或移动端点击  --&gt;
+</code></pre>
+<h1 id="target-属性"><a href="#target-属性" class="headerlink" title="target 属性"></a>target 属性</h1><p>表示跳转窗口位置</p>
+<p>target 取值：</p>
+<p>_self：在当前页面窗口打开</p>
+<p>_blank：在新窗口打开</p>
+<pre><code class="html">&lt;a href=&quot;https://www.baidu.com&quot; target=&quot;_self&quot;&gt;百度&lt;/a&gt;
+</code></pre>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -295,6 +267,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
