@@ -181,8 +181,8 @@
         
 
 <div class="post">
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E7%9B%98%E7%82%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%20e59eb99576b842cc86ab0a649ddab813/">
-        <h2 class="post-title"></h2>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/Canves%20%E4%B8%8E%20SVG%20%E5%8C%BA%E5%88%AB%20193956d28a8b801e8be4dfc031626245/">
+        <h2 class="post-title">js篇章</h2>
     </a>
     <div class="category-and-date">
         
@@ -190,7 +190,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/4/7
+            2025/3/20
         </span>
         
         
@@ -198,280 +198,31 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="盘点字符串中常用方法"><a href="#盘点字符串中常用方法" class="headerlink" title="盘点字符串中常用方法"></a>盘点字符串中常用方法</h1><ol>
-<li><p>简单方法</p>
-<p> （1）**<code>String.prototype.toLowerCase()</code>**<br> 该方法用于把字符串转换为小写。</p>
-<pre><code class="jsx">let str = &quot;adABDndj&quot;;
-str.toLowerCase(); // 输出结果：&quot;adabdndj&quot;
-</code></pre>
-<p> （2）**<code>String.prototype.toUpperCase()</code>**</p>
-<p> 该方法用于把字符串转换为大写。</p>
-<pre><code class="jsx">let str = &quot;adABDndj&quot;;
-str.toUpperCase(); // 输出结果：&quot;ADABDNDJ&quot;
-</code></pre>
-</li>
-<li><p>获取字符串指定位置的值</p>
-<p> （1）**<code>String.prototype.charAt(index)</code>** </p>
-<ul>
-<li><code>index</code>:要返回的字符的索引，从零开始。会被<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number#%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2">转换为整数</a>——<code>undefined</code> 会被转换为 0</li>
-</ul>
-<pre><code class="jsx">const str = &quot;hello,world&quot;
-console.log(str.charAt(6)) // w
-console.log(str.[6])) // w
-// 效果与 str[6] 一致
-console.log(str.charAt(100)) // &#39;&#39;
-console.log(str.charAt(100)) // underfined
-// 但是一旦超出范围使用 str[100] 返回值不一样
-</code></pre>
-<p> （2）**<code>String.prototype.charCodeAt(index)</code>**</p>
-<p> 该方法会返回指定索引位置字符的 Unicode 值，返回值是 0 - 65535 之间的整数</p>
-<ul>
-<li><code>index</code>:要返回的字符的索引，从零开始。会被<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number#%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2">转换为整数</a>——<code>undefined</code> 会被转换为 0</li>
-</ul>
-<pre><code class="jsx">const str = &quot;hello,world&quot;
-console.log(str.charCodeAt(6)) // w -&gt; 119
-console.log(str.charCodeAt(100)) // NaN
-</code></pre>
-<p> （3）**<code>String.prototype.at(index)</code> <code>ES21</code>**</p>
-<p> 返回一个新的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String"><code>String</code></a>，该字符串由位于指定偏移量处的单个 <code>UTF-16</code> 码元组成。</p>
-<ul>
-<li><code>index</code>:要返回的字符串字符的索引（位置）。当传递负数时，支持从字符串末端开始的相对索引；也就是说，如果使用负数，返回的字符将从字符串的末端开始倒数。</li>
-</ul>
-<pre><code class="jsx">const str = &#39;Hello, world!&#39;;  
-  
-console.log(str.at(7)); // 输出: w  
-console.log(str.at(-1)); // 输出: !  
-console.log(str.at(100)); // 输出: undefined  
-console.log(str.at(-100)); // 输出: undefined  
-console.log(str.at(3.9)); // 输出: l，因为 3.9 被转换为整数 3
-</code></pre>
-<p> （4）**<code>String.prototype.codePointAt(index)</code> <code>ES6+</code>**</p>
-<p> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String"><code>String</code></a> 的 <strong><code>codePointAt()</code></strong> 方法返回一个非负整数，该整数是从给定索引开始的字符的 Unicode 码位值。请注意，索引仍然基于 UTF-16 码元，而不是 Unicode 码位。</p>
-<ul>
-<li><code>index</code> :需要返回的字符的（从零开始的）索引</li>
-</ul>
-<pre><code class="jsx">const str = &quot;Hello, world!&quot;;  
-console.log(str.codePointAt(7)); // 输出: 119，&#39;w&#39; 的 Unicode 码点
-
-const str = &quot;&quot;;  
-console.log(str.codePointAt(0)); // 输出: undefined，因为字符串为空  
-  
-const longStr = &quot;This is a long string&quot;;  
-console.log(longStr.codePointAt(100)); // 输出: undefined，因为索引超出了字符串范围
-</code></pre>
-</li>
-<li><p>检索字符串是否包含特定序列</p>
-<p> （1）**<code>String.prototype.indexOf(**searchString, *position**)**</code>  </p>
-<p> 返回第一次匹配到的位置</p>
-<ul>
-<li><code>searchValue</code>：要搜索的子字符串。所有传入值都会被强制转换为字符串，因此如果该参数被省略或传入 <code>undefined</code>，<code>indexOf()</code> 方法会在字符串中搜索 <code>&quot;undefined&quot;</code>，这通常不是你想要的。</li>
-<li><code>position</code>：该方法返回指定子字符串在大于或等于 <code>position</code> 位置的第一次出现的索引，默认为 0。如果 <code>position</code> 大于调用字符串的长度，则该方法根本不搜索调用字符串。如果 position 小于零，该方法的行为就像 <code>position</code> 为 0 时一样。</li>
-</ul>
-<pre><code class="jsx">console.log(str.indexOf(&quot;w&quot;)) // 6
-console.log(str.indexOf(&quot;a&quot;)) // -1
-console.log(str.indexOf(&quot;l&quot;,5)) // 9
-console.log(str.indexOf(&quot;world&quot;)) // 6
-</code></pre>
-<p> （2）**<code>String.prototype.lastIndexOf(**searchString, *position**)**</code> </p>
-<p> 返回最后匹配到的位置</p>
-<pre><code class="jsx">const str = &quot;hello,world&quot;
-console.log(str.lastIndexOf(&quot;l&quot;)) // 9
-console.log(str.lastIndexOf(&quot;a&quot;)) // -1
-</code></pre>
-<p> （3）**<code>String.prototype.includes(**searchString, *position**)**</code></p>
-<ul>
-<li><code>searchValue</code>：一个要在 <code>str</code> 中查找的字符串。所有非正则表达式的值都会被<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2">强制转换为字符串</a>，因此如果该参数被省略或传入 <code>undefined</code>，<code>includes()</code> 方法会在字符串中搜索 <code>&quot;undefined&quot;</code>，这通常不是你想要的。</li>
-<li>在字符串中开始搜索 <code>searchString</code> 的位置。默认值为 <code>0</code>。</li>
-</ul>
-<pre><code class="jsx">const str = &quot;hello,world&quot;
-console.log(str.indexOf(&quot;w&quot;)) // 6
-console.log(str.indexOf(&quot;a&quot;)) // -1
-console.log(str.indexOf(&quot;l&quot;,5)) // 9
-</code></pre>
-<p> （4）**<code>String.prototype.startsWith(**searchString, *endPosition**)**</code></p>
-<pre><code> **`String.prototype.endsWith(**searchString, *endPosition**)**`
-</code></pre>
-<p> 这个方法可以让你确定一个字符串是否以另一个字符串结尾。该方法区分大小写。</p>
-<ul>
-<li><code>searchString</code>：要搜索的作为结尾的字符串</li>
-<li><code>endPosition</code>：预期找到 <code>searchString</code> 的末尾位置（即 <code>searchString</code> 最后一个字符的索引加 1）。默认为 <code>str.length</code>。</li>
-</ul>
-<pre><code class="jsx">const str = &quot;hello,world!&quot;
-console.log(str.startsWith(&#39;hello&#39;)); //true
-console.log(str.startsWith(&#39;ello&#39;, 1)); //true
-
-console.log(str.endsWith(&#39;world!&#39;)); //true
-console.log(str.endsWith(&#39;worl&#39;, 10)); //true
-</code></pre>
-</li>
-<li><p>合并字符串</p>
-<p> （1）**<code>String.prototype.concat(strN)</code>**</p>
-<p> 方法将字符串参数连接到调用的字符串，并返回一个新的字符串。</p>
-<ul>
-<li><code>strN</code>: 要连接到 <code>str</code> 的一个或多个字符串。</li>
-</ul>
-<pre><code class="jsx">const str1 = &#39;Hello&#39;;
-const str2 = &#39;World&#39;;
-
-console.log(str1.concat(str2)); // &quot;HelloWorld&quot;
-
-console.log(str2.concat(&#39;, &#39;, str1));// &quot;World, Hello&quot;
-</code></pre>
-<p> （2）**<code>String.prototype.padStart(**targetLength, *padString**)**</code></p>
-<p> 将当前字符串从开头开始填充给定的字符串</p>
-<ul>
-<li><code>targetLength</code>：当前 <code>str</code> 填充后的长度。如果该值小于或等于 <code>str.length</code>，则会直接返回当前 <code>str</code>。</li>
-<li><code>padString</code> ： 用于填充当前 <code>str</code> 的字符串。如果 <code>padString</code> 太长，无法适应 <code>targetLength</code>，则会被截断：对于从左到右的语言，左侧的部分将会被保留；对于从右到左的语言，右侧的部分将会被保留。默认值为“ ”</li>
-</ul>
-<pre><code class="jsx">const mood = &#39;Happy! &#39;;
-console.log(`I feel $&#123;mood.repeat(3)&#125;`); // &quot;I feel Happy! Happy! Happy! &quot;
-</code></pre>
-</li>
-<li><p>正则有关</p>
-<p> （1）**<code>String.prototype.match(**regexp**)**</code></p>
-<p> <strong><code>match()</code></strong> 方法检索字符串与<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_expressions">正则表达式</a>进行匹配的结果。</p>
-<ul>
-<li><code>regexp</code> ：一个正则表达式对象或者任何具有 <code>Symbol.match()</code>方法的对象。</li>
-</ul>
-<pre><code class="jsx">const paragraph = &#39;The quick brown fox jumps over the lazy dog. It barked.&#39;;
-const regex = /[A-Z]/g;
-const found = paragraph.match(regex);
-
-console.log(found); Array [&quot;T&quot;, &quot;I&quot;]
-</code></pre>
-<p> （2）**<code>String.prototype.matchAll(**regexp**)**</code></p>
-<p> <strong><code>matchAll()</code></strong> 方法检索字符串与正则表达式进行匹配的结果。</p>
-<ul>
-<li><code>regexp</code> ：一个正则表达式对象或者任何具有 <code>Symbol.match()</code>方法的对象。</li>
-</ul>
-<pre><code class="jsx">const text = &quot;I have 2 cats and 3 dogs.&quot;;  
-const matches = text.matchAll(/\d+/g);  
-for (const match of matches) &#123;  
-    console.log(match[0]); // 输出所有数字：&quot;2&quot;, &quot;3&quot;  
-&#125;
-</code></pre>
-<p> （3）**<code>String.prototype.search(**regexp**)**</code></p>
-<p> 对象中执行正则表达式的搜索，寻找匹配项。</p>
-<ul>
-<li><code>regexp</code> ：一个正则表达式对象或者任何具有 <code>Symbol.match()</code>方法的对象。</li>
-</ul>
-<pre><code class="jsx">const paragraph = &quot;I think Ruth&#39;s dog is cuter than your dog!&quot;;
-
-const regex = /[^\w\s&#39;]/g;
-
-console.log(paragraph.search(regex));// 41
-
-console.log(paragraph[paragraph.search(regex)]);// &quot;!&quot;
-</code></pre>
-</li>
-<li><p>填充字符串</p>
-<p> （1）**<code>String.prototype.padEnd(**targetLength, *padString**)**</code></p>
-<p> 将当前字符串从末尾开始填充给定的字符串</p>
-<ul>
-<li><code>targetLength</code>：当前 <code>str</code> 填充后的长度。如果该值小于或等于 <code>str.length</code>，则会直接返回当前 <code>str</code>。</li>
-<li><code>padString</code> ： 用于填充当前 <code>str</code> 的字符串。如果 <code>padString</code> 太长，无法适应 <code>targetLength</code>，则会被截断：对于从左到右的语言，左侧的部分将会被保留；对于从右到左的语言，右侧的部分将会被保留。默认值为“ ”</li>
-</ul>
-<pre><code class="jsx">const str1 = &#39;hello,world&#39;;
-console.log(str1.padEnd(25, &#39;.&#39;)); // &quot;hello,world...............&quot;
-</code></pre>
-<p> （2）**<code>String.prototype.padStart(**targetLength, *padString**)**</code></p>
-<p> 将当前字符串从开头开始填充给定的字符串</p>
-<ul>
-<li><code>targetLength</code>：当前 <code>str</code> 填充后的长度。如果该值小于或等于 <code>str.length</code>，则会直接返回当前 <code>str</code>。</li>
-<li><code>padString</code> ： 用于填充当前 <code>str</code> 的字符串。如果 <code>padString</code> 太长，无法适应 <code>targetLength</code>，则会被截断：对于从左到右的语言，左侧的部分将会被保留；对于从右到左的语言，右侧的部分将会被保留。默认值为“ ”</li>
-</ul>
-<pre><code class="jsx">const str1 = &#39;hello,world&#39;;
-console.log(str1.**padStart**(25, &#39;*&#39;)); //  &quot;**************hello,world&quot;
-</code></pre>
-<p> （3）**<code>String.prototype.repeat(**count**)**</code></p>
-<p> 返回一个新字符串，其中包含指定数量的所调用的字符串副本，这些副本连接在一起。</p>
-<ul>
-<li>count：介于 <code>0</code> 和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/POSITIVE_INFINITY"><code>+Infinity</code></a> 之间的整数。表示在新构造的字符串中重复了多少遍原字符串。</li>
-</ul>
-<pre><code class="jsx">const str1 = &#39;hello,world&#39;;
-console.log(str1.padEnd(25, &#39;.&#39;)); // &quot;hello,world...............&quot;
-</code></pre>
-</li>
-<li><p>修改字符串内容</p>
-<p> （1）**<code>String.prototype.replace(**pattern, replacement**)</code>** </p>
-<pre><code> **`String.prototype.replaceAll(p**attern, replacement**)**`
-</code></pre>
-<p> 返回一个新字符串，其中一个、多个或所有匹配的 <code>pattern</code> 被替换为 <code>replacement</code>。</p>
-<ul>
-<li><code>pattern</code>：可以是一个字符串或一个具有 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace"><code>Symbol.replace</code></a> 方法的对象</li>
-<li><code>replacement</code> ：可以是一个字符串或一个函数。</li>
-</ul>
-<pre><code class="jsx">const paragraph = &quot;I think Ruth&#39;s dog is cuter than your dog!&quot;;
-
-console.log(paragraph.replace(&quot;Ruth&#39;s&quot;, &#39;my&#39;)); 
-//&quot;I think my dog is cuter than your dog!&quot;
-
-console.log(paragraph.replaceAll(&#39;dog&#39;, &#39;monkey&#39;)); 
-//&quot;I think Ruth&#39;s monkey is cuter than your monkey!&quot;
-</code></pre>
-<p> （2）**<code>String.prototype.trim()</code>** </p>
-<pre><code> **`String.prototype.trimStart()`**
-
- **`String.prototype.trimEnd()`**
-</code></pre>
-<p> 从字符串的两端移除空白字符</p>
-<pre><code class="jsx">const greeting = &#39;   Hello world!   &#39;;
-
-console.log(greeting.trim());// &quot;Hello world!&quot;;
-
-console.log(greeting.trimStart());// &quot;Hello world!   &quot;;
-
-console.log(greeting.trimEnd());//  &quot;   Hello world!&quot;;
-</code></pre>
-</li>
-<li><p>截取字符串</p>
-<p> （1）**<code>String.prototype.slice(**indexStart, *indexEnd**)**</code></p>
-<p> 提取字符串的一部分</p>
-<ul>
-<li><code>indexStart</code>：要返回的子字符串中包含的第一个字符的索引。</li>
-<li><code>indexEnd</code>： 要返回的子字符串中排除的第一个字符的索引。</li>
-</ul>
-<pre><code class="jsx">const str = &#39;The quick brown fox jumps over the lazy dog.&#39;;
-
-console.log(str.slice(31));// &quot;the lazy dog.&quot;
-
-console.log(str.slice(4, 19));// &quot;quick brown fox&quot;
-
-console.log(str.slice(-4));// &quot;dog.&quot;
-
-console.log(str.slice(-9, -5));// &quot;lazy&quot;
-</code></pre>
-<p> （2）**<code>String.prototype.split(**separator, *limit**)**</code></p>
-<p> 描述每个分割应该发生在哪里的模式。</p>
-<ul>
-<li><code>separator</code>：当前 <code>str</code> 填充后的长度。如果该值小于或等于 <code>str.length</code>，则会直接返回当前 <code>str</code>。</li>
-<li><code>limit</code>： 一个非负整数，指定数组中包含的子字符串的数量限制。</li>
-</ul>
-<pre><code class="jsx">const str = &#39;The quick brown fox jumps over the lazy dog.&#39;;
-
-const words = str.split(&#39; &#39;);
-console.log(words[3]);// &quot;fox&quot;
-
-const chars = str.split(&#39;&#39;);
-console.log(chars[8]);// &quot;k&quot;
-</code></pre>
-</li>
-</ol>
+            <p>Canves 与 SVG 区别</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
         
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/js/" style="color: #00bcd4">js</a>
+        </span>
         
     </div>
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E7%9B%98%E7%82%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%20e59eb99576b842cc86ab0a649ddab813/" class="go-post">阅读全文</a>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/Canves%20%E4%B8%8E%20SVG%20%E5%8C%BA%E5%88%AB%20193956d28a8b801e8be4dfc031626245/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E8%AF%B7%E6%B1%82%E7%AB%9E%E6%80%81%201c1956d28a8b804abd61e7a6c0119c72/">
-        <h2 class="post-title"></h2>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/JS%E4%B8%AD%E7%9A%84%E5%AE%8F%E9%98%9F%E5%88%97%E5%92%8C%E5%BE%AE%E9%98%9F%E5%88%97%200c7d0e100c11418890538cc15d4c1f2b/">
+        <h2 class="post-title">js篇章</h2>
     </a>
     <div class="category-and-date">
         
@@ -479,7 +230,7 @@ console.log(chars[8]);// &quot;k&quot;
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/4/7
+            2025/3/20
         </span>
         
         
@@ -487,80 +238,31 @@ console.log(chars[8]);// &quot;k&quot;
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="请求竞态"><a href="#请求竞态" class="headerlink" title="请求竞态"></a>请求竞态</h1><p>- 当用户快速触发多次输入时，需确保仅渲染最后一次请求的结果，避免旧请求覆盖新数据。以下为两种核心策略：</p>
-<h4 id="1-请求标识比对"><a href="#1-请求标识比对" class="headerlink" title="1. 请求标识比对"></a><strong>1. 请求标识比对</strong></h4><p>为每个请求生成唯一标识（如时间戳），在响应处理时仅更新当前最新标识对应的结果：</p>
-<pre><code class="javascript">
-let latestRequestId = 0;
-
-async function handleInput(input) &#123;
-
-const currentRequestId = ++latestRequestId;
-
-const data = await axios.get(&#39;/api&#39;, &#123; params: &#123; query: input &#125; &#125;);
-
-if (currentRequestId === latestRequestId) &#123;
-
-render(data); // 仅处理最新请求的响应
-
-&#125;
-
-&#125;
-</code></pre>
-<h4 id="2-主动取消旧请求"><a href="#2-主动取消旧请求" class="headerlink" title="2. 主动取消旧请求"></a><strong>2. 主动取消旧请求</strong></h4><p>利用 <code>AbortController</code> 终止未完成的旧请求：</p>
-<pre><code class="javascript">
-let abortController = null;
-
-async function handleInput(input) &#123;
-
-if (abortController) &#123;
-
-abortController.abort(); // 终止前序未完成的请求
-
-&#125;
-
-abortController = new AbortController();
-
-try &#123;
-
-const data = await axios.get(&#39;/api&#39;, &#123;
-
-params: &#123; query: input &#125;,
-
-signal: abortController.signal
-
-&#125;);
-
-render(data);
-
-&#125; catch (error) &#123;
-
-if (error.name !== &#39;CanceledError&#39;) &#123;
-
-console.error(&#39;请求异常:&#39;, error);
-
-&#125;
-
-&#125;
-
-&#125;
-</code></pre>
-<p>|      |</p>
-<p>| —- |</p>
+            <p>JS 中的宏队列和微队列</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
         
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/js/" style="color: #00bcd4">js</a>
+        </span>
         
     </div>
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E8%AF%B7%E6%B1%82%E7%AB%9E%E6%80%81%201c1956d28a8b804abd61e7a6c0119c72/" class="go-post">阅读全文</a>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/JS%E4%B8%AD%E7%9A%84%E5%AE%8F%E9%98%9F%E5%88%97%E5%92%8C%E5%BE%AE%E9%98%9F%E5%88%97%200c7d0e100c11418890538cc15d4c1f2b/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E8%B7%A8%E5%9F%9F%201a0956d28a8b80589159e0784c4f7a90/">
-        <h2 class="post-title"></h2>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/CommoJS%20%E5%92%8C%20ESM%20%E7%9A%84%E5%8C%BA%E5%88%AB%201c6956d28a8b806fb14be9ba9dbd407e/">
+        <h2 class="post-title">js篇章</h2>
     </a>
     <div class="category-and-date">
         
@@ -568,7 +270,7 @@ console.error(&#39;请求异常:&#39;, error);
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/4/7
+            2025/3/20
         </span>
         
         
@@ -576,29 +278,31 @@ console.error(&#39;请求异常:&#39;, error);
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
-<li>限制<code>dom</code>的访问</li>
-<li>限制<code>cookie</code>的访问</li>
-<li><code>Ajax</code>响应数据收到限制：源A可以给源B发送请求，但是获取不到数据</li>
-</ol>
-<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p><img src="/%E8%B7%A8%E5%9F%9F%201a0956d28a8b80589159e0784c4f7a90/image.png" alt="image.png"></p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p><code>CORS</code>全称：<code>Cross-Origin Resource Sharing</code> （跨域资源共享），是用于控制浏览器校验跨域请求的一套规范，服务器按照<code>CORS</code>规范，添加特定响应头来控制浏览器校验</p>
-<h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><p><strong>sonp</strong>的原理就是利用<code>&lt;script&gt;</code>标签没有跨域限制，通过<code>&lt;script&gt;</code>标签src属性，发送带有callback参数的GET请求，服务端将接口返回数据拼凑到callback函数中，返回给浏览器，浏览器解析执行，从而前端拿到callback函数返回的数据。</p>
-<h3 id="代理服务器"><a href="#代理服务器" class="headerlink" title="代理服务器"></a>代理服务器</h3>
+            <p>CommoJS 和 ESM 的区别</p>
+
             
         </div>
     </div>
     <div class="post-tags">
         
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
         
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/js/" style="color: #ffa2c4">js</a>
+        </span>
         
     </div>
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E8%B7%A8%E5%9F%9F%201a0956d28a8b80589159e0784c4f7a90/" class="go-post">阅读全文</a>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/CommoJS%20%E5%92%8C%20ESM%20%E7%9A%84%E5%8C%BA%E5%88%AB%201c6956d28a8b806fb14be9ba9dbd407e/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%201c9956d28a8b8075bcd8ef026da39375/">
-        <h2 class="post-title"></h2>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/Reflect%201be956d28a8b8048bfbcdac6a9b94d88/">
+        <h2 class="post-title">js篇章</h2>
     </a>
     <div class="category-and-date">
         
@@ -606,7 +310,7 @@ console.error(&#39;请求异常:&#39;, error);
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/4/7
+            2025/3/20
         </span>
         
         
@@ -614,130 +318,31 @@ console.error(&#39;请求异常:&#39;, error);
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><h1 id="面试题：-看你之前项目中都有做过性能优化相关的，请说说你都做了哪些性能优化相关的工作？"><a href="#面试题：-看你之前项目中都有做过性能优化相关的，请说说你都做了哪些性能优化相关的工作？" class="headerlink" title="面试题： 看你之前项目中都有做过性能优化相关的，请说说你都做了哪些性能优化相关的工作？"></a>面试题： 看你之前项目中都有做过性能优化相关的，请说说你都做了哪些性能优化相关的工作？</h1><p>可以从4点开始答：</p>
-<ol>
-<li>打开速度怎么变快一首屏加载优</li>
-<li>再次打开速度怎么变快一缓存优化</li>
-<li>操作怎么才顺滑一渲染优化</li>
-<li>动画怎么保证流畅一长任务拆分</li>
-</ol>
-<h2 id="首屏加载优化"><a href="#首屏加载优化" class="headerlink" title="首屏加载优化"></a>首屏加载优化</h2><p>先说明应用的问题（存在哪些性能），解决了性能问题之后，怎么去衡量加载情况好了多少</p>
-<p>一般情况下，首屏加载性能指标会从以下几个方面来展开：</p>
-<ol>
-<li>FP（<code>First Paint</code>）CSR渲染出的html空壳子时间</li>
-<li>FCP（<code>First Contentful Paint</code> 首次内容绘制），FP 到 FCP 中间其实主要是 SPA 应用js执行，太慢就会白屏时间太长（1-2 可体现出首次绘制DOM的时差 ）</li>
-<li>FMP（<code>First Meaningful Paint</code> 首次有效绘制），主要内容呈现的时间（MutationObserver）</li>
-<li>LCP（<code>Largest Contentful Paint</code> 最大内容渲染），体现的是加载最大内容快呈现时间</li>
-</ol>
-<p>以下是体现的是用户使用体验</p>
-<ol>
-<li>INP （Interaction to Next Paint）用户交互到整个页面的响应时间</li>
-<li>TTI 可交互时间，一般在ssr优化里面去重点考虑，主要是SSR返回HTML文件，通过js去绑定事件的时间</li>
-<li>TBT（Total Blocking Time 阻塞时间：从 FCP 到 TTL ）总阻塞时间</li>
-<li>CLS（Cumulative Layout Shift 布局偏移）整个内容在渲染的时候到底发生过多少次重排重绘 ，就浏览器打分的那个</li>
-<li>TTFB（Time ti First Byte）首字节到达时间，请求发出后到接收到数据中间的时间</li>
-</ol>
-<aside>
-🤗
-
-<p>前四个强调的是一个绘制的时候，要保证一是初次获取的内容它的字节数足够小（按需加载、懒加载、按需导入的原因）→ 基本上围绕资源的体积去处理</p>
-</aside>
-
-<h3 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h3><blockquote>
-<p>体积瘦身的方案：</p>
-</blockquote>
-<ol>
-<li>优化图片：Webp，图片压缩，图片尺寸（在合适的容器内用合适尺寸图片 1倍2倍3倍图）</li>
-<li>字体瘦身：一般用于设计型产品，字体子集化（用了哪些字，最后只生成对应字的字体文件 → Fontmin）</li>
-<li>针对一些具体的资源做处理：懒加载，图片懒加载，js异步加载</li>
-<li>css、JavaScript → 文件压缩、打包构建阶段完成（terser）</li>
-</ol>
-<ul>
-<li>代码压缩  ||  文件合并 || 文件拆分 || Tree-shaking || 动态加载</li>
-</ul>
-<ol start="5">
-<li>Gzip 、Brotli</li>
-<li>SSR SSG<blockquote>
-</blockquote>
-</li>
-</ol>
-<h2 id="动画卡顿优化"><a href="#动画卡顿优化" class="headerlink" title="动画卡顿优化"></a>动画卡顿优化</h2><p>为什么会卡顿？？？</p>
-<blockquote>
-<p><strong>单线程</strong> 阻塞   （回答的时候说 在什么地方，是哪一部分代码执行时间较长，形成了长任务，导致整个线程就阻塞了）</p>
-</blockquote>
-<h3 id="方案-1"><a href="#方案-1" class="headerlink" title="方案"></a>方案</h3><ol>
-<li>减少主线程阻塞<ul>
-<li>优化JavaScript执行，较少长任务（复杂的计算【web worker、将任务切分(react Scheduler)】)</li>
-</ul>
-</li>
-<li>GPU<ul>
-<li>css属性可以触发GPU加速(transform\opacity)</li>
-<li>避免会引起重排的属性（定位 left、top）</li>
-</ul>
-</li>
-<li>requestAnimationFrame</li>
-<li>节流防抖</li>
-</ol>
-<h2 id="应用层状态的优化"><a href="#应用层状态的优化" class="headerlink" title="应用层状态的优化"></a>应用层状态的优化</h2><p>1．减少全局状态的依赖</p>
-<p>-将状态尽可能局部化，避免使用全局状态(如Redux或 Context)管理所有数据。</p>
-<p>-示例:对于仅用于某些组件的状态，可以使用组件的 useState 或useReducero</p>
-<p>2．优化 Context的性能</p>
-<ul>
-<li>Context的更新会重新渲染所有订阅的组件。</li>
-</ul>
-<p>-解决方案:<strong>拆分Context</strong>，将不同的逻辑存储在争个 Context中，降低重新渲染范围。3．使用高效的状态管理库</p>
-<p>-使用轻量、高性能的状态管理工具，如 Zustand、Jotai 或 Recoil，它们具备更细粒度的状态更新机制。</p>
-<p>4．避免不必要的状态更新</p>
-<h3 id="事件和渲染细节优化"><a href="#事件和渲染细节优化" class="headerlink" title="事件和渲染细节优化"></a>事件和渲染细节优化</h3><ol>
-<li><p>节流防抖</p>
-<p> 对频繁触发的事件（如滚动、输入)进行节流或防抖处理，避免多次触发重渲染。</p>
-<p> 示例【防抖实现】</p>
-<pre><code class="jsx">const debounce = (func,delay) =&gt;&#123;
-    let timeout;
-    return (...args) =&gt;&#123;
-        clearTimeout(timeout);
-        timcout = setTimeout(() =&gt; func(. . .args), delay) ;
-    &#125;;
-&#125;
-const handleInput = debounce((value) =&gt; console.log(value)，300);
-</code></pre>
-</li>
-<li><p>事件绑定</p>
-<p> 在 Vue中使用.native修饰符直接绑定DOM事件</p>
-<p> 在 React中，避免在子组件上过多传递回调函数</p>
-</li>
-<li><p>减少不必要的DOM操作</p>
-<p> 减少直接操作DOM的次数，尽量通过框架的响应式机制处理更新。</p>
-</li>
-<li><p>异步加载和懒加载</p>
-<p> 对于路由组件、图片等使用懒加载技术，降低首次加载压力。</p>
-</li>
-<li><p>使用请求合并</p>
-<p> 在需要多次请求时,合并请求以减少多余的网络开销</p>
-</li>
-</ol>
-<h1 id="面试题：-你们的前端项目性能有重点关注过吗，是如何评估的，有做具体的性能指标体系和评估策略吗"><a href="#面试题：-你们的前端项目性能有重点关注过吗，是如何评估的，有做具体的性能指标体系和评估策略吗" class="headerlink" title="面试题： 你们的前端项目性能有重点关注过吗，是如何评估的，有做具体的性能指标体系和评估策略吗"></a>面试题： 你们的前端项目性能有重点关注过吗，是如何评估的，有做具体的性能指标体系和评估策略吗</h1><p>性能优化不仅仅是代码层面的工作，更需要一套完善的性能评估指标体系和评估策略作为基础支持。以下将从评估性能的重要性、如何得到性能指标和评估策略的落地三个方面详细展开。</p>
-<p>性能评估是前端性能优化的起点。通过准确的评估，能够帮助团队识别性能瓶颈，优先解决关键问题，从而优化用&#x2F;体验。以下是需要关注的几个原因:</p>
-<ul>
-<li>用户期望响应速度越来越快，直接影响留存率和转化率。</li>
-<li>不同设备、网络环境下的性能表现需要监控和优化。</li>
-<li>确保团队的优化工作有明确目标和验证依据。</li>
-</ul>
+            <p>Reflect</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
         
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/js/" style="color: #ff7d73">js</a>
+        </span>
         
     </div>
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%201c9956d28a8b8075bcd8ef026da39375/" class="go-post">阅读全文</a>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/Reflect%201be956d28a8b8048bfbcdac6a9b94d88/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%201c4956d28a8b8091b6e7f66c4ff46bb2/">
-        <h2 class="post-title"></h2>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/async%20await%20%E5%8E%9F%E7%90%86%201be956d28a8b80f8aec2d3ec0b54d200/">
+        <h2 class="post-title">js篇章</h2>
     </a>
     <div class="category-and-date">
         
@@ -745,7 +350,7 @@ const handleInput = debounce((value) =&gt; console.log(value)，300);
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/4/7
+            2025/3/20
         </span>
         
         
@@ -753,37 +358,31 @@ const handleInput = debounce((value) =&gt; console.log(value)，300);
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="浏览器事件循环"><a href="#浏览器事件循环" class="headerlink" title="浏览器事件循环"></a>浏览器事件循环</h1><p>任务没有优先级，在消息队列中先进先出</p>
-<p>但<strong>消息队列是有优先级的</strong></p>
-<p>根据w3C的最新解释:</p>
-<ul>
-<li>每个任务都有一个任务类型，同一个类型的任务必须在一个队列，不同类型的任务可以分属于不同的队列。在一次事件循环中，浏览器可以根据实际情况从不同的队列中取出任务执行。</li>
-<li>浏览器必须准备好一个微队列，微队列中的任务优先所有其他任务执行。</li>
-</ul>
-<blockquote>
-<p>随着浏览器的复杂度急剧提升，W3C不再使用宏队列的说法</p>
-</blockquote>
-<p>在目前chrome 的实现中，至少包含了下面的队列:</p>
-<ul>
-<li>延时队列:用于存放计时器到达后的回调任务，优先级「中」</li>
-<li>交互队列︰用于存放用户操作后产生的事件处理任务，优先级「高」</li>
-<li>微队列:用户存放需要最快执行的任务，优先级「最高」</li>
-</ul>
+            <p>async await 原理</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
         
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/js/" style="color: #ffa2c4">js</a>
+        </span>
         
     </div>
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%201c4956d28a8b8091b6e7f66c4ff46bb2/" class="go-post">阅读全文</a>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/async%20await%20%E5%8E%9F%E7%90%86%201be956d28a8b80f8aec2d3ec0b54d200/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%201bf956d28a8b809f9516f1d458ee3021/">
-        <h2 class="post-title"></h2>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/SSR%20CSR%E6%B8%B2%E6%9F%93%201c9956d28a8b8041b476d6ddf838a9ac/">
+        <h2 class="post-title">js篇章</h2>
     </a>
     <div class="category-and-date">
         
@@ -791,7 +390,7 @@ const handleInput = debounce((value) =&gt; console.log(value)，300);
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/4/7
+            2025/3/20
         </span>
         
         
@@ -799,45 +398,31 @@ const handleInput = debounce((value) =&gt; console.log(value)，300);
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="大文件上传"><a href="#大文件上传" class="headerlink" title="大文件上传"></a>大文件上传</h1><h1 id="大文件上传的基本方法"><a href="#大文件上传的基本方法" class="headerlink" title="大文件上传的基本方法"></a>大文件上传的基本方法</h1><p>先来看一个简单的例子</p>
-<pre><code class="jsx"> const inp = document.querySelector(&quot;input&quot;);
-      inp.onchange = (e) =&gt; &#123;
-        const file = inp.files[0];
-        if (!file) &#123;
-          return;
-        &#125;
-        const chunks = createChunks(file, 10 * 1024 * 1024);
-        console.log(chunks);
-      &#125;;
-
-      function createChunks(file, chunkSize) &#123;
-        const result = [];
-        for (let i = 0; i &lt; file.size; i += chunkSize) &#123;
-          result.push(file.slice(i, i + chunkSize));
-        &#125;
-        return result;
-  &#125;
-</code></pre>
-<p><img src="/%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%201bf956d28a8b809f9516f1d458ee3021/image.png" alt="image.png"></p>
-<p>这个上传文件的大小是2G多，分片大小是10M。当我们在运行的时候会发现，处理这么大的文件时，系统既然没有卡顿，为什么？？？</p>
-<blockquote>
-<p>文件分片后，每一个Blob对象都是保存了一个分片的基本信息，比如文件的 <code>size</code>  <code>type</code> <code>name</code> ,并没有保存这些文件的信息，所以说我们对这个文件进行分片，其实就是一个简单的数字运算而已，如果将来真的要用这些信息的时候，我们需要用<code>FileReader</code> 才能真正的把这些信息读取出来。</p>
-</blockquote>
+            <p>SSR CSR 渲染</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
         
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/js/" style="color: #03a9f4">js</a>
+        </span>
         
     </div>
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%201bf956d28a8b809f9516f1d458ee3021/" class="go-post">阅读全文</a>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/SSR%20CSR%E6%B8%B2%E6%9F%93%201c9956d28a8b8041b476d6ddf838a9ac/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E5%A4%A7%E5%B1%8F%E5%8F%AF%E8%A7%86%E5%8C%96%E6%96%B9%E6%A1%88%201c7956d28a8b800fa2eddfc35d4778b3/">
-        <h2 class="post-title"></h2>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/call%20apply%20bind%2010b956d28a8b80b69681f55906f68ad7/">
+        <h2 class="post-title">js篇章</h2>
     </a>
     <div class="category-and-date">
         
@@ -845,7 +430,7 @@ const handleInput = debounce((value) =&gt; console.log(value)，300);
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/4/7
+            2025/3/20
         </span>
         
         
@@ -853,21 +438,31 @@ const handleInput = debounce((value) =&gt; console.log(value)，300);
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="大屏可视化方案"><a href="#大屏可视化方案" class="headerlink" title="大屏可视化方案"></a>大屏可视化方案</h1>
+            <p>call apply bind</p>
+
             
         </div>
     </div>
     <div class="post-tags">
         
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
         
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/js/" style="color: #03a9f4">js</a>
+        </span>
         
     </div>
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E5%A4%A7%E5%B1%8F%E5%8F%AF%E8%A7%86%E5%8C%96%E6%96%B9%E6%A1%88%201c7956d28a8b800fa2eddfc35d4778b3/" class="go-post">阅读全文</a>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/call%20apply%20bind%2010b956d28a8b80b69681f55906f68ad7/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%201c2956d28a8b80f08f87d63f5a7a2f24/">
-        <h2 class="post-title"></h2>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/nodejs%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%201c3956d28a8b80b7a6ffc06c66ee0e07/">
+        <h2 class="post-title">js篇章</h2>
     </a>
     <div class="category-and-date">
         
@@ -875,7 +470,7 @@ const handleInput = debounce((value) =&gt; console.log(value)，300);
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/4/7
+            2025/3/20
         </span>
         
         
@@ -883,28 +478,31 @@ const handleInput = debounce((value) =&gt; console.log(value)，300);
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h1><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><ol>
-<li>持有了不在需要的函数引用，会导致函数关联的词法环境无法被销毁</li>
-<li>当多个函数共享词法环境时，会导致词法环境膨胀</li>
-</ol>
-<h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><p>设置了 setInterval 定时器，而忘记取消它，如果循环函数有对外部变量的引用的话，那么这个变量会被一直留在内存中，而无法被回收。</p>
-<h3 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h3><p>由于使用未声明的变量，而意外的创建了一个全局变量，而使这个变量一直留在内存中无法被回收。</p>
-<h3 id="DOM引用"><a href="#DOM引用" class="headerlink" title="DOM引用"></a>DOM引用</h3><p>获取一个 DOM 元素的引用，而后面这个元素被删除，由于一直保留了对这个元素的引用，所以它也无法被回收。</p>
+            <p>nodejs 事件循环</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
         
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/js/" style="color: #ffa2c4">js</a>
+        </span>
         
     </div>
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%201c2956d28a8b80f08f87d63f5a7a2f24/" class="go-post">阅读全文</a>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/nodejs%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%201c3956d28a8b80b7a6ffc06c66ee0e07/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%201c4956d28a8b80489d21f776a2f37c04/">
-        <h2 class="post-title"></h2>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/js%E7%9A%84%E5%BC%82%E6%AD%A5%201c4956d28a8b805f9b03e1c277d933d4/">
+        <h2 class="post-title">js篇章</h2>
     </a>
     <div class="category-and-date">
         
@@ -912,7 +510,7 @@ const handleInput = debounce((value) =&gt; console.log(value)，300);
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/4/7
+            2025/3/20
         </span>
         
         
@@ -920,35 +518,31 @@ const handleInput = debounce((value) =&gt; console.log(value)，300);
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="单点登录"><a href="#单点登录" class="headerlink" title="单点登录"></a>单点登录</h1><p>单点登录：有些公司产品线很多，比方说有家公司，他搞了一些小游戏，又搞了商城。不可能每一套都去做一套用户管理。所以就可以把用户登录抽离出来，形成一个认证中心，用户要登录、注册都要到这个认证中心来。</p>
-<h2 id="SESSION-COOKIE-模式"><a href="#SESSION-COOKIE-模式" class="headerlink" title="SESSION + COOKIE 模式"></a>SESSION + COOKIE 模式</h2><p><img src="/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%201c4956d28a8b80489d21f776a2f37c04/image.png" alt="image.png"></p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>认证中心具有<strong>非常非常强的控制力</strong>：比如某个地区某个用户做了一些违规操作，我需要将他下线。我直接从这个表格里把他干掉就完事了。</p>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p><strong>很烧钱</strong>：一些用户比较大的应用，可能会同时在线几百万人，这个认证中心的压力就会特别大，各种子系统渡会不断的去发给它那些sid。而且还要考虑到认证中心一旦挂掉了，所有的系统都要完蛋，还要做容灾。也肯能因为A系统的扩容导致认证中心的扩容，即使B系统一点变化都没有</p>
-<h2 id="TOKEN模式"><a href="#TOKEN模式" class="headerlink" title="TOKEN模式"></a>TOKEN模式</h2><p><img src="/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%201c4956d28a8b80489d21f776a2f37c04/image%201.png" alt="image.png"></p>
-<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><p><strong>不烧钱</strong></p>
-<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><p>认证中心失去了对用户的控制</p>
-<h2 id="TOKEN-RFRESHTOKEN-模式"><a href="#TOKEN-RFRESHTOKEN-模式" class="headerlink" title="TOKEN + RFRESHTOKEN 模式"></a>TOKEN + RFRESHTOKEN 模式</h2><p>也叫双TOKEN模式</p>
-<p>一个是所有子系统认的Token，另一种是认证中心认的Token</p>
-<p>但是第一个Token的过期时间特别短只有10分钟，20分钟，马上就过期了。</p>
-<p>而第二个Token过期时间特别长，比如一个月、一周</p>
-<p>用户在访问子系统的时候带的是短的Token，子系统自行认证。当短Token过期时，用户会带着刷新Token去访问认证中心，认证中心会颁发一个新的Token，让子系统自行认证。（目的：让用户每隔一小段时间就来一次）</p>
-<h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><p>方便断开某人的连接，虽然没办法立即下线，但是过一会得来，他来的时候我就会告诉他，我不会再给你颁发Token。</p>
-<p>可以在认证中心进行统一的控制，其他子系统时完全无感的。</p>
+            <p>js 的异步</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
         
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/js/" style="color: #00a596">js</a>
+        </span>
         
     </div>
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%201c4956d28a8b80489d21f776a2f37c04/" class="go-post">阅读全文</a>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/js%E7%9A%84%E5%BC%82%E6%AD%A5%201c4956d28a8b805f9b03e1c277d933d4/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%20109956d28a8b801aa157e8700d1d69b0/">
-        <h2 class="post-title"></h2>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/this%20%E7%9A%84%E6%8C%87%E5%90%91%208b9ef27d933543a2a7ae5c39b2ff4beb/">
+        <h2 class="post-title">js篇章</h2>
     </a>
     <div class="category-and-date">
         
@@ -956,7 +550,7 @@ const handleInput = debounce((value) =&gt; console.log(value)，300);
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/4/7
+            2025/3/20
         </span>
         
         
@@ -964,190 +558,26 @@ const handleInput = debounce((value) =&gt; console.log(value)，300);
     <div class="description">
         <div class="content" v-pre>
             
-            <h1 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h1><p>可以为变量设置不同的数据类型。本节我们将对其进行简短的介绍，在以后的文章中，你会更详细地了解它们。</p>
-<p>到目前为止我们已经认识了前 2 个，但是还有其他的。</p>
-<h2 id="Number"><a href="#Number" class="headerlink" title="Number"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Variables#number">Number</a></h2><p>你可以在变量中存储数字，不论这些数字是像 30（也叫整数）这样，或者像 2.456 这样的小数（也叫做浮点数）。与其他编程语言不同，在 JavaScript 中你不需要声明一个变量的类型。当你给一个变量数字赋值时，不需要用引号括起来。</p>
-<pre><code class="jsx">let myAge = 17;
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>名称</th>
-<th>作用</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>+</code></td>
-<td>加法</td>
-<td>两个数相加。</td>
-<td><code>6 + 9</code></td>
-</tr>
-<tr>
-<td><code>-</code></td>
-<td>减法</td>
-<td>从左边减去右边的数。</td>
-<td><code>20 - 15</code></td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>乘法</td>
-<td>两个数相乘。</td>
-<td><code>3 * 7</code></td>
-</tr>
-<tr>
-<td><code>/</code></td>
-<td>除法</td>
-<td>用右边的数除左边的数</td>
-<td><code>10 / 5</code></td>
-</tr>
-<tr>
-<td><code>%</code></td>
-<td>求余 (有时候也叫取模)</td>
-<td>在你将左边的数分成同右边数字相同的若干整数部分后，返回剩下的余数</td>
-<td><code>8 % 3</code> (返回 2，8 除以 3 的倍数，余下 2。)</td>
-</tr>
-<tr>
-<td><code>**</code></td>
-<td>幂</td>
-<td>取底数的指数次方，即指数所指定的底数相乘。它在 EcmaScript 2016 中首次引入。</td>
-<td><code>5 ** 5</code> (返回 3125，相当于 <code>5 * 5 * 5 * 5 * 5</code> 。)</td>
-</tr>
-</tbody></table>
-<aside>
-💡
-
-<p><strong>备注：</strong>有时你可能会看到使用较旧的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/pow"><code>Math.pow()</code></a> 方法表达的指数，该方法的工作方式非常相似。例如，在 <code>Math.pow(7, 3)</code> 中，<code>7</code> 是基数，<code>3</code> 是指数，因此表达式的结果是 <code>343</code>。 <code>Math.pow(7, 3)</code> 相当于 <code>7 ** 3</code>。</p>
-</aside>
-
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>名称</th>
-<th>作用</th>
-<th>示例</th>
-<th>等价于</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>+=</code></td>
-<td>加法赋值</td>
-<td>右边的数值加上左边的变量，然后再返回新的变量。</td>
-<td><code>x = 3; x += 4;</code></td>
-<td><code>x = 3; x = x + 4;</code></td>
-</tr>
-<tr>
-<td><code>-=</code></td>
-<td>减法赋值</td>
-<td>左边的变量减去右边的数值，然后再返回新的变量。</td>
-<td><code>x = 6; x -= 3;</code></td>
-<td><code>x = 6; x = x - 3;</code></td>
-</tr>
-<tr>
-<td><code>*=</code></td>
-<td>乘法赋值</td>
-<td>左边的变量乘以右边的数值，然后再返回新的变量。</td>
-<td><code>x = 2; x *= 3;</code></td>
-<td><code>x = 2; x = x * 3;</code></td>
-</tr>
-<tr>
-<td><code>/=</code></td>
-<td>除法赋值</td>
-<td>左边的变量除以右边的数值，然后再返回新的变量。</td>
-<td><code>x = 10; x /= 5;</code></td>
-<td><code>x = 10; x = x / 5;</code></td>
-</tr>
-</tbody></table>
-<h2 id="String"><a href="#String" class="headerlink" title="String"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Variables#string">String</a></h2><p>字符串是文本的一部分。当你给一个变量赋值为字符串时，你需要用单引号或者双引号把值给包起来，否则 JavaScript 将会把这个字符串值理解成别的变量名。</p>
-<pre><code class="jsx">let dolphinGoodbye = &quot;So long and thanks for all the fish&quot;;
-</code></pre>
-<h3 id="单引号、双引号和反引号"><a href="#单引号、双引号和反引号" class="headerlink" title="单引号、双引号和反引号"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Strings#%E5%8D%95%E5%BC%95%E5%8F%B7%E3%80%81%E5%8F%8C%E5%BC%95%E5%8F%B7%E5%92%8C%E5%8F%8D%E5%BC%95%E5%8F%B7">单引号、双引号和反引号</a></h3><p>在 JavaScript 中，你可以选择单引号（<code>&#39;</code>）、双引号（<code>&quot;</code>）或反引号（&#96;&#96;&#96;）来包裹字符串。以下所有方法都可以：</p>
-<pre><code class="jsx">const single = &#39;单引号&#39;;
-const double = &quot;双引号&quot;;
-const backtick = `反引号`;
-
-console.log(single);
-console.log(double);
-console.log(backtick);
-</code></pre>
-<p>在模板字面量中，你可以在 <code>$&#123; &#125;</code> 中包装 JavaScript 变量或表达式，其结果将被包含在字符串中：</p>
-<pre><code class="jsx">const name = &quot;克里斯&quot;;
-const greeting = `你好，$&#123;name&#125;`;
-console.log(greeting); // &quot;你好，克里斯&quot;
-</code></pre>
-<p>你可以使用相同的技术来连接两个变量：</p>
-<pre><code class="jsx">const one = &quot;你好，&quot;;
-const two = &quot;请问最近如何？&quot;;
-const joined = `$&#123;one&#125;$&#123;two&#125;`;
-console.log(joined); // &quot;你好，请问最近如何？&quot;
-</code></pre>
-<p>除了变量，你还可以在模板字面量中包含 JavaScript 表达式，表达式的结果将包含在最终的结果中：</p>
-<pre><code class="jsx">const song = &quot;青花瓷&quot;;
-const score = 9;
-const highestScore = 10;
-const output = `我喜欢歌曲《$&#123;song&#125;》。我给它打了 $&#123;
-  (score / highestScore) * 100
-&#125; 分。`;
-console.log(output); // &quot;我喜欢歌曲《青花瓷》。我给它打了 90 分。&quot;
-</code></pre>
-<p>模板字符串会保留源代码中的换行符，因此你可以编写跨越多行的字符串，如下所示：</p>
-<pre><code class="jsx">const newline = `终于有一天，
-你知道了必须做的事情，\n而且开始……`;
-console.log(newline);
-/*
-终于有一天，
-你知道了必须做的事情，
-而且开始……
-*/
-</code></pre>
-<h2 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Variables#boolean">Boolean</a></h2><p>Boolean 的值有 2 种：true 或 false。它们通常被用于在适当的代码之后，测试条件是否成立。举个例子，一个简单的示例如下：</p>
-<pre><code class="jsx">let iAmAlive = true;
-</code></pre>
-<p>然而实际上通常是以下用法：</p>
-<pre><code class="jsx">let test = 6 &lt; 3;
-</code></pre>
-<p>这是使用“小于”操作符（&lt;）来测试 6 小于 3。正如你所料的，将会返回<code>false</code>，因为 6 并不小于 3！在这个课程中，以后你将会学到许多有关操作符的知识。</p>
-<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Variables#array">Array</a></h2><p>数组是一个单个对象，其中包含很多值，方括号括起来，并用逗号分隔。尝试在你的控制台输入以下行：</p>
-<pre><code class="jsx">let myNameArray = [&quot;Chris&quot;, &quot;Bob&quot;, &quot;Jim&quot;];
-let myNumberArray = [10, 15, 40];
-</code></pre>
-<p>当数组被定义后，你可以使用如下所示的语法来访问各自的值，例如下行：</p>
-<pre><code class="jsx">myNameArray[0]; // should return &#39;Chris&#39;
-myNumberArray[2]; // should return 40
-</code></pre>
-<p>此处的方括号包含一个索引值，该值指定要返回的值的位置。你可能已经注意到，计算机从 0 开始计数，而不是像我们人类那样的 1。</p>
-<p>在以后的文章，你将更多地了解数组。</p>
-<h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Variables#object">Object</a></h2><p>在编程中，对象是现实生活中的模型的一种代码结构。你可以有一个简单的对象，代表一个停车场，并包含有关其宽度和长度的信息，或者你可以有一个代表一个人的对象，并包含有关他们的名字，身高，体重，他们说什么语言，如何说 你好，他们，等等。</p>
-<p>尝试在你的控制台输入以下行：</p>
-<pre><code class="jsx">let dog = &#123; name: &quot;Spot&quot;, breed: &quot;Dalmatian&quot; &#125;;
-</code></pre>
-<p>要检索存储在对象中的信息，可以使用以下语法：</p>
-<pre><code class="jsx">dog.name;
-</code></pre>
-<p>我们现在不会看对象了 - 你可以在将来的模块中了解更多关于这些对象的信息。</p>
-<h2 id="动态类型"><a href="#动态类型" class="headerlink" title="动态类型"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Variables#%E5%8A%A8%E6%80%81%E7%B1%BB%E5%9E%8B">动态类型</a></h2><p>JavaScript 是一种“动态类型语言”，这意味着不同于其他一些语言 (译者注：如 C、JAVA)，你不需要指定变量将包含什么数据类型（例如 number 或 string）</p>
-<p>例如，如果你声明一个变量并给它一个带引号的值，浏览器就会知道它是一个字符串：</p>
-<pre><code class="jsx">let myString = &quot;Hello&quot;;
-</code></pre>
-<p>即使它包含数字，但它仍然是一个字符串，所以要小心：</p>
-<pre><code class="jsx">let myNumber = &quot;500&quot;; // oops, this is still a string
-typeof myNumber;
-myNumber = 500; // much better — now this is a number
-typeof myNumber;
-</code></pre>
-<p>尝试依次将上述代码输入你的控制台，看看结果是什么（无须输入&#x2F;&#x2F;之后的注释）。我们使用了一个名为<code>typeof</code>的特殊的操作符——它会返回所传递给它的变量的数据类型。第一次在上面的代码中调用它，它应该返回 string，因为此时 myNumber 变量包含一个字符串’500’。看看它第二次将返回什么。</p>
+            <p>this 的指向</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
         
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/js/" style="color: #ffa2c4">js</a>
+        </span>
         
     </div>
-    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%20109956d28a8b801aa157e8700d1d69b0/" class="go-post">阅读全文</a>
+    <a href="/2025/03/20/JavaScript%20107956d28a8b808e8caac5535afc83dd/this%20%E7%9A%84%E6%8C%87%E5%90%91%208b9ef27d933543a2a7ae5c39b2ff4beb/" class="go-post">阅读全文</a>
 </div>
 
 

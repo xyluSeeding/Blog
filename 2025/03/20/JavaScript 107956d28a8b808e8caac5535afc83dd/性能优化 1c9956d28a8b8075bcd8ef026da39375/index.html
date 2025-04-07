@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>js篇章 | 小苗</title>
+    <meta name="author" content="小苗" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.webp" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>小苗</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;小苗</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>js篇章</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/3/20
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/js/" style="color: #ffa2c4">
+                    js
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><h1 id="面试题：-看你之前项目中都有做过性能优化相关的，请说说你都做了哪些性能优化相关的工作？"><a href="#面试题：-看你之前项目中都有做过性能优化相关的，请说说你都做了哪些性能优化相关的工作？" class="headerlink" title="面试题： 看你之前项目中都有做过性能优化相关的，请说说你都做了哪些性能优化相关的工作？"></a>面试题： 看你之前项目中都有做过性能优化相关的，请说说你都做了哪些性能优化相关的工作？</h1><p>可以从 4 点开始答：</p>
+<ol>
+<li>打开速度怎么变快一首屏加载优</li>
+<li>再次打开速度怎么变快一缓存优化</li>
+<li>操作怎么才顺滑一渲染优化</li>
+<li>动画怎么保证流畅一长任务拆分</li>
+</ol>
+<h2 id="首屏加载优化"><a href="#首屏加载优化" class="headerlink" title="首屏加载优化"></a>首屏加载优化</h2><p>先说明应用的问题（存在哪些性能），解决了性能问题之后，怎么去衡量加载情况好了多少</p>
+<p>一般情况下，首屏加载性能指标会从以下几个方面来展开：</p>
+<ol>
+<li>FP（<code>First Paint</code>）CSR 渲染出的 html 空壳子时间</li>
+<li>FCP（<code>First Contentful Paint</code> 首次内容绘制），FP 到 FCP 中间其实主要是 SPA 应用 js 执行，太慢就会白屏时间太长（1-2 可体现出首次绘制 DOM 的时差 ）</li>
+<li>FMP（<code>First Meaningful Paint</code> 首次有效绘制），主要内容呈现的时间（MutationObserver）</li>
+<li>LCP（<code>Largest Contentful Paint</code> 最大内容渲染），体现的是加载最大内容快呈现时间</li>
+</ol>
+<p>以下是体现的是用户使用体验</p>
+<ol>
+<li>INP （Interaction to Next Paint）用户交互到整个页面的响应时间</li>
+<li>TTI 可交互时间，一般在 ssr 优化里面去重点考虑，主要是 SSR 返回 HTML 文件，通过 js 去绑定事件的时间</li>
+<li>TBT（Total Blocking Time 阻塞时间：从 FCP 到 TTL ）总阻塞时间</li>
+<li>CLS（Cumulative Layout Shift 布局偏移）整个内容在渲染的时候到底发生过多少次重排重绘 ，就浏览器打分的那个</li>
+<li>TTFB（Time ti First Byte）首字节到达时间，请求发出后到接收到数据中间的时间</li>
+</ol>
+<aside>
+🤗
+
+<p>前四个强调的是一个绘制的时候，要保证一是初次获取的内容它的字节数足够小（按需加载、懒加载、按需导入的原因）→ 基本上围绕资源的体积去处理</p>
+</aside>
+
+<h3 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h3><blockquote>
+<p>体积瘦身的方案：</p>
+</blockquote>
+<ol>
+<li>优化图片：Webp，图片压缩，图片尺寸（在合适的容器内用合适尺寸图片 1 倍 2 倍 3 倍图）</li>
+<li>字体瘦身：一般用于设计型产品，字体子集化（用了哪些字，最后只生成对应字的字体文件 → Fontmin）</li>
+<li>针对一些具体的资源做处理：懒加载，图片懒加载，js 异步加载</li>
+<li>css、JavaScript → 文件压缩、打包构建阶段完成（terser）</li>
+</ol>
+<ul>
+<li>代码压缩 || 文件合并 || 文件拆分 || Tree-shaking || 动态加载</li>
+</ul>
+<ol start="5">
+<li>Gzip 、Brotli</li>
+<li>SSR SSG<blockquote>
+</blockquote>
+</li>
+</ol>
+<h2 id="动画卡顿优化"><a href="#动画卡顿优化" class="headerlink" title="动画卡顿优化"></a>动画卡顿优化</h2><p>为什么会卡顿？？？</p>
+<blockquote>
+<p><strong>单线程</strong> 阻塞 （回答的时候说 在什么地方，是哪一部分代码执行时间较长，形成了长任务，导致整个线程就阻塞了）</p>
+</blockquote>
+<h3 id="方案-1"><a href="#方案-1" class="headerlink" title="方案"></a>方案</h3><ol>
+<li>减少主线程阻塞<ul>
+<li>优化 JavaScript 执行，较少长任务（复杂的计算【web worker、将任务切分(react Scheduler)】)</li>
+</ul>
+</li>
+<li>GPU<ul>
+<li>css 属性可以触发 GPU 加速(transform\opacity)</li>
+<li>避免会引起重排的属性（定位 left、top）</li>
+</ul>
+</li>
+<li>requestAnimationFrame</li>
+<li>节流防抖</li>
+</ol>
+<h2 id="应用层状态的优化"><a href="#应用层状态的优化" class="headerlink" title="应用层状态的优化"></a>应用层状态的优化</h2><p>1．减少全局状态的依赖</p>
+<p>-将状态尽可能局部化，避免使用全局状态(如 Redux 或 Context)管理所有数据。</p>
+<p>-示例:对于仅用于某些组件的状态，可以使用组件的 useState 或 useReducero</p>
+<p>2．优化 Context 的性能</p>
+<ul>
+<li>Context 的更新会重新渲染所有订阅的组件。</li>
+</ul>
+<p>-解决方案:<strong>拆分 Context</strong>，将不同的逻辑存储在争个 Context 中，降低重新渲染范围。3．使用高效的状态管理库</p>
+<p>-使用轻量、高性能的状态管理工具，如 Zustand、Jotai 或 Recoil，它们具备更细粒度的状态更新机制。</p>
+<p>4．避免不必要的状态更新</p>
+<h3 id="事件和渲染细节优化"><a href="#事件和渲染细节优化" class="headerlink" title="事件和渲染细节优化"></a>事件和渲染细节优化</h3><ol>
+<li><p>节流防抖</p>
+<p>对频繁触发的事件（如滚动、输入)进行节流或防抖处理，避免多次触发重渲染。</p>
+<p>示例【防抖实现】</p>
+<pre><code class="jsx">const debounce = (func,delay) =&gt;&#123;
+    let timeout;
+    return (...args) =&gt;&#123;
+        clearTimeout(timeout);
+        timcout = setTimeout(() =&gt; func(. . .args), delay) ;
+    &#125;;
+&#125;
+const handleInput = debounce((value) =&gt; console.log(value)，300);
+</code></pre>
+</li>
+<li><p>事件绑定</p>
+<p>在 Vue 中使用.native 修饰符直接绑定 DOM 事件</p>
+<p>在 React 中，避免在子组件上过多传递回调函数</p>
+</li>
+<li><p>减少不必要的 DOM 操作</p>
+<p>减少直接操作 DOM 的次数，尽量通过框架的响应式机制处理更新。</p>
+</li>
+<li><p>异步加载和懒加载</p>
+<p>对于路由组件、图片等使用懒加载技术，降低首次加载压力。</p>
+</li>
+<li><p>使用请求合并</p>
+<p>在需要多次请求时,合并请求以减少多余的网络开销</p>
+</li>
+</ol>
+<h1 id="面试题：-你们的前端项目性能有重点关注过吗，是如何评估的，有做具体的性能指标体系和评估策略吗"><a href="#面试题：-你们的前端项目性能有重点关注过吗，是如何评估的，有做具体的性能指标体系和评估策略吗" class="headerlink" title="面试题： 你们的前端项目性能有重点关注过吗，是如何评估的，有做具体的性能指标体系和评估策略吗"></a>面试题： 你们的前端项目性能有重点关注过吗，是如何评估的，有做具体的性能指标体系和评估策略吗</h1><p>性能优化不仅仅是代码层面的工作，更需要一套完善的性能评估指标体系和评估策略作为基础支持。以下将从评估性能的重要性、如何得到性能指标和评估策略的落地三个方面详细展开。</p>
+<p>性能评估是前端性能优化的起点。通过准确的评估，能够帮助团队识别性能瓶颈，优先解决关键问题，从而优化用&#x2F;体验。以下是需要关注的几个原因:</p>
+<ul>
+<li>用户期望响应速度越来越快，直接影响留存率和转化率。</li>
+<li>不同设备、网络环境下的性能表现需要监控和优化。</li>
+<li>确保团队的优化工作有明确目标和验证依据。</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2025 小苗
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;小苗
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
