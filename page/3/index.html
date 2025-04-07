@@ -181,8 +181,127 @@
         
 
 <div class="post">
-    <a href="/2024/12/01/%E5%B7%A5%E7%A8%8B%E5%8C%96%2011e956d28a8b804187adf12578aad33c/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E5%92%8C%E8%84%9A%E6%89%8B%E6%9E%B6%2011f956d28a8b8005969df3bcef6db388/">
-        <h2 class="post-title">工程化笔记</h2>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/async%20await%20%E5%8E%9F%E7%90%86%201be956d28a8b80f8aec2d3ec0b54d200/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/4/7
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h1 id="async-await-原理"><a href="#async-await-原理" class="headerlink" title="async await 原理"></a>async await 原理</h1><pre><code class="jsx">    let count = 0
+    const request = (url) =&gt; &#123;
+      return new Promise((resolve, reject) =&gt; &#123;
+        setTimeout(() =&gt; &#123;
+          resolve(url + count++)
+        &#125;, 500)
+      &#125;)
+    &#125;
+
+    async function run() &#123;
+      const res = await request(&#39;11&#39;)
+      const res2 = await request(res)
+      console.log(res2)
+    &#125;
+    run()
+    function* ge2() &#123;
+      const res = yield request(&#39;11&#39;)
+      const res2 = yield request(res)
+      console.log(res2)
+    &#125;
+
+    function myasync() &#123;
+      const g = ge2()
+      ;(function mythen(res) &#123;
+        const &#123; value, done &#125; = g.next(res)
+        if (!done) value.then((res) =&gt; mythen(res))
+      &#125;)()
+    &#125;
+    myasync()
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/async%20await%20%E5%8E%9F%E7%90%86%201be956d28a8b80f8aec2d3ec0b54d200/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/call%20apply%20bind%2010b956d28a8b80b69681f55906f68ad7/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/4/7
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h1 id="call-apply-bind"><a href="#call-apply-bind" class="headerlink" title="call apply bind"></a>call apply bind</h1><h1 id="手写代码-1-3-4-6"><a href="#手写代码-1-3-4-6" class="headerlink" title="手写代码-1 -3 -4 -6"></a>手写代码-1 -3 -4 -6</h1><h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><p>不知道为啥，打印结果中的 Symbol 属性会显示</p>
+<pre><code class="jsx">  function Fn(a, b) &#123;
+    console.log(this, a, b);
+    return a + b;
+  &#125;
+  Function.prototype.myCall = function (ctx, ...args) &#123;
+    if (this.__proto__ !== Function.prototype) &#123;
+      return console.log(&quot;Error&quot;);
+    &#125;
+    ctx = ctx ? Object(ctx) : globalThis;
+    let key = Symbol(&quot;key&quot;);
+    Object.defineProperty(ctx, key, &#123;
+      enumerable: false,
+      value: this,
+      configurable: true,
+    &#125;);
+    let result = ctx[key](...args);
+    delete ctx[key];
+    return result;
+  &#125;;
+  let n = &#123;&#125;;
+  Fn.call(n, 1, 2);
+  Fn.myCall(n, 1, 2);
+ 
+</code></pre>
+<aside>
+💡
+
+<p>cal appil bind 均不能改变箭头函数的指向</p>
+</aside>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/call%20apply%20bind%2010b956d28a8b80b69681f55906f68ad7/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/CSS%E8%BF%9B%E9%98%B6%20146956d28a8b80bca186d826b431ae8b/">
+        <h2 class="post-title">css笔记</h2>
     </a>
     <div class="category-and-date">
         
@@ -198,7 +317,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>构建工具和脚手架</p>
+            <p>CSS 进阶</p>
 
             
         </div>
@@ -213,16 +332,16 @@
         
         <span class="tag">
             
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="color: #ff7d73">工程化</a>
+            <a href="/tags/css/" style="color: #ffa2c4">css</a>
         </span>
         
     </div>
-    <a href="/2024/12/01/%E5%B7%A5%E7%A8%8B%E5%8C%96%2011e956d28a8b804187adf12578aad33c/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E5%92%8C%E8%84%9A%E6%89%8B%E6%9E%B6%2011f956d28a8b8005969df3bcef6db388/" class="go-post">阅读全文</a>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/CSS%E8%BF%9B%E9%98%B6%20146956d28a8b80bca186d826b431ae8b/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/12/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%2013c956d28a8b801faf5ace2ce92ed7e1/">
-        <h2 class="post-title">数据库复习</h2>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E4%B8%BA%E7%BD%91%E9%A1%B5%E6%B7%BB%E5%8A%A0%E6%A0%B7%E5%BC%8F%20124956d28a8b80de9681f5b5c8c94df1/">
+        <h2 class="post-title">css笔记</h2>
     </a>
     <div class="category-and-date">
         
@@ -238,7 +357,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>数据库复习</p>
+            <p>为网页添加样式</p>
 
             
         </div>
@@ -253,16 +372,16 @@
         
         <span class="tag">
             
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="color: #ff7d73">数据库</a>
+            <a href="/tags/css/" style="color: #ff7d73">css</a>
         </span>
         
     </div>
-    <a href="/2024/12/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%2013c956d28a8b801faf5ace2ce92ed7e1/" class="go-post">阅读全文</a>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E4%B8%BA%E7%BD%91%E9%A1%B5%E6%B7%BB%E5%8A%A0%E6%A0%B7%E5%BC%8F%20124956d28a8b80de9681f5b5c8c94df1/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/12/01/%E5%B7%A5%E7%A8%8B%E5%8C%96%2011e956d28a8b804187adf12578aad33c/%E6%A8%A1%E5%9D%97%E5%8C%96%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86%2011e956d28a8b803ca80ccec19bfb4e81/">
-        <h2 class="post-title">工程化笔记</h2>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E5%B1%82%E5%8F%A0&&%E7%BB%A7%E6%89%BF%20142956d28a8b80e7aa40e8a6ec151cf1/">
+        <h2 class="post-title">css笔记</h2>
     </a>
     <div class="category-and-date">
         
@@ -278,7 +397,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>模块化和包管理</p>
+            <p>层叠&amp;&amp;继承</p>
 
             
         </div>
@@ -293,16 +412,16 @@
         
         <span class="tag">
             
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="color: #00bcd4">工程化</a>
+            <a href="/tags/css/" style="color: #00bcd4">css</a>
         </span>
         
     </div>
-    <a href="/2024/12/01/%E5%B7%A5%E7%A8%8B%E5%8C%96%2011e956d28a8b804187adf12578aad33c/%E6%A8%A1%E5%9D%97%E5%8C%96%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86%2011e956d28a8b803ca80ccec19bfb4e81/" class="go-post">阅读全文</a>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E5%B1%82%E5%8F%A0&&%E7%BB%A7%E6%89%BF%20142956d28a8b80e7aa40e8a6ec151cf1/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-        <h2 class="post-title">大师课笔记</h2>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E5%B1%9E%E6%80%A7%E5%80%BC%E7%9A%84%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B%20143956d28a8b8006910cc9d0ba442cef/">
+        <h2 class="post-title">css笔记</h2>
     </a>
     <div class="category-and-date">
         
@@ -310,7 +429,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/9/28
+            2024/12/1
         </span>
         
         
@@ -318,7 +437,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>事件循环</p>
+            <p>属性值的计算过程</p>
 
             
         </div>
@@ -333,16 +452,16 @@
         
         <span class="tag">
             
-            <a href="/tags/javaScript/" style="color: #00a596">javaScript</a>
+            <a href="/tags/css/" style="color: #ff7d73">css</a>
         </span>
         
     </div>
-    <a href="/2024/09/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="go-post">阅读全文</a>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E5%B1%9E%E6%80%A7%E5%80%BC%E7%9A%84%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B%20143956d28a8b8006910cc9d0ba442cef/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/09/26/this%20%E7%9A%84%E6%8C%87%E5%90%91/">
-        <h2 class="post-title">js篇章</h2>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E7%94%A8CSS%E5%AE%8C%E6%88%90%E7%BE%8E%E5%8C%96%E6%A0%B7%E5%BC%8F%20146956d28a8b803399b7c008a85cec24/">
+        <h2 class="post-title">css笔记</h2>
     </a>
     <div class="category-and-date">
         
@@ -350,7 +469,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/9/26
+            2024/12/1
         </span>
         
         
@@ -358,7 +477,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>this 的指向</p>
+            <p>用CSS完成美化样式</p>
 
             
         </div>
@@ -373,16 +492,16 @@
         
         <span class="tag">
             
-            <a href="/tags/js/" style="color: #00bcd4">js</a>
+            <a href="/tags/css/" style="color: #00a596">css</a>
         </span>
         
     </div>
-    <a href="/2024/09/26/this%20%E7%9A%84%E6%8C%87%E5%90%91/" class="go-post">阅读全文</a>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E7%94%A8CSS%E5%AE%8C%E6%88%90%E7%BE%8E%E5%8C%96%E6%A0%B7%E5%BC%8F%20146956d28a8b803399b7c008a85cec24/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/09/26/%E7%9B%98%E7%82%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">
-        <h2 class="post-title">js篇章</h2>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E6%B5%AE%E5%8A%A8%20144956d28a8b804689facb605f277ba0/">
+        <h2 class="post-title">css笔记</h2>
     </a>
     <div class="category-and-date">
         
@@ -390,7 +509,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/9/26
+            2024/12/1
         </span>
         
         
@@ -398,7 +517,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>盘点字符串中常用方法</p>
+            <p>浮动</p>
 
             
         </div>
@@ -413,16 +532,16 @@
         
         <span class="tag">
             
-            <a href="/tags/js/" style="color: #ffa2c4">js</a>
+            <a href="/tags/css/" style="color: #00a596">css</a>
         </span>
         
     </div>
-    <a href="/2024/09/26/%E7%9B%98%E7%82%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="go-post">阅读全文</a>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E6%B5%AE%E5%8A%A8%20144956d28a8b804689facb605f277ba0/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2013/07/13/var-let-const-%E5%8C%BA%E5%88%AB/">
-        <h2 class="post-title">js篇章</h2>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E7%9B%92%E6%A8%A1%E5%9E%8B%20143956d28a8b80b88ac9c241669a8b77/">
+        <h2 class="post-title">css笔记</h2>
     </a>
     <div class="category-and-date">
         
@@ -430,7 +549,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2013/7/13
+            2024/12/1
         </span>
         
         
@@ -438,7 +557,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>var let const区别</p>
+            <p>盒模型</p>
 
             
         </div>
@@ -453,16 +572,16 @@
         
         <span class="tag">
             
-            <a href="/tags/js/" style="color: #00a596">js</a>
+            <a href="/tags/css/" style="color: #ffa2c4">css</a>
         </span>
         
     </div>
-    <a href="/2013/07/13/var-let-const-%E5%8C%BA%E5%88%AB/" class="go-post">阅读全文</a>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E7%9B%92%E6%A8%A1%E5%9E%8B%20143956d28a8b80b88ac9c241669a8b77/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2013/07/13/%E8%85%BE%E8%AE%AF%E5%86%85%E6%8E%A8%E4%B8%80%E9%9D%A2/">
-        <h2 class="post-title">腾讯一面</h2>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E9%80%89%E6%8B%A9%E5%99%A8%20142956d28a8b80518764e20fe7bf5340/">
+        <h2 class="post-title">css笔记</h2>
     </a>
     <div class="category-and-date">
         
@@ -470,7 +589,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2013/7/13
+            2024/12/1
         </span>
         
         
@@ -478,7 +597,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>直接挂了腻~~~</p>
+            <p>选择器</p>
 
             
         </div>
@@ -493,11 +612,11 @@
         
         <span class="tag">
             
-            <a href="/tags/%E9%9D%A2%E8%AF%95/" style="color: #00a596">面试</a>
+            <a href="/tags/css/" style="color: #03a9f4">css</a>
         </span>
         
     </div>
-    <a href="/2013/07/13/%E8%85%BE%E8%AE%AF%E5%86%85%E6%8E%A8%E4%B8%80%E9%9D%A2/" class="go-post">阅读全文</a>
+    <a href="/2024/12/01/CSS%E7%AC%94%E8%AE%B0%20124956d28a8b8087992fde3f01697482/%E9%80%89%E6%8B%A9%E5%99%A8%20142956d28a8b80518764e20fe7bf5340/" class="go-post">阅读全文</a>
 </div>
 
 
@@ -511,8 +630,20 @@
     
     <span class="current">3</span>
     
+    <a class="page-num" href="/page/4">
+        4
+    </a>
     
     
+    <a class="page-num" href="/page/5">
+        5
+    </a>
+    
+    
+    
+    <a class="page-num" href="/page/4/">
+        <i class="fa-solid fa-caret-right fa-fw"></i>
+    </a>
     
 </div>
 
@@ -578,7 +709,7 @@
     <div id="footer-wrap">
         <div>
             &copy;
-            2022 - 2024 小苗
+            2022 - 2025 小苗
             <span id="footer-icon">
                 <i class="fa-solid fa-font-awesome fa-fw"></i>
             </span>

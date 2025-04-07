@@ -181,8 +181,8 @@
         
 
 <div class="post">
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0/">
-        <h2 class="post-title">html笔记</h2>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/typeof%20instanceof%201a1956d28a8b8062be12e8e75b6e931c/">
+        <h2 class="post-title"></h2>
     </a>
     <div class="category-and-date">
         
@@ -190,7 +190,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/12/1
+            2025/4/7
         </span>
         
         
@@ -198,31 +198,37 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>列表元素</p>
+            <h1 id="typeof-instanceof"><a href="#typeof-instanceof" class="headerlink" title="typeof &#x2F; instanceof"></a>typeof &#x2F; instanceof</h1><h1 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h1><p>typeof返回的是原始数据类型和函数（null除外）</p>
+<pre><code class="jsx">typeof 1  // number
+typeof 1n // bigInt
+typeof &#39;&#39; // string
+typeof null // object
+typeof undefined // undefined
+typeof Symbol() // Symbol
+typeof &#123;&#125; // object
+typeof [] // object
+typeof ()=&gt;&#123;&#125; // function
+</code></pre>
+<h1 id="Instanceof"><a href="#Instanceof" class="headerlink" title="Instanceof"></a>Instanceof</h1><p>instanceof 返回的是boolean类型，用于判断该对象是否在原型链上，只能用于引用类型的变化</p>
+<pre><code class="jsx">[] instanceof Array // true
+[] instanceof Object // true
+null instanceof Object // false
+</code></pre>
 
             
         </div>
     </div>
     <div class="post-tags">
         
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
         
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/html/" style="color: #ffa2c4">html</a>
-        </span>
         
     </div>
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0/" class="go-post">阅读全文</a>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/typeof%20instanceof%201a1956d28a8b8062be12e8e75b6e931c/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E5%85%83%E7%B4%A0%E5%8C%85%E5%90%AB%E5%85%B3%E7%B3%BB/">
-        <h2 class="post-title">html笔记</h2>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/var%20let%20const%20%E5%8C%BA%E5%88%AB%20107956d28a8b80d5879bcbc527e10169/">
+        <h2 class="post-title"></h2>
     </a>
     <div class="category-and-date">
         
@@ -230,7 +236,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/12/1
+            2025/4/7
         </span>
         
         
@@ -238,31 +244,245 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>元素包含关系</p>
+            <h1 id="var-let-const-区别"><a href="#var-let-const-区别" class="headerlink" title="var let const 区别"></a>var let const 区别</h1><p>前景：<br>在阅读之前需要理解：作用域和函数作用域（这两个大家直接去百度就可以），以及 js代码运行过程、 声明变量 和 变量提升，有助于理解他们的区别！</p>
+<h1 id="一、js代码运行过程"><a href="#一、js代码运行过程" class="headerlink" title="一、js代码运行过程"></a>一、js代码运行过程</h1><blockquote>
+<p>1、编译是把代码拿过来创建执行上下文，并创建变量环境、词法环境、可执行代码，将执行上下文压入执行栈。<br>2、执行是在当前执行上下文环境下执行可执行代码。</p>
+</blockquote>
+<ul>
+<li>变量环境：通过var声明或function(){}声明的变量存在这里，有全局和函数作用域</li>
+<li>词法环境：通过let、const、with()、try-catch创建的变量存在这里，有全局、块、函数作用域</li>
+<li>可执行代码：变量声明提前后，剩下的代码</li>
+</ul>
+<p>例如正常代码是：</p>
+<pre><code class="jsx">var global1=1;
+let global2=2;
+function func()&#123;
+  var func1=11;
+  let func2=22;
+  &#123;
+    var block1=111;
+    let block2=222;
+    console.log(block2,func2,global2,global1);
+  &#125;
+  console.log(func1,block1,global1);
+&#125;
+func();
+console.log(global1,global2);
+</code></pre>
+<p>实际上的执行顺序为：</p>
+<pre><code class="jsx">//全局代码执行过程
+var global1;
+let global2;
+func=function()&#123;&#125;
+global1=1;
+global2=2;
+func();
+console.log(global1,global2);
+
+//func执行过程
+var func1;
+let func2;
+var block1;
+func1=11;
+func2=22;
+&#123;
+  let block2;
+  block1=111;
+  block2=222;
+  console.log(block2,func2,global2,global1);
+&#125;
+console.log(func1,block1,global1);
+</code></pre>
+<h2 id="1、声明变量"><a href="#1、声明变量" class="headerlink" title="1、声明变量"></a><em><strong>1、声明变量</strong></em></h2><p>在 JavaScript 中创建变量通常称为”声明”变量。变量在脚本中第一次出现是在声明中。第一次用到时就设置于内存中，便于在后续中使用。</p>
+<pre><code class="jsx">var a // 单个变量声明
+console.log(a) // undefined
+var b,c // 多个变量一起声明
+var d = 4,f = 5 // 多个变量一起声明 + 初始化赋值
+e = 6 // 脚本等同于：window.e = 6
+console.log(e) // 6
+</code></pre>
+<p>我们可以在声明变量时直接初始化赋值（例如：var a &#x3D; 1），也可以单纯只声明变量（例如：var a），这时其值实际上是 undefined</p>
+<aside>
+💡
+
+<p>注意：如果不使用var、let、const去声明变量，它也是合法的JS语法，js解释器会将其直接声明至window下，给予该变量全局范围的可见度。</p>
+</aside>
+
+<h2 id="2、变量提升"><a href="#2、变量提升" class="headerlink" title="2、变量提升"></a><em><strong>2、变量提升</strong></em></h2><p>JavaScript是单线程语言，所以执行肯定是按顺序执行。但是并不是逐行的分析和执行，而是一段一段地分析执行，会先进行编译阶段然后才是执行阶段，就是所有的变量的声明语句，都会被提升到代码的头部，这就叫做变量提升（hoisting）。</p>
+<aside>
+💡
+
+<p>注： 在编译阶段阶段，代码真正执行前的几毫秒，会检测到所有的变量和函数声明，所有这些函数和变量声明都被添加到名为Lexical Environment（词法环境）的JavaScript数据结构内的内存中。所以这些变量和函数能在它们真正被声明之前使用。</p>
+</aside>
+
+<blockquote>
+<p>词法环境是一种规范类型，用于根据 ECMAScript 代码的词法嵌套结构定义标识符与特定变量和函数的关联。一个词法环境由一个环境记录和一个对外部词法环境的可能为空的引用组成。<br>简单地说，词法环境是一个包含标识符变量映射的结构。（这里的标识符是指变量&#x2F;函数的名称，变量是对实际对象[包括函数对象和数组对象]或原始值的引用）。</p>
+</blockquote>
+<p>为了方便理解词法环境，举个例子：</p>
+<pre><code class="jsx">var a = 20;
+var b = 40;
+function foo() &#123;
+  console.log(&#39;bar&#39;);
+&#125;
+</code></pre>
+<p>上面代码在词法环境看来就是：</p>
+<pre><code class="jsx">lexicalEnvironment = &#123;
+  a: 20,
+  b: 40,
+  foo: &lt;ref. to foo function&gt;
+&#125;
+</code></pre>
+<blockquote>
+<p>来延伸一点其他的知识点：<br>每个词法环境都包含2个组成部分：<br>1、环境记录：在词法环境中存储变量和函数声明的地方。（存储变量和函数声明的实际位置）<br>（注意 -对于函数代码，环境记录还包含一个arguments对象）<br>2、对外部词法环境的引用。（实际上就是对外部或者说是父级词法环境的引用。这对理解闭包是如何工作的尤为重要。）</p>
+</blockquote>
+<h2 id="3、变量的生命周期"><a href="#3、变量的生命周期" class="headerlink" title="3、变量的生命周期"></a><em><strong>3、变量的生命周期</strong></em></h2><p>1、声明阶段（Declaration phase）在范围内注册变量<br>2、初始化阶段（Initialization phase）分配内存并为作用域中的变量创建绑定<br>3、分配阶段（Assignment phase）为初始化变量分配一个值</p>
+<h1 id="二、var声明变量和不用var声明变量的区别"><a href="#二、var声明变量和不用var声明变量的区别" class="headerlink" title="二、var声明变量和不用var声明变量的区别"></a>二、var声明变量和不用var声明变量的区别</h1><h2 id="1、作用域区别："><a href="#1、作用域区别：" class="headerlink" title="1、作用域区别："></a>1、作用域区别：</h2><p>JavaScript变量分为 局部变量 和 全局变量，我们通过这个来学习一下：</p>
+<p><strong>函数外（即全局）</strong></p>
+<pre><code class="jsx">var a = 123;
+b = 456;
+console.log(a); // 123
+console.log(b); // 456
+console.log(window.a); // 123
+console.log(window.b); // 456
+console.log(window); // 结果如下图
+</code></pre>
+<p><img src="/var%20let%20const%20%E5%8C%BA%E5%88%AB%20107956d28a8b80d5879bcbc527e10169/f2393855f3868952e90edd936a537730.png" alt="f2393855f3868952e90edd936a537730.png"></p>
+<p>可以看出：在函数外，不管是使用var声明变量，还是不用var声明变量，它们都是全局变量，即：在window对象中添加属性并赋值</p>
+<p><strong>函数内</strong></p>
+<pre><code class="jsx">
+function fn() &#123;
+var a = 123;
+b = 456;
+console.log(a); // 123
+console.log(b); // 456
+console.log(window.a); // undefined
+console.log(window.b); // 456
+&#125;
+fn();
+console.log(window); // 结果如下图
+</code></pre>
+<p><img src="/var%20let%20const%20%E5%8C%BA%E5%88%AB%20107956d28a8b80d5879bcbc527e10169/259902c412c3c0b013ff6c8c75b6ce34.png" alt="259902c412c3c0b013ff6c8c75b6ce34.png"></p>
+<p>可以看出：在函数内，使用var声明的变量为局部变量，不用var声明的变量为全局变量</p>
+<p><strong>总结：（区别一）</strong></p>
+<blockquote>
+<p>在函数外，用var声明的变量是全局变量，不用var声明的变量是全局变量<br>在函数内，用var声明的变量是局部变量，不用var声明的变量是全局变量</p>
+</blockquote>
+<h2 id="2、删除区别"><a href="#2、删除区别" class="headerlink" title="2、删除区别:"></a>2、删除区别:</h2><blockquote>
+<p>注： delete 用来删除对象的属性，如果是不可配置的属性返回false，其他情况返回true</p>
+</blockquote>
+<pre><code class="jsx">var a = 123;
+b = 456;
+console.log(window.a); // 123
+console.log(window.b); // 456
+console.log(delete a); // false
+console.log(delete b); // true
+console.log(window.a); // 123
+console.log(window.b); // undefined
+</code></pre>
+<p>可以看出：变量 a、b 都是全局变量，同为window对象的其中一个属性，但是，a 不可以删除，b 可以删除，那么这是为什么呢？我查了很多资料，总结一下原因：</p>
+<blockquote>
+<p>注意：不使用var声明变量：它并不是声明了一个全局变量，而是创建了一个全局对象的属性。</p>
+</blockquote>
+<p>即便如此，可能你还是很难明白 “变量声明” 跟 “创建对象属性” 在这里的区别。事实上，Javascript的变量声明、创建属性以及每个Javascript中的每个属性都有一定的标志说明它们的属性—-如只读（ReadOnly）、不可枚举（DontEnum）、不可删除（DontDelete）等等。</p>
+<blockquote>
+<p>由于变量声明自带不可删除属性，比如var num &#x3D; 1 跟 num &#x3D; 1;</p>
+</blockquote>
+<ul>
+<li>前者是变量声明，带不可删除属性，因此无法被删除；</li>
+<li>后者为全局变量的一个属性，因此可以从全局变量中删除。</li>
+</ul>
+<p>我们来验证一下：</p>
+<pre><code class="jsx">首先我们先来了解两个方法：
+Object.getOwnPropertyDescriptor(); // 方法返回某个对象的属性的描述对象，该描述对象包含以下信息：
+value 属性的值
+writable 属性是否可读写
+enumerable 属性是否可枚举
+configurable 属性是否可配置
+Object.defineProperty(); // 方法会直接在某个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象
+</code></pre>
+<ul>
+<li><p>例一：</p>
+<p>  <img src="/var%20let%20const%20%E5%8C%BA%E5%88%AB%20107956d28a8b80d5879bcbc527e10169/fe74ea3b755984bccd2a219058020e43.png" alt="fe74ea3b755984bccd2a219058020e43.png"></p>
+</li>
+</ul>
+<p>可以看出：</p>
+<pre><code class="jsx">属性 a 和 b 的描述对象区别在于 是否可配置 这个特性
+属性 a 为 configurable: false 不可配置
+属性 b 为 configurable: true 可配置
+</code></pre>
+<ul>
+<li>例2：</li>
+</ul>
+<p>变量b原本是可以删除的，但是通过把它的configurable 属性更改为false，他就变成不可删除的，所以我们可以得出一个结论：对象的属性是否可删除，取决于对象的描述对象属性configurable</p>
+<p><strong>总结:（区别二）</strong></p>
+<blockquote>
+<p>用var声明的变量默认带不可删除属性<br>不用var声明的变量默认带可删除的属性</p>
+</blockquote>
+<h1 id="三、var、let、const的区别（全方位）"><a href="#三、var、let、const的区别（全方位）" class="headerlink" title="三、var、let、const的区别（全方位）"></a>三、var、let、const的区别（全方位）</h1><p>先总结一下：</p>
+<aside>
+📢
+
+<p>var声明是全局作用域或函数作用域，而let和const是块作用域。<br>var变量可以在其范围内更新和重新声明；let变量可以被更新但不能重新声明； const变量既不能更新也不能重新声明（const用来声明常量）。<br>均存在变量提升。但是，var变量会使用变量undefined初始化变量，但let和const未初始化变量。<br>var和let可以在不初始化的情况下声明变量，const在声明期间必须初始化。</p>
+</aside>
+
+<p>已上是最后的结论，接下来我们来细细区分一下：</p>
+<h2 id="1、var（声明变量）"><a href="#1、var（声明变量）" class="headerlink" title="1、var（声明变量）"></a>1、var（声明变量）</h2><ol>
+<li>var可以在全局范围声明或函数&#x2F;局部范围内声明。<br>当在最外层函数的外部声明var变量时，作用域是全局的。这意味着 在最外层函数的外部用var声明的任何变量都可以在windows中使用<br>当在函数中声明var时，作用域是局部的。这意味着它 只能在函数内访问。</li>
+<li>var 变量可以重新声明和修改<br>可以在相同的作用域内执行下面的操作，并且不会出错</li>
+</ol>
+<pre><code class="jsx">var myName = &quot;Alex&quot;;
+var myName = &quot;Billie&quot;;
+myName = &quot;Cindy&quot;;
+</code></pre>
+<ol start="3">
+<li>存在变量提升<br>将var声明的变量会被提升到其作用域的顶部，并使用 undefined 值对其进行初始化.</li>
+</ol>
+<aside>
+📢
+
+<p>注意：这几个特点也导致var存在一个缺点，var 变量可以重新声明，这导致如果需要声明一个新变量时若有不慎可能会和之前已声明的变量重复，而代码检查时却不会报错，导致我们需要新的方法来声明变量，造就了let 和 const 的出现，用一个示例来进行说明：</p>
+</aside>
+
+<pre><code class="jsx">var greeter = &quot;hey hi&quot;;
+var times = 4;
+if (times &gt; 3) &#123;
+var greeter = &quot;say Hello instead&quot;;
+&#125;
+console.log(greeter) // &quot;say Hello instead&quot;
+</code></pre>
+<p>由于times&gt; 3成立，对greeter 进行重新定义赋值。如果你是故意重新定义greeter，这段代码是没有问题的，但是当你不知道之前已经定义了变量greeter时，这将成为产生问题，就会存在 变量污染的风险，为了降低这种风险，在块作用域中使用let来代替var，这样不会污染块作用域的外部作用域，降低 bug率，使代码更安全。let和const实际上为ES6引入了”块级作用域”的概念。</p>
+<h2 id="2、let"><a href="#2、let" class="headerlink" title="2、let"></a>2、let</h2><p>let目前已经成为变量声明的首选，他是对var声明的改进，也解决了上面所说的var的问题</p>
+<ol>
+<li>let是块级作用域<br>块是由 {} 界定的代码块，大括号中有一个块。大括号内的任何内容都包含在一个块级作用域中.</li>
+<li>let可以被修改但不可以重新声明<br>像var一样，用let声明的变量可以在其范围内被修改。但与var不同的是，let变量无法在其作用域内被重新声明。</li>
+<li>let存在变量提升，但是不会初始化<br>就像var一样，let声明也被提升到作用域顶部。 但不同的是:</li>
+</ol>
+<p>用var声明的变量会被提升到其作用域的顶部，并使用 undefined 值对其进行初始化。<br>用let声明的变量会被提升到其作用域的顶部，不会对值进行初始化。<br>因此，如果你尝试在声明前使用let变量，则会收到Reference Error。</p>
+<h2 id="3、const（声明常量）"><a href="#3、const（声明常量）" class="headerlink" title="3、const（声明常量）"></a>3、const（声明常量）</h2><ol>
+<li>const声明的变量是块级作用域</li>
+<li>const 不能被修改并且不能被重新声明<br>这意味着用const声明的变量的值保持不变，不能修改或重新声明。<br>因此，每个const声明都必须在声明时进行初始化</li>
+<li>const存在变量提升，但是不会初始化</li>
+</ol>
+<h1 id="四、小拓展（暂死区）："><a href="#四、小拓展（暂死区）：" class="headerlink" title="四、小拓展（暂死区）："></a>四、小拓展（暂死区）：</h1><p>我们在最后讨论一个问题：let是否存在变量提升？</p>
+<p>let、const 的「创建」过程被提升了，但是初始化没有提升。<br>var 的「创建」和「初始化」都被提升了。<br>function 的「创建」「初始化」和「赋值」都被提升了。</p>
+<pre><code class="jsx">let，const变量声明便随着变量的词法环境,在 未实例化 之前不允许任何方式访问 也就是 暂死区(TDZ)
+在变量声明之前引用块中的变量会导致 ReferenceError，因为从块开始到处理声明之前，该变量处于 临时死区 中。
+</code></pre>
 
             
         </div>
     </div>
     <div class="post-tags">
         
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
         
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/html/" style="color: #ffa2c4">html</a>
-        </span>
         
     </div>
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E5%85%83%E7%B4%A0%E5%8C%85%E5%90%AB%E5%85%B3%E7%B3%BB/" class="go-post">阅读全文</a>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/var%20let%20const%20%E5%8C%BA%E5%88%AB%20107956d28a8b80d5879bcbc527e10169/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87%E5%85%83%E7%B4%A0/">
-        <h2 class="post-title">html笔记</h2>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/Reflect%201be956d28a8b8048bfbcdac6a9b94d88/">
+        <h2 class="post-title"></h2>
     </a>
     <div class="category-and-date">
         
@@ -270,7 +490,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/12/1
+            2025/4/7
         </span>
         
         
@@ -278,31 +498,46 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>图片元素</p>
+            <h1 id="Reflect"><a href="#Reflect" class="headerlink" title="Reflect"></a>Reflect</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><pre><code class="jsx">let obj = &#123;&#125;
+
+obj.a = 1; // [[SET]]
+obj.a;     // [[GET]]
+</code></pre>
+<p>当我们在对一个对象做一些基本操作的时候，我们本质上是就是在运行它的基本方法</p>
+<p>也就是说，我们书写的语法层面的代码，它最终运行的时候，实际上运行的是这个对象的内部方法，对一个对象的所有操作都逃不过这一点。</p>
+<aside>
+💡
+
+<p>Reflect<br>调用对象的基本操作（内部方法）</p>
+</aside>
+
+<p>⇒ Reflect作用是不用去管语法，直接调用这个方法就完事了，直接调用对象的基本方法</p>
+<pre><code class="jsx">// example
+Reflect.set(obj,&#39;a&#39;,2)
+Reflect.get(obj,&#39;a&#39;)
+</code></pre>
+<p>那为什么有这种方法?</p>
+<p>如果你是通过某一些语法或API间接地调用这个内部方法的话，他和直接调用内部方法是有区别的。当你使用某些语法去做一些事的时候，他会经过一系列的规则和步骤，这些规则和步骤种，其中某一步是再调用它的内部方法。</p>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p><img src="/Reflect%201be956d28a8b8048bfbcdac6a9b94d88/image.png" alt="image.png"></p>
+<p>当我们去执行<code>proxy.c</code>的时候，我们只会得到一次<code>read:c</code> ，但是因为c方法中我们访问了this点a和this点b，但所以我们应该仍然需要触发get请求器，也就是获得reda和redb，这个时候就会产生问题，我读re DC的时候我收集不到reda和redb的依赖</p>
+<p><img src="/Reflect%201be956d28a8b8048bfbcdac6a9b94d88/image%201.png" alt="image.png"></p>
+<p>这个时候我们改用proxy改变了函数c中this的指向，即this.a和this.b的指向,所以我们去触发Proxy.c的时候，就会去触发Proxy.a和Proxy.b</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在proxy里面操作对象时，最好采用Reflect，避免出现this的指向问题</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
         
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/html/" style="color: #03a9f4">html</a>
-        </span>
         
     </div>
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87%E5%85%83%E7%B4%A0/" class="go-post">阅读全文</a>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/Reflect%201be956d28a8b8048bfbcdac6a9b94d88/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0/">
-        <h2 class="post-title">html笔记</h2>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/SSR%20CSR%E6%B8%B2%E6%9F%93%201c9956d28a8b8041b476d6ddf838a9ac/">
+        <h2 class="post-title"></h2>
     </a>
     <div class="category-and-date">
         
@@ -310,7 +545,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/12/1
+            2025/4/7
         </span>
         
         
@@ -318,31 +553,119 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>多媒体元素</p>
+            <h1 id="SSR-CSR渲染"><a href="#SSR-CSR渲染" class="headerlink" title="SSR CSR渲染"></a>SSR CSR渲染</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>服务端渲染：在服务器端将网页内容渲染为完整的HTML，然后发送到客户端浏览器进行显示</p>
+<p>客户端渲染：在浏览器通过JavaScript动态生成页面内容，形成dom插入到文档中</p>
+<h3 id="CSR的缺陷"><a href="#CSR的缺陷" class="headerlink" title="CSR的缺陷"></a>CSR的缺陷</h3><blockquote>
+<ol>
+<li>浏览器通过显示网页源代码打开的源码，就像是谷歌或搜索引擎通过爬虫去爬取你的内容时所展现出来的内容，他什么都得不到，只能得到一个空壳HTML，不利于SEO</li>
+<li>所有内容都是动态生成的，还是需要去执行一端时间的JS才能把页面显示出来</li>
+</ol>
+</blockquote>
+<p><img src="/SSR%20CSR%E6%B8%B2%E6%9F%93%201c9956d28a8b8041b476d6ddf838a9ac/image.png" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th>特点</th>
+<th>SSR</th>
+<th>CSR</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>渲染时机</td>
+<td>服务器生成完整的HTML，浏览器直接渲染</td>
+<td>浏览器先加载空壳HTML，通过JS填充内容</td>
+</tr>
+<tr>
+<td>首屏速度</td>
+<td>较快，用户可以快速看到内容</td>
+<td>较慢，需要下载和执行JS</td>
+</tr>
+<tr>
+<td>SEO友好性</td>
+<td>高，搜索引擎可直接抓取完整内容</td>
+<td>低，部分搜索引擎可能无法执行JS</td>
+</tr>
+</tbody></table>
+<h2 id="SSR的优势与挑战"><a href="#SSR的优势与挑战" class="headerlink" title="SSR的优势与挑战"></a>SSR的优势与挑战</h2><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ol>
+<li><strong>提高首屏渲染速度</strong>：用户无需等待 JavaScript 加载和执行即可看到完整内容，显著提升用户体验。这一点在慢网速或者运行缓慢的设备上尤为重要。服务端渲染的 HTML 无需等到所有的 JavaScript 都下载并执行完成之后才显示，所以你的用户将会更快地看到完整渲染的页面。除此之外，数据获取过程在首次访问时在服务端完成，相比于从客户端获取，可能有更快的数据库连接。这通常可以带来更高的<a target="_blank" rel="noopener" href="https://web.dev/vitals/"><strong>核心 Web 指标</strong></a>评分、更好的用户体验，而对于那些“首屏加载速度与转化率直接相关”的应用来说，这点可能至关重要。</li>
+<li><strong>SEO优化：</strong>搜索引擎可以直接抓取完整的 HTML 内容，有助于提高网站在搜索结果中的排名</li>
+<li><strong>共享链接时显示预览：</strong>在社交媒体上分享链接时，能够正确显示贡面预览信息，增加内容的传播性。</li>
+</ol>
+<h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><ol>
+<li><strong>开发复杂度增加：</strong>需要处理服务器端渲染逻辑，涉及Node.js等后端技术，与前端开发结合更加复杂</li>
+<li><strong>服务器压力增大：</strong>服务器需要承担渲染页面的工作，可能导致性能瓶颈，尤其是在高并发场景下</li>
+<li><strong>状态管理复杂：</strong>需要在服务器和客户端之间同步状态，确保数据一致性，避免因状态不同步导致的错误</li>
+</ol>
+<pre><code>SSR；
+    Server --&gt; Rendered HTML --&gt; Browser
+CSR:
+    Server --&gt; Empty HTML + JS --&gt; Browser executes JS --&gt; Rendered HTML
+</code></pre>
+<h3 id="怎么去实现SSR渲染"><a href="#怎么去实现SSR渲染" class="headerlink" title="怎么去实现SSR渲染"></a>怎么去实现SSR渲染</h3><pre><code class="jsx">import http from &quot;node:http&quot;;
+import fs from &quot;node:fs&quot;;
 
+const server = http.createServer((req, res) =&gt; &#123;
+  // res.writeHead(200, &#123; &quot;Content-Type&quot;: &quot;text/plain&quot; &#125;);
+
+  const html = fs.readFileSync(&quot;index.html&quot;, &quot;utf-8&quot;);
+  const newHtml = html.replace(&quot;&#123;time&#125;&quot;, new Date().toLocaleDateString());
+
+  res.end(newHtml);
+&#125;);
+
+server.listen(3000, () =&gt; &#123;
+  console.log(&quot;Server is running at http://localhost:3000&quot;);
+&#125;);
+</code></pre>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Hello world time:&#123;time&#125;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="/SSR%20CSR%E6%B8%B2%E6%9F%93%201c9956d28a8b8041b476d6ddf838a9ac/image%201.png" alt="image.png"></p>
+<h3 id="为什么纯粹做服务端渲染SSR不行？"><a href="#为什么纯粹做服务端渲染SSR不行？" class="headerlink" title="为什么纯粹做服务端渲染SSR不行？"></a>为什么纯粹做服务端渲染SSR不行？</h3><p>有些内容确实需要前端渲染</p>
+<ul>
+<li>canves  (后端也能做，用 node canves 绘制成图片后返回   → 可是我要的是隐藏图片的URL)</li>
+<li>事件绑定</li>
+<li>层叠样式表的解析</li>
+<li>htmldom &amp; cssom 结合 才能渲染出页面</li>
+</ul>
+<aside>
+🤗
+
+<p>JS  -&gt; 创建 dom 并插入并不是 JS 必须做的</p>
+</aside>
+
+<p>其他原因：</p>
+<p>服务端成本太高</p>
+<p>目前的前端SPA框架没办法100%重构为 ssr 的架构形式</p>
+<p>目的是，依然保留先进的工程化思维: vite、react18、react-nouter、zustand、module css </p>
+<aside>
+🤣
+
+<p>现在：即保留通过服务端渲染内容，又保留现在已有的框架（react、vue）</p>
+</aside>
             
         </div>
     </div>
     <div class="post-tags">
         
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
         
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/html/" style="color: #ff7d73">html</a>
-        </span>
         
     </div>
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0/" class="go-post">阅读全文</a>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/SSR%20CSR%E6%B8%B2%E6%9F%93%201c9956d28a8b8041b476d6ddf838a9ac/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8%E5%85%83%E7%B4%A0/">
-        <h2 class="post-title">html笔记</h2>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/this%20%E7%9A%84%E6%8C%87%E5%90%91%208b9ef27d933543a2a7ae5c39b2ff4beb/">
+        <h2 class="post-title"></h2>
     </a>
     <div class="category-and-date">
         
@@ -350,7 +673,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/12/1
+            2025/4/7
         </span>
         
         
@@ -358,31 +681,74 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>容器元素</p>
+            <h1 id="this-的指向"><a href="#this-的指向" class="headerlink" title="this 的指向"></a>this 的指向</h1><table>
+<thead>
+<tr>
+<th>调用方式</th>
+<th>示例</th>
+<th>函数中this指向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>通过new调用</td>
+<td><code>new method()</code></td>
+<td>新对象</td>
+</tr>
+<tr>
+<td>直接调用</td>
+<td><code>method()</code></td>
+<td>全局对象</td>
+</tr>
+<tr>
+<td>通过对象调用</td>
+<td><code>obj.method()</code></td>
+<td>前面的对象</td>
+</tr>
+<tr>
+<td>call、apply、bind</td>
+<td><code>method.call(ctx)</code></td>
+<td>第一个参数</td>
+</tr>
+</tbody></table>
+<p>this 是执行上下文中的一个属性，它指向最后一次调用这个方法的对象。在实际开发中，this 的指向可以通过四种调用模式来判断。</p>
+<ul>
+<li>第一种是<strong>函数调用模式</strong>，当一个函数不是一个对象的属性时，直接作为函数来调用时，this 指向全局对象。</li>
+<li>第二种是<strong>方法调用模式</strong>，如果一个函数作为一个对象的方法来调用时，this 指向这个对象。</li>
+<li>第三种是<strong>构造器调用模式</strong>，如果一个函数用 new 调用时，函数执行前会新创建一个对象，this 指向这个新创建的对象。</li>
+<li>第四种是 <strong>apply 、 call 和 bind 调用模式</strong>，这三个方法都可以显示的指定调用函数的 this 指向。其中 apply 方法接收两个参数：一个是 this 绑定的对象，一个是参数数组。call 方法接收的参数，第一个是 this 绑定的对象，后面的其余参数是传入函数执行的参数。也就是说，在使用 call() 方法时，传递给函数的参数必须逐个列举出来。bind 方法通过传入一个对象，返回一个 this 绑定了传入对象的新函数。这个函数的 this 指向除了使用 new 时会被改变，其他情况下都不会改变。</li>
+</ul>
+<p>这四种方式，使用构造器调用模式的优先级最高，然后是 apply、call 和 bind 调用模式，然后是方法调用模式，然后是函数调用模式。</p>
+<aside>
+💡
 
+<p>当调用的是对象内部的方法时，根据方法的类型决定this的指向</p>
+<pre><code class="jsx">
+  let obj = &#123;
+    fn1: function () &#123;
+      console.log(this);
+    &#125;,
+    fn2: () =&gt; &#123;
+      console.log(this);
+    &#125;,
+  &#125;;
+  obj.fn1(); // obj
+  obj.fn2(); // window
+</code></pre>
+</aside>
             
         </div>
     </div>
     <div class="post-tags">
         
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
         
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/html/" style="color: #ffa2c4">html</a>
-        </span>
         
     </div>
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E5%AE%B9%E5%99%A8%E5%85%83%E7%B4%A0/" class="go-post">阅读全文</a>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/this%20%E7%9A%84%E6%8C%87%E5%90%91%208b9ef27d933543a2a7ae5c39b2ff4beb/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E6%96%87%E6%9C%AC%E5%85%83%E7%B4%A0/">
-        <h2 class="post-title">html笔记</h2>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/nodejs%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%201c3956d28a8b80b7a6ffc06c66ee0e07/">
+        <h2 class="post-title"></h2>
     </a>
     <div class="category-and-date">
         
@@ -390,7 +756,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/12/1
+            2025/4/7
         </span>
         
         
@@ -398,31 +764,31 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>文本元素</p>
+            <h1 id="nodejs-事件循环"><a href="#nodejs-事件循环" class="headerlink" title="nodejs 事件循环"></a>nodejs 事件循环</h1><h2 id="事件循环机制解析"><a href="#事件循环机制解析" class="headerlink" title="事件循环机制解析"></a>事件循环机制解析</h2><p>当Node.js启动后，它会初始化事件循环，处理已提供的输入脚本(或丢入REPL，本文不涉及到)，它可能会调用一些异步的API、调度定时器,或者调用<code>process.nextTick()</code>,然后开始处理事件循环。</p>
+<p>下面的图表展示了事件循环操作顺序的简化概览。</p>
+<p><img src="/nodejs%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%201c3956d28a8b80b7a6ffc06c66ee0e07/image.png" alt="image.png"></p>
+<h2 id="node-中所有的异步API"><a href="#node-中所有的异步API" class="headerlink" title="node 中所有的异步API"></a>node 中所有的异步API</h2><ul>
+<li>定时器</li>
+<li>I&#x2F;O操作</li>
+<li>process.nextTick()、setImmediate</li>
+</ul>
+<p><img src="/nodejs%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%201c3956d28a8b80b7a6ffc06c66ee0e07/image%201.png" alt="image.png"></p>
+<p>nextTick ⇒</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
         
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/html/" style="color: #ffa2c4">html</a>
-        </span>
         
     </div>
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E6%96%87%E6%9C%AC%E5%85%83%E7%B4%A0/" class="go-post">阅读全文</a>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/nodejs%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%201c3956d28a8b80b7a6ffc06c66ee0e07/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/12/01/%E5%B7%A5%E7%A8%8B%E5%8C%96%2011e956d28a8b804187adf12578aad33c/CSS%E5%B7%A5%E5%85%B7%E9%93%BE%2011f956d28a8b80be80aaf0961fd6938f/">
-        <h2 class="post-title">工程化笔记</h2>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/Canves%20%E4%B8%8E%20SVG%20%E5%8C%BA%E5%88%AB%20193956d28a8b801e8be4dfc031626245/">
+        <h2 class="post-title"></h2>
     </a>
     <div class="category-and-date">
         
@@ -430,7 +796,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/12/1
+            2025/4/7
         </span>
         
         
@@ -438,31 +804,73 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>CSS 工具链</p>
+            <h1 id="Canves-与-SVG-区别"><a href="#Canves-与-SVG-区别" class="headerlink" title="Canves 与 SVG 区别"></a>Canves 与 SVG 区别</h1><h2 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h2><blockquote>
+<p>HTML [canvas] 标签用于通过脚本（通常是 JavaScript）动态绘制图形。</p>
+</blockquote>
+<h2 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h2><blockquote>
+<p>SVG 指可伸缩矢量图形 (Scalable Vector Graphics)。 SVG 是使用 XML 来描述二维图形和绘图程序的语言</p>
+</blockquote>
+<h3 id="canvas和svg的区别"><a href="#canvas和svg的区别" class="headerlink" title="canvas和svg的区别"></a>canvas和svg的区别</h3><ul>
+<li>canvas绘画出来的图形一般成为位图，也就是放大缩小的情况下会出现失真的情况，svg绘制的图形是矢量图，不存在失真的情况</li>
+<li>canvas绘制的图形不会出现在DOM结构中，svg绘制的会存在于DOM结构</li>
+<li>canvas类似于动画，每次图形的改变都是先清除原来的图形，然后把新的图形画上去，svg则是可以直接通过js来进行某些操作</li>
+<li>canvas依赖于分辨率，svg不依赖分辨率</li>
+<li>canvas最适合图像密集型的游戏，其中的许多对象会被频繁重绘，svg不适合游戏应用</li>
+</ul>
+<h2 id="对比表格"><a href="#对比表格" class="headerlink" title="对比表格"></a>对比表格</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>Canvas</th>
+<th>SVG</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大数据量</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>高交互场景</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>可导出图片</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>放大不失真</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>支持事件处理</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>文字可编辑</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody></table>
 
             
         </div>
     </div>
     <div class="post-tags">
         
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
         
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="color: #03a9f4">工程化</a>
-        </span>
         
     </div>
-    <a href="/2024/12/01/%E5%B7%A5%E7%A8%8B%E5%8C%96%2011e956d28a8b804187adf12578aad33c/CSS%E5%B7%A5%E5%85%B7%E9%93%BE%2011f956d28a8b80be80aaf0961fd6938f/" class="go-post">阅读全文</a>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/Canves%20%E4%B8%8E%20SVG%20%E5%8C%BA%E5%88%AB%20193956d28a8b801e8be4dfc031626245/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E8%AF%AD%E4%B9%89%E5%8C%96/">
-        <h2 class="post-title">html笔记</h2>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/JS%E4%B8%AD%E7%9A%84%E5%AE%8F%E9%98%9F%E5%88%97%E5%92%8C%E5%BE%AE%E9%98%9F%E5%88%97%200c7d0e100c11418890538cc15d4c1f2b/">
+        <h2 class="post-title"></h2>
     </a>
     <div class="category-and-date">
         
@@ -470,7 +878,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/12/1
+            2025/4/7
         </span>
         
         
@@ -478,31 +886,26 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>语义化</p>
+            <h1 id="JS中的宏队列和微队列"><a href="#JS中的宏队列和微队列" class="headerlink" title="JS中的宏队列和微队列"></a>JS中的宏队列和微队列</h1><p>在JavaScript中，我们经常会遇到异步操作，而宏队列和微队列是实现这种异步操作的关键。了解宏队列和微队列可以帮助我们更好地理解和掌握JavaScript的异步机制。</p>
+<h2 id="宏队列"><a href="#宏队列" class="headerlink" title="宏队列"></a>宏队列</h2><p>宏队列是JavaScript中最基础的队列，也被称为任务队列。它是一个事件循环中的一个阶段，常见的异步操作如<code>setTimeout</code>和<code>setInterval</code>就是通过宏队列来实现的。当我们在代码中调用这些函数时，它们会被推入宏队列中，等待事件循环到达宏队列阶段时被执行。</p>
+<h2 id="微队列"><a href="#微队列" class="headerlink" title="微队列"></a>微队列</h2><p>相比宏队列，微队列的优先级更高。微队列也是事件循环中的一个阶段，但是它会在每个宏任务后面立即执行。Promise是微队列的典型代表，当Promise的状态发生改变时，它的回调函数会被推入微队列，在当前的宏任务执行完成后立即执行。</p>
+<h2 id="宏队列和微队列的关系"><a href="#宏队列和微队列的关系" class="headerlink" title="宏队列和微队列的关系"></a>宏队列和微队列的关系</h2><p>在JavaScript的事件循环中，微队列的优先级要高于宏队列。当事件循环执行到宏队列阶段，它会取出队列中的第一个任务执行，然后检查微队列。如果微队列中有任务，那么会先执行微队列中的所有任务，然后再回到宏队列。这就是为什么Promise的回调函数会比setTimeout早执行的原因。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>了解JavaScript中的宏队列和微队列，可以帮助我们更好地理解和使用异步操作。记住，微队列的任务总是优先于宏队列执行，这是JavaScript异步机制的一个重要特性。</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
         
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/html/" style="color: #ff7d73">html</a>
-        </span>
         
     </div>
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E8%AF%AD%E4%B9%89%E5%8C%96/" class="go-post">阅读全文</a>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/JS%E4%B8%AD%E7%9A%84%E5%AE%8F%E9%98%9F%E5%88%97%E5%92%8C%E5%BE%AE%E9%98%9F%E5%88%97%200c7d0e100c11418890538cc15d4c1f2b/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E8%B7%AF%E5%BE%84%E7%9A%84%E5%86%99%E6%B3%95/">
-        <h2 class="post-title">html笔记</h2>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/CommoJS%20%E5%92%8C%20ESM%20%E7%9A%84%E5%8C%BA%E5%88%AB%201c6956d28a8b806fb14be9ba9dbd407e/">
+        <h2 class="post-title"></h2>
     </a>
     <div class="category-and-date">
         
@@ -510,7 +913,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/12/1
+            2025/4/7
         </span>
         
         
@@ -518,31 +921,51 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>路径的写法</p>
+            <h1 id="CommoJS-和-ESM-的区别"><a href="#CommoJS-和-ESM-的区别" class="headerlink" title="CommoJS 和 ESM 的区别"></a>CommoJS 和 ESM 的区别</h1><ol>
+<li>标准来源</li>
+</ol>
+<p>CMJ：社区标准</p>
+<p>由于是社区定义的，所以说有些内容它不能给你去新增，比如新增语法上。在语法层面吗，它是不敢去给你动的，它只能在API层面去动，所以搞出了一个函数叫做require。所以CMJ其实没有带来什么新的语法，也新增了一个对象叫 module.exports </p>
+<p>ESM：官方标准</p>
+<blockquote>
+<p>来源不一样，就导致在落地层面不一样。<br>CMJ：新增API<br>ESM：新增语法</p>
+</blockquote>
+<ol>
+<li>时态</li>
+</ol>
+<p>CMJ：运行态（运行过程中确定依赖关系，就是把模块放在函数里面）</p>
+<pre><code class="jsx">if(xxx)&#123;
+    require(xxx)
+&#125;else&#123;
+    require(xxxx)
+&#125;
+</code></pre>
+<p>ESM：支持两种时态 运行时（import()） + 编译时 （静态） ⇒ tree shaking</p>
+<pre><code class="jsx">import xxx from xxx
+
+if (import.meta.env.MODE === &quot;development&quot;) &#123;
+  const devTools = await import(&quot;./devTools.js&quot;);
+  devTools.log(&quot;Debug mode&quot;);
+&#125; else &#123;
+  const prodLogger = await import(&quot;./prodLogger.js&quot;);
+  prodLogger.log(&quot;User action&quot;);
+&#125;
+</code></pre>
 
             
         </div>
     </div>
     <div class="post-tags">
         
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
         
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/html/" style="color: #03a9f4">html</a>
-        </span>
         
     </div>
-    <a href="/2024/12/01/HTML%20%E7%AC%94%E8%AE%B0/%E8%B7%AF%E5%BE%84%E7%9A%84%E5%86%99%E6%B3%95/" class="go-post">阅读全文</a>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/CommoJS%20%E5%92%8C%20ESM%20%E7%9A%84%E5%8C%BA%E5%88%AB%201c6956d28a8b806fb14be9ba9dbd407e/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2024/12/01/%E5%B7%A5%E7%A8%8B%E5%8C%96%2011e956d28a8b804187adf12578aad33c/JS%E5%B7%A5%E5%85%B7%E9%93%BE%2011f956d28a8b806dbc51fb122effc438/">
-        <h2 class="post-title">工程化笔记</h2>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/js%E7%9A%84%E5%BC%82%E6%AD%A5%201c4956d28a8b805f9b03e1c277d933d4/">
+        <h2 class="post-title"></h2>
     </a>
     <div class="category-and-date">
         
@@ -550,7 +973,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/12/1
+            2025/4/7
         </span>
         
         
@@ -558,26 +981,17 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>JS 工具链</p>
+            <h1 id="js的异步"><a href="#js的异步" class="headerlink" title="js的异步"></a>js的异步</h1><p>参考答案;<br>JS是一门单线程的语言，这是因为它运行在浏览器的渲染主线程中，而渲染主线程只有一个。而渲染主线程承担着诸多的工作，渲染页面、执行JS都在其中运行。<br>如果使用同步的方式，就极有可能导致主线程产生阻塞，从而导致消息队列中的很多其他任务无法得到执行。这样一来，一方面会导致繁忙的主线程白白的消耗时间，另一方面导致页面无法及时更新，给用户造成卡死现象。<br>所以浏览器采用异步的方式来避免。具体做法是当某些任务发生时，比如计时器、网络、事件监听，主线程将任务交给其他线程去处理，自身立即结束任务的执行，转而执行后续代码。当其他线程完成时，将事先传递的回调函数包装成任务，加入到消息队列的末尾排队，等待主线程调度执行。<br>在这种异步模式下，浏览器永不阻塞，从而最大限度的保证了单线程的流畅运行。</p>
 
             
         </div>
     </div>
     <div class="post-tags">
         
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
         
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="color: #ffa2c4">工程化</a>
-        </span>
         
     </div>
-    <a href="/2024/12/01/%E5%B7%A5%E7%A8%8B%E5%8C%96%2011e956d28a8b804187adf12578aad33c/JS%E5%B7%A5%E5%85%B7%E9%93%BE%2011f956d28a8b806dbc51fb122effc438/" class="go-post">阅读全文</a>
+    <a href="/2025/04/07/JavaScript%20107956d28a8b808e8caac5535afc83dd/js%E7%9A%84%E5%BC%82%E6%AD%A5%201c4956d28a8b805f9b03e1c277d933d4/" class="go-post">阅读全文</a>
 </div>
 
 
@@ -596,6 +1010,13 @@
     </a>
     
     
+    <a class="page-num" href="/page/4">
+        4
+    </a>
+    
+    
+    <span class="page-omit">...</span>
+    <a class="page-num" href="/page/5">5</a>
     
     
     <a class="page-num" href="/page/3/">
@@ -666,7 +1087,7 @@
     <div id="footer-wrap">
         <div>
             &copy;
-            2022 - 2024 小苗
+            2022 - 2025 小苗
             <span id="footer-icon">
                 <i class="fa-solid fa-font-awesome fa-fw"></i>
             </span>
